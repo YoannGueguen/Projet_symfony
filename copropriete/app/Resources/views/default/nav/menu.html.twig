@@ -1,0 +1,41 @@
+
+    <ul id="menu-demo2">
+        <li><a href="{{ path('index') }}">Accueil</a>
+        <li><a href="#">Forum</a>
+
+            {% if is_granted('ROLE_USER') %}
+        <li><a href="#">Bienvenue {{ app.user.username }}</a>
+            <ul>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li>test admin</li>
+                {% endif %}
+                <li><a href="{{ path('fos_user_profile_show') }}">Show profile</a></li>
+                <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+            </ul>
+        </li>
+        {% else %}
+            <li><a href="{{ path('fos_user_security_login') }}">Login</a>
+                <ul>
+                    <li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>
+                </ul>
+            </li>
+        {% endif %}
+        <!--
+        <li><a href="#">Lien menu 3</a>
+            <ul>
+                <li><a href="#">lien sous menu 3</a></li>
+                <li><a href="#">lien sous menu 3</a></li>
+                <li><a href="#">lien sous menu 3</a></li>
+                <li><a href="#">lien sous menu 3</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Lien menu 4</a>
+            <ul>
+                <li><a href="#">Lien sous menu 4</a></li>
+                <li><a href="#">Lien sous menu 4</a></li>
+                <li><a href="#">Lien sous menu 4</a></li>
+                <li><a href="#">Lien sous menu 4</a></li>
+            </ul>
+        </li>
+        -->
+    </ul>

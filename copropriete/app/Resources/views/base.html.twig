@@ -1,0 +1,16 @@
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8" />
+            <title>{% block title %}clorporate{% endblock %}</title>
+            <link href="{{ asset('contents/css/site.css') }}" rel="stylesheet">
+            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+            <link href="{{ asset('contents/css/bootstrap.css') }}" rel="stylesheet">
+        </head>
+        <body>
+        {% include "default/nav/menu.html.twig" %}
+            {% block body %}{% endblock %}
+        {% include "default/nav/footer.html.twig" %}
+            {% block javascripts %}{% endblock %}
+        </body>
+    </html>
