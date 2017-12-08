@@ -37,11 +37,21 @@ class reunion
     private $lieu;
 
     /**
-     * @ORM\Column(name="pj_id", type="integer", nullable=true)
      * @ORM\OneToOne(targetEntity="piece_jointe")
-     * @ORM\JoinColumn(name="pj_id", referencedColumnName="id")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $pj_id;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="utilisateur", inversedBy="reunions")
+     * @ORM\JoinTable(name="utilisateurs_reunions")
+     */
+    private $utilisateurs;
+
+    public function __construct()
+    {
+        $this->utilisateurs = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -52,5 +62,38 @@ class reunion
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLieu()
+    {
+        return $this->lieu;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPjId()
+    {
+        return $this->pj_id;
+    }
+
 }
 

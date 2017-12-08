@@ -27,22 +27,19 @@ class piece_jointe
     private $url;
 
     /**
-     * @ORM\Column(name="projet_id", type="integer")
      * @ORM\ManyToOne(targetEntity="projet")
      * @ORM\JoinColumn(name="projet_id", referencedColumnName="id")
      */
     private $projet_id;
 
     /**
-     * @ORM\Column(name="versement_id", type="integer")
-     * @ORM\OneToMany(targetEntity="versement")
+     * @ORM\OneToMany(targetEntity="versement", mappedBy="piece_jointe")
      * @ORM\JoinColumn(name="versement_id", referencedColumnName="id")
      */
     private $versement_id;
 
     /**
-     * @ORM\Column(name="message_id", type="integer")
-     * @ORM\OneToMany(targetEntity="message")
+     * @ORM\OneToMany(targetEntity="message", mappedBy="piece_jointe")
      * @ORM\JoinColumn(name="message_id", referencedColumnName="id")
      */
     private $message_id;
@@ -55,5 +52,38 @@ class piece_jointe
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProjetId()
+    {
+        return $this->projet_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVersementId()
+    {
+        return $this->versement_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMessageId()
+    {
+        return $this->message_id;
+    }
+
 }
 

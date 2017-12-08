@@ -84,7 +84,7 @@ class SwitchUserListener implements ListenerInterface
             try {
                 $this->tokenStorage->setToken($this->attemptSwitchUser($request));
             } catch (AuthenticationException $e) {
-                throw new \LogicException(sprintf('Switch User failed: "%s"', $e->getMessage()));
+                throw new \LogicException(sprintf('Switch utilisateur failed: "%s"', $e->getMessage()));
             }
         }
 

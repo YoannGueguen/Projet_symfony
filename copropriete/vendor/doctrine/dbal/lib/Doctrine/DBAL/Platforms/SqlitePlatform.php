@@ -523,7 +523,7 @@ class SqlitePlatform extends AbstractPlatform
     }
 
     /**
-     * User-defined function for Sqlite that is used with PDO::sqliteCreateFunction().
+     * utilisateur-defined function for Sqlite that is used with PDO::sqliteCreateFunction().
      *
      * @param integer|float $value
      *
@@ -535,7 +535,7 @@ class SqlitePlatform extends AbstractPlatform
     }
 
     /**
-     * User-defined function for Sqlite that implements MOD(a, b).
+     * utilisateur-defined function for Sqlite that implements MOD(a, b).
      *
      * @param integer $a
      * @param integer $b

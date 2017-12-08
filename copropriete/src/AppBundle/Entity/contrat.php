@@ -45,5 +45,30 @@ class contrat
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateSignature()
+    {
+        return $this->date_signature;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateFin()
+    {
+        return $this->date_fin;
+    }
+
 }
 

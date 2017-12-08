@@ -27,7 +27,6 @@ class fond
     private $titre;
 
     /**
-     * @ORM\Column(name="charge_id", type="integer")
      * @ORM\OneToOne(targetEntity="charge")
      * @ORM\JoinColumn(name="charge_id", referencedColumnName="id")
      */
@@ -43,5 +42,22 @@ class fond
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getChargeId()
+    {
+        return $this->charge_id;
+    }
+
 }
 

@@ -47,18 +47,26 @@ class projet
     private $date_fin;
 
     /**
-     * @ORM\Column(name="discu_id", type="integer")
-     * @ORM\OneToMany(targetEntity="discussion")
+     * @ORM\OneToMany(targetEntity="discussion", mappedBy="projet")
      * @ORM\JoinColumn(name="discu_id", referencedColumnName="id")
      */
     private $discu_id;
 
     /**
-     * @ORM\Column(name="user_id", type="integer")
-     * @ORM\ManyToMany(targetEntity="user")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="utilisateur", inversedBy="projets")
+     * @ORM\JoinTable(name="projets_utilisateurs")
      */
-    private $user_id;
+    private $utilisateurs;
+    /**
+     * @ORM\ManyToMany(targetEntity="sondage", inversedBy="projets")
+     * @ORM\JoinTable(name="projets_sondages")
+     */
+    private $sondages;
+    public function __construct()
+    {
+        $this->utilisateurs = new ArrayCollection();
+        $this->sondages = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -69,5 +77,62 @@ class projet
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateDebut()
+    {
+        return $this->date_debut;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateFin()
+    {
+        return $this->date_fin;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDiscuId()
+    {
+        return $this->discu_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
 }
 

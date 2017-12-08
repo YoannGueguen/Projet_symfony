@@ -12,7 +12,7 @@
 namespace Symfony\Component\Security\Core\Exception;
 
 /**
- * UsernameNotFoundException is thrown if a User cannot be found by its username.
+ * UsernameNotFoundException is thrown if a utilisateur cannot be found by its username.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Alexander <iam.asm89@gmail.com>

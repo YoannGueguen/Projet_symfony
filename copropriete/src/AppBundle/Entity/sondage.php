@@ -38,6 +38,14 @@ class sondage
 
 
     /**
+     * @ORM\ManyToMany(targetEntity="projet", inversedBy="sondages")
+     */
+    private $projets;
+    public function __construct()
+    {
+        $this->projets = new ArrayCollection();
+    }
+    /**
      * Get id
      *
      * @return int
@@ -46,5 +54,30 @@ class sondage
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateFin()
+    {
+        return $this->date_fin;
+    }
+
 }
 

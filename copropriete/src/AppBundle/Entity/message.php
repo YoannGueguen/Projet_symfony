@@ -33,18 +33,17 @@ class message
     private $contenu;
 
     /**
-     * @ORM\Column(name="user_id", type="integer")
-     * @ORM\ManyToOne(targetEntity="participant_discussion")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id")
+     * @ORM\ManyToOne(targetEntity="utilisateur")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user_id;
 
     /**
-     * @ORM\Column(name="discu_id", type="integer")
-     * @ORM\ManyToOne(targetEntity="participant_discussion")
-     * @ORM\JoinColumn(name="discu_id", referencedColumnName="discu_id")
+     * @ORM\ManyToOne(targetEntity="discussion")
+     * @ORM\JoinColumn(name="discussion_id", referencedColumnName="id")
      */
-    private $discu_id;
+    private $discussion_id;
+
     /**
      * Get id
      *
@@ -54,5 +53,39 @@ class message
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getContenu()
+    {
+        return $this->contenu;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDiscussionId()
+    {
+        return $this->discussion_id;
+    }
+
+
 }
 

@@ -37,15 +37,13 @@ class note
     private $date;
 
     /**
-     * @ORM\Column(name="projet_id", type="integer")
      * @ORM\ManyToOne(targetEntity="projet")
      * @ORM\JoinColumn(name="projet_id", referencedColumnName="id")
      */
     private $projet_id;
 
     /**
-     * @ORM\Column(name="user_id", type="integer")
-     * @ORM\ManyToOne(targetEntity="user")
+     * @ORM\ManyToOne(targetEntity="utilisateur")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user_id;
@@ -59,5 +57,46 @@ class note
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProjetId()
+    {
+        return $this->projet_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
 }
 

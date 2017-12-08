@@ -37,6 +37,17 @@ class discussion
     private $type;
 
     /**
+     * @ORM\ManyToMany(targetEntity="utilisateur", inversedBy="discussions")
+     * @ORM\JoinTable(name="utilisateurs_discussions")
+     */
+    private $utilisateurs;
+
+    public function __construct()
+    {
+        $this->utilisateurs = new ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return int
@@ -45,5 +56,30 @@ class discussion
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateDebut()
+    {
+        return $this->date_debut;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
 }
 

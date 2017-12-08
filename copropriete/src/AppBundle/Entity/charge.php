@@ -42,19 +42,27 @@ class charge
     private $statut;
 
     /**
-     * @ORM\Column(name="contrat_id", type="integer", nullable=true)
      * @ORM\OneToOne(targetEntity="contrat")
-     * @ORM\JoinColumn(name="contrat_id", referencedColumnName="id")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $contrat_id;
 
     /**
-     * @ORM\Column(name="pj_id", type="integer", nullable=true)
      * @ORM\OneToOne(targetEntity="piece_jointe")
-     * @ORM\JoinColumn(name="pj_id", referencedColumnName="id")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $pj_id;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="utilisateur", inversedBy="charges")
+     * @ORM\JoinTable(name="utilisateurs_charges")
+     */
+    private $utilisateurs;
+
+    public function __construct()
+    {
+        $this->utilisateurs = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -65,5 +73,55 @@ class charge
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateEcheance()
+    {
+        return $this->date_echeance;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMontant()
+    {
+        return $this->montant;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getContratId()
+    {
+        return $this->contrat_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPjId()
+    {
+        return $this->pj_id;
+    }
+
+
 }
 

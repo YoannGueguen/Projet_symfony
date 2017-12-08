@@ -37,14 +37,12 @@ class versement
     private $type;
 
     /**
-     * @ORM\Column(name="user_id", type="integer")
-     * @ORM\OneToOne(targetEntity="user")
+     * @ORM\OneToOne(targetEntity="utilisateur")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user_id;
 
     /**
-     * @ORM\Column(name="charge_id", type="integer")
      * @ORM\ManyToOne(targetEntity="charge")
      * @ORM\JoinColumn(name="charge_id", referencedColumnName="id")
      */
@@ -60,5 +58,46 @@ class versement
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getMontant()
+    {
+        return $this->montant;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getChargeId()
+    {
+        return $this->charge_id;
+    }
+
 }
 
