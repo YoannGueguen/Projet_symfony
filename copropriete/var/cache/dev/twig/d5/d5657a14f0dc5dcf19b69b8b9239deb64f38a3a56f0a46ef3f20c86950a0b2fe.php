@@ -21,29 +21,29 @@ class __TwigTemplate_65d87c3f9022c20ccd1994a53497b1a778e94a59350b8e518f344f5da5e
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_69594f881bd0c9a0835a33535edf43b42f7d0d748406c1d36ea2082ce9178061 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_69594f881bd0c9a0835a33535edf43b42f7d0d748406c1d36ea2082ce9178061->enter($__internal_69594f881bd0c9a0835a33535edf43b42f7d0d748406c1d36ea2082ce9178061_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "default/index.html.twig"));
+        $__internal_afc203daabf51a460a546c6489894be11be10238f3f2301f120f3dbe51744845 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_afc203daabf51a460a546c6489894be11be10238f3f2301f120f3dbe51744845->enter($__internal_afc203daabf51a460a546c6489894be11be10238f3f2301f120f3dbe51744845_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "default/index.html.twig"));
 
-        $__internal_3c2a0477c0fe3ed4dee1bd4a24cf762356be09f7381fcd28f3d0303f6eca124d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_3c2a0477c0fe3ed4dee1bd4a24cf762356be09f7381fcd28f3d0303f6eca124d->enter($__internal_3c2a0477c0fe3ed4dee1bd4a24cf762356be09f7381fcd28f3d0303f6eca124d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "default/index.html.twig"));
+        $__internal_5dc7ca3b8b0f1009d2fb201df22608e4b3a602a33a03ba96b8bae0efec182e58 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5dc7ca3b8b0f1009d2fb201df22608e4b3a602a33a03ba96b8bae0efec182e58->enter($__internal_5dc7ca3b8b0f1009d2fb201df22608e4b3a602a33a03ba96b8bae0efec182e58_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "default/index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_69594f881bd0c9a0835a33535edf43b42f7d0d748406c1d36ea2082ce9178061->leave($__internal_69594f881bd0c9a0835a33535edf43b42f7d0d748406c1d36ea2082ce9178061_prof);
+        $__internal_afc203daabf51a460a546c6489894be11be10238f3f2301f120f3dbe51744845->leave($__internal_afc203daabf51a460a546c6489894be11be10238f3f2301f120f3dbe51744845_prof);
 
         
-        $__internal_3c2a0477c0fe3ed4dee1bd4a24cf762356be09f7381fcd28f3d0303f6eca124d->leave($__internal_3c2a0477c0fe3ed4dee1bd4a24cf762356be09f7381fcd28f3d0303f6eca124d_prof);
+        $__internal_5dc7ca3b8b0f1009d2fb201df22608e4b3a602a33a03ba96b8bae0efec182e58->leave($__internal_5dc7ca3b8b0f1009d2fb201df22608e4b3a602a33a03ba96b8bae0efec182e58_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_f2edcb169225ddbc8f46fc40bc91c355b64cf043b965d965032b1ac079c13e0e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_f2edcb169225ddbc8f46fc40bc91c355b64cf043b965d965032b1ac079c13e0e->enter($__internal_f2edcb169225ddbc8f46fc40bc91c355b64cf043b965d965032b1ac079c13e0e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_2cad0792bbf168c1a2e84af00dd7598822f147563aa7be86e5b42836b716f169 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_2cad0792bbf168c1a2e84af00dd7598822f147563aa7be86e5b42836b716f169->enter($__internal_2cad0792bbf168c1a2e84af00dd7598822f147563aa7be86e5b42836b716f169_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_0b80058250d0af7fa4b7fda780dc8f25227f5be846c6dc2467a501c01134654c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_0b80058250d0af7fa4b7fda780dc8f25227f5be846c6dc2467a501c01134654c->enter($__internal_0b80058250d0af7fa4b7fda780dc8f25227f5be846c6dc2467a501c01134654c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_bd492e6de627185169394908fa34c2762c8669ad44e15b3df9c8096736678672 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_bd492e6de627185169394908fa34c2762c8669ad44e15b3df9c8096736678672->enter($__internal_bd492e6de627185169394908fa34c2762c8669ad44e15b3df9c8096736678672_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "    <div id=\"div_index_img\">
@@ -52,12 +52,39 @@ class __TwigTemplate_65d87c3f9022c20ccd1994a53497b1a778e94a59350b8e518f344f5da5e
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("contents/img/copropriete.jpg"), "html", null, true);
         echo "\" height=\"500\" class=\"col-lg-12 col-md-12\"/>
     </div>
+    <br/>
+    <br/>
+    <div class=\"row\">
+        <div class=\"col-3\"></div>
+        <div class=\"col-lg-6 col-md-6 block\" id=\"div_message\">
+            <h2 style=\"text-align:center\">Fil de discussion en cours</h2>
+        </div>
+    </div>
+        <br/>
+        <br/>
+    <div class=\"row\">
+        <div class=\"col-3\"></div>
+        <div class=\"col-lg-6 col-md-6 block\" id=\"div_projet\">
+            <h2 style=\"text-align:center\">Projet en cours</h2>
+        </div>
+    </div>
+        <br/>
+        <br/>
+    <div class=\"row\">
+        <div class=\"col-3\"></div>
+        <div class=\"col-lg-6 col-md-6 block\" id=\"div_charge\">
+            <h2 style=\"text-align:center\">Charges restantes</h2>
+        </div>
+    </div>
+    </div>
+    <br/>
+    <br/>
 ";
         
-        $__internal_0b80058250d0af7fa4b7fda780dc8f25227f5be846c6dc2467a501c01134654c->leave($__internal_0b80058250d0af7fa4b7fda780dc8f25227f5be846c6dc2467a501c01134654c_prof);
+        $__internal_bd492e6de627185169394908fa34c2762c8669ad44e15b3df9c8096736678672->leave($__internal_bd492e6de627185169394908fa34c2762c8669ad44e15b3df9c8096736678672_prof);
 
         
-        $__internal_f2edcb169225ddbc8f46fc40bc91c355b64cf043b965d965032b1ac079c13e0e->leave($__internal_f2edcb169225ddbc8f46fc40bc91c355b64cf043b965d965032b1ac079c13e0e_prof);
+        $__internal_2cad0792bbf168c1a2e84af00dd7598822f147563aa7be86e5b42836b716f169->leave($__internal_2cad0792bbf168c1a2e84af00dd7598822f147563aa7be86e5b42836b716f169_prof);
 
     }
 
@@ -84,6 +111,33 @@ class __TwigTemplate_65d87c3f9022c20ccd1994a53497b1a778e94a59350b8e518f344f5da5e
     <div id=\"div_index_img\">
         <img src=\"{{ asset('contents/img/copropriete.jpg')}}\" height=\"500\" class=\"col-lg-12 col-md-12\"/>
     </div>
-{% endblock %}", "default/index.html.twig", "C:\\xampp\\htdocs\\HTTP\\symfony\\copropriete\\app\\Resources\\views\\default\\index.html.twig");
+    <br/>
+    <br/>
+    <div class=\"row\">
+        <div class=\"col-3\"></div>
+        <div class=\"col-lg-6 col-md-6 block\" id=\"div_message\">
+            <h2 style=\"text-align:center\">Fil de discussion en cours</h2>
+        </div>
+    </div>
+        <br/>
+        <br/>
+    <div class=\"row\">
+        <div class=\"col-3\"></div>
+        <div class=\"col-lg-6 col-md-6 block\" id=\"div_projet\">
+            <h2 style=\"text-align:center\">Projet en cours</h2>
+        </div>
+    </div>
+        <br/>
+        <br/>
+    <div class=\"row\">
+        <div class=\"col-3\"></div>
+        <div class=\"col-lg-6 col-md-6 block\" id=\"div_charge\">
+            <h2 style=\"text-align:center\">Charges restantes</h2>
+        </div>
+    </div>
+    </div>
+    <br/>
+    <br/>
+{% endblock %}", "default/index.html.twig", "C:\\xampp\\htdocs\\projet\\copropriete\\app\\Resources\\views\\default\\index.html.twig");
     }
 }

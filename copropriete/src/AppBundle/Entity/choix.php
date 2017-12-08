@@ -21,6 +21,29 @@ class choix
      */
     private $id;
 
+    /**
+     * @ORM\Column(name="reponse", type="string", length=255)
+     */
+    private $reponse;
+
+    /**
+     * @ORM\Column(name="count_vote", type="integer")
+     */
+    private $count_vote;
+
+    /**
+     * @ORM\Column(name="sondage_id", type="integer")
+     * @ORM\OneToOne(targetEntity="sondage")
+     * @ORM\JoinColumn(name="sondage_id", referencedColumnName="id")
+     */
+    private $sondage_id;
+
+    /**
+     * @ORM\Column(name="user_id", type="integer")
+     * @ORM\OneToOne(targetEntity="user")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user_id;
 
     /**
      * Get id

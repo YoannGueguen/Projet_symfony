@@ -21,6 +21,20 @@ class discussion
      */
     private $id;
 
+    /**
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @ORM\Column(name="date_debut", type="datetime")
+     */
+    private $date_debut;
+
+    /**
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
 
     /**
      * Get id

@@ -21,6 +21,20 @@ class contrat
      */
     private $id;
 
+    /**
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @ORM\Column(name="date_signature", type="datetime")
+     */
+    private $date_signature;
+
+    /**
+     * @ORM\Column(name="date_fin", type="datetime")
+     */
+    private $date_fin;
 
     /**
      * Get id

@@ -112,7 +112,131 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'index',);
         }
 
-        if (0 === strpos($pathinfo, '/login')) {
+        if (0 === strpos($pathinfo, '/user')) {
+            // user_index
+            if ('/user' === $trimmedPathinfo) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_user_index;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'user_index');
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\UserController::indexAction',  '_route' => 'user_index',);
+            }
+            not_user_index:
+
+            // user_new
+            if ('/user/new' === $pathinfo) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_user_new;
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\UserController::newAction',  '_route' => 'user_new',);
+            }
+            not_user_new:
+
+            // user_show
+            if (preg_match('#^/user/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_user_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_show')), array (  '_controller' => 'AppBundle\\Controller\\UserController::showAction',));
+            }
+            not_user_show:
+
+            // user_edit
+            if (preg_match('#^/user/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_user_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_edit')), array (  '_controller' => 'AppBundle\\Controller\\UserController::editAction',));
+            }
+            not_user_edit:
+
+            // user_delete
+            if (preg_match('#^/user/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ('DELETE' !== $canonicalMethod) {
+                    $allow[] = 'DELETE';
+                    goto not_user_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_delete')), array (  '_controller' => 'AppBundle\\Controller\\UserController::deleteAction',));
+            }
+            not_user_delete:
+
+        }
+
+        elseif (0 === strpos($pathinfo, '/discussion')) {
+            // discussion_index
+            if ('/discussion' === $trimmedPathinfo) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_discussion_index;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'discussion_index');
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\discussionController::indexAction',  '_route' => 'discussion_index',);
+            }
+            not_discussion_index:
+
+            // discussion_new
+            if ('/discussion/new' === $pathinfo) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_discussion_new;
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\discussionController::newAction',  '_route' => 'discussion_new',);
+            }
+            not_discussion_new:
+
+            // discussion_show
+            if (preg_match('#^/discussion/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_discussion_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'discussion_show')), array (  '_controller' => 'AppBundle\\Controller\\discussionController::showAction',));
+            }
+            not_discussion_show:
+
+            // discussion_edit
+            if (preg_match('#^/discussion/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_discussion_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'discussion_edit')), array (  '_controller' => 'AppBundle\\Controller\\discussionController::editAction',));
+            }
+            not_discussion_edit:
+
+            // discussion_delete
+            if (preg_match('#^/discussion/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ('DELETE' !== $canonicalMethod) {
+                    $allow[] = 'DELETE';
+                    goto not_discussion_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'discussion_delete')), array (  '_controller' => 'AppBundle\\Controller\\discussionController::deleteAction',));
+            }
+            not_discussion_delete:
+
+        }
+
+        elseif (0 === strpos($pathinfo, '/login')) {
             // fos_user_security_login
             if ('/login' === $pathinfo) {
                 if (!in_array($canonicalMethod, array('GET', 'POST'))) {

@@ -21,6 +21,27 @@ class reunion
      */
     private $id;
 
+    /**
+     * @ORM\Column(name="titre", type="string", length=255)
+     */
+    private $titre;
+
+    /**
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
+    /**
+     * @ORM\Column(name="lieu", type="string", length=255)
+     */
+    private $lieu;
+
+    /**
+     * @ORM\Column(name="pj_id", type="integer", nullable=true)
+     * @ORM\OneToOne(targetEntity="piece_jointe")
+     * @ORM\JoinColumn(name="pj_id", referencedColumnName="id")
+     */
+    private $pj_id;
 
     /**
      * Get id
