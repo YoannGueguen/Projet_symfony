@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Projet controller.
+ * projet controller.
  *
  * @Route("projet")
  */
@@ -39,7 +39,7 @@ class projetController extends Controller
      */
     public function newAction(Request $request)
     {
-        $projet = new Projet();
+        $projet = new projet();
         $form = $this->createForm('AppBundle\Form\projetType', $projet);
         $form->handleRequest($request);
 

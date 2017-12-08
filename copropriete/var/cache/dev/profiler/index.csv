@@ -63,3 +63,13 @@ c74b28,127.0.0.1,GET,http://127.0.0.1/projet/copropriete/web/app_dev.php/discuss
 1726c1,127.0.0.1,GET,http://127.0.0.1/projet/copropriete/web/app_dev.php/discussion/edit,1512731782,,404
 20076c,127.0.0.1,GET,http://127.0.0.1/projet/copropriete/web/app_dev.php/discussion/new,1512731800,a03b3d,200
 a03b3d,127.0.0.1,GET,http://127.0.0.1/projet/copropriete/web/app_dev.php/discussion/new,1512731800,,500
+c0e3c0,127.0.0.1,GET,http://127.0.0.1/projet/copropriete/web/app_dev.php/,1512736965,,200
+0d8280,127.0.0.1,GET,http://127.0.0.1/projet/copropriete/web/app_dev.php/discussion/,1512737051,,200
+708499,127.0.0.1,GET,http://127.0.0.1/projet/copropriete/web/app_dev.php/user/,1512737059,,200
+0ced01,127.0.0.1,GET,http://127.0.0.1/projet/copropriete/web/app_dev.php/user/new,1512737066,,200
+166b44,127.0.0.1,GET,http://127.0.0.1/projet/copropriete/web/app_dev.php/user/new,1512737070,d6c0ad,200
+d6c0ad,127.0.0.1,POST,http://127.0.0.1/projet/copropriete/web/app_dev.php/user/new,1512737070,,500
+e0af2d,127.0.0.1,GET,http://127.0.0.1/projet/copropriete/web/app_dev.php/projet,1512737152,,301
+278358,127.0.0.1,GET,http://127.0.0.1/projet/copropriete/web/app_dev.php/projet/,1512737153,,200
+24e0b9,127.0.0.1,GET,http://127.0.0.1/projet/copropriete/web/app_dev.php/charge,1512737160,,301
+ca4a58,127.0.0.1,GET,http://127.0.0.1/projet/copropriete/web/app_dev.php/charge/,1512737161,,200

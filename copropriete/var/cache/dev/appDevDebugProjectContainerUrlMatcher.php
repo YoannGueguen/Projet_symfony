@@ -174,6 +174,68 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        elseif (0 === strpos($pathinfo, '/charge')) {
+            // charge_index
+            if ('/charge' === $trimmedPathinfo) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_charge_index;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'charge_index');
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\chargeController::indexAction',  '_route' => 'charge_index',);
+            }
+            not_charge_index:
+
+            // charge_new
+            if ('/charge/new' === $pathinfo) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_charge_new;
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\chargeController::newAction',  '_route' => 'charge_new',);
+            }
+            not_charge_new:
+
+            // charge_show
+            if (preg_match('#^/charge/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_charge_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'charge_show')), array (  '_controller' => 'AppBundle\\Controller\\chargeController::showAction',));
+            }
+            not_charge_show:
+
+            // charge_edit
+            if (preg_match('#^/charge/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_charge_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'charge_edit')), array (  '_controller' => 'AppBundle\\Controller\\chargeController::editAction',));
+            }
+            not_charge_edit:
+
+            // charge_delete
+            if (preg_match('#^/charge/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ('DELETE' !== $canonicalMethod) {
+                    $allow[] = 'DELETE';
+                    goto not_charge_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'charge_delete')), array (  '_controller' => 'AppBundle\\Controller\\chargeController::deleteAction',));
+            }
+            not_charge_delete:
+
+        }
+
         elseif (0 === strpos($pathinfo, '/discussion')) {
             // discussion_index
             if ('/discussion' === $trimmedPathinfo) {
@@ -236,43 +298,69 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        elseif (0 === strpos($pathinfo, '/login')) {
-            // fos_user_security_login
-            if ('/login' === $pathinfo) {
+        elseif (0 === strpos($pathinfo, '/projet')) {
+            // projet_index
+            if ('/projet' === $trimmedPathinfo) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_projet_index;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'projet_index');
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\projetController::indexAction',  '_route' => 'projet_index',);
+            }
+            not_projet_index:
+
+            // projet_new
+            if ('/projet/new' === $pathinfo) {
                 if (!in_array($canonicalMethod, array('GET', 'POST'))) {
                     $allow = array_merge($allow, array('GET', 'POST'));
-                    goto not_fos_user_security_login;
+                    goto not_projet_new;
                 }
 
-                return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::loginAction',  '_route' => 'fos_user_security_login',);
+                return array (  '_controller' => 'AppBundle\\Controller\\projetController::newAction',  '_route' => 'projet_new',);
             }
-            not_fos_user_security_login:
+            not_projet_new:
 
-            // fos_user_security_check
-            if ('/login_check' === $pathinfo) {
-                if ('POST' !== $canonicalMethod) {
-                    $allow[] = 'POST';
-                    goto not_fos_user_security_check;
+            // projet_show
+            if (preg_match('#^/projet/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_projet_show;
                 }
 
-                return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::checkAction',  '_route' => 'fos_user_security_check',);
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'projet_show')), array (  '_controller' => 'AppBundle\\Controller\\projetController::showAction',));
             }
-            not_fos_user_security_check:
+            not_projet_show:
+
+            // projet_edit
+            if (preg_match('#^/projet/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_projet_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'projet_edit')), array (  '_controller' => 'AppBundle\\Controller\\projetController::editAction',));
+            }
+            not_projet_edit:
+
+            // projet_delete
+            if (preg_match('#^/projet/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ('DELETE' !== $canonicalMethod) {
+                    $allow[] = 'DELETE';
+                    goto not_projet_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'projet_delete')), array (  '_controller' => 'AppBundle\\Controller\\projetController::deleteAction',));
+            }
+            not_projet_delete:
 
         }
 
-        // fos_user_security_logout
-        if ('/logout' === $pathinfo) {
-            if (!in_array($canonicalMethod, array('GET', 'POST'))) {
-                $allow = array_merge($allow, array('GET', 'POST'));
-                goto not_fos_user_security_logout;
-            }
-
-            return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::logoutAction',  '_route' => 'fos_user_security_logout',);
-        }
-        not_fos_user_security_logout:
-
-        if (0 === strpos($pathinfo, '/profile')) {
+        elseif (0 === strpos($pathinfo, '/profile')) {
             // fos_user_profile_show
             if ('/profile' === $trimmedPathinfo) {
                 if ('GET' !== $canonicalMethod) {
@@ -312,7 +400,43 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        elseif (0 === strpos($pathinfo, '/register')) {
+        elseif (0 === strpos($pathinfo, '/login')) {
+            // fos_user_security_login
+            if ('/login' === $pathinfo) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_fos_user_security_login;
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::loginAction',  '_route' => 'fos_user_security_login',);
+            }
+            not_fos_user_security_login:
+
+            // fos_user_security_check
+            if ('/login_check' === $pathinfo) {
+                if ('POST' !== $canonicalMethod) {
+                    $allow[] = 'POST';
+                    goto not_fos_user_security_check;
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::checkAction',  '_route' => 'fos_user_security_check',);
+            }
+            not_fos_user_security_check:
+
+        }
+
+        // fos_user_security_logout
+        if ('/logout' === $pathinfo) {
+            if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                $allow = array_merge($allow, array('GET', 'POST'));
+                goto not_fos_user_security_logout;
+            }
+
+            return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::logoutAction',  '_route' => 'fos_user_security_logout',);
+        }
+        not_fos_user_security_logout:
+
+        if (0 === strpos($pathinfo, '/register')) {
             // fos_user_registration_register
             if ('/register' === $trimmedPathinfo) {
                 if (!in_array($canonicalMethod, array('GET', 'POST'))) {

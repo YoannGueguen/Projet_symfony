@@ -65,7 +65,7 @@ class __TwigTemplate_65d87c3f9022c20ccd1994a53497b1a778e94a59350b8e518f344f5da5e
     <div class=\"row\">
         <div class=\"col-3\"></div>
         <div class=\"col-lg-6 col-md-6 block\" id=\"div_projet\">
-            <h2 style=\"text-align:center\">Projet en cours</h2>
+            <h2 style=\"text-align:center\">projet en cours</h2>
         </div>
     </div>
         <br/>
@@ -124,7 +124,7 @@ class __TwigTemplate_65d87c3f9022c20ccd1994a53497b1a778e94a59350b8e518f344f5da5e
     <div class=\"row\">
         <div class=\"col-3\"></div>
         <div class=\"col-lg-6 col-md-6 block\" id=\"div_projet\">
-            <h2 style=\"text-align:center\">Projet en cours</h2>
+            <h2 style=\"text-align:center\">projet en cours</h2>
         </div>
     </div>
         <br/>

@@ -8,12 +8,16 @@ Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: R
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "AppBundle\Controller\chargeController" (parent: instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.AppBundle\Controller\chargeController).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.AppBundle\Controller\discussionController" (parent: abstract.instanceof.AppBundle\Controller\discussionController).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "AppBundle\Controller\discussionController" (parent: instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.AppBundle\Controller\discussionController).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.AppBundle\Controller\projetController" (parent: abstract.instanceof.AppBundle\Controller\projetController).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "AppBundle\Controller\projetController" (parent: instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.AppBundle\Controller\projetController).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "instanceof.Symfony\Component\Form\FormTypeInterface.0.AppBundle\Form\UserType" (parent: abstract.instanceof.AppBundle\Form\UserType).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "AppBundle\Form\UserType" (parent: instanceof.Symfony\Component\Form\FormTypeInterface.0.AppBundle\Form\UserType).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "instanceof.Symfony\Component\Form\FormTypeInterface.0.AppBundle\Form\chargeType" (parent: abstract.instanceof.AppBundle\Form\chargeType).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "AppBundle\Form\chargeType" (parent: instanceof.Symfony\Component\Form\FormTypeInterface.0.AppBundle\Form\chargeType).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "instanceof.Symfony\Component\Form\FormTypeInterface.0.AppBundle\Form\discussionType" (parent: abstract.instanceof.AppBundle\Form\discussionType).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "AppBundle\Form\discussionType" (parent: instanceof.Symfony\Component\Form\FormTypeInterface.0.AppBundle\Form\discussionType).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "instanceof.Symfony\Component\Form\FormTypeInterface.0.AppBundle\Form\projetType" (parent: abstract.instanceof.AppBundle\Form\projetType).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "AppBundle\Form\projetType" (parent: instanceof.Symfony\Component\Form\FormTypeInterface.0.AppBundle\Form\projetType).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "cache.app" (parent: cache.adapter.filesystem).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "cache.system" (parent: cache.adapter.system).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "cache.validator" (parent: cache.system).
@@ -80,11 +84,15 @@ Symfony\Component\DependencyInjection\Compiler\AutowirePass: Cannot autowire ser
 Symfony\Component\DependencyInjection\Compiler\AutowirePass: Cannot autowire service "service_locator.884002e11e179f8f3a218c1cfbd83257": it references class "Symfony\Component\HttpFoundation\Request" but no such service exists. It cannot be auto-registered because it is from a different root namespace.
 Symfony\Component\DependencyInjection\Compiler\AutowirePass: Type "AppBundle\Entity\discussion" has been auto-registered for service "service_locator.23dca9bda9b3bd79044f31a677ff02b0".
 Symfony\Component\DependencyInjection\Compiler\AutowirePass: Cannot autowire service "service_locator.7f4b811fb8326a354068115537f08709": it references class "Symfony\Component\HttpFoundation\Request" but no such service exists. It cannot be auto-registered because it is from a different root namespace.
+Symfony\Component\DependencyInjection\Compiler\AutowirePass: Cannot autowire service "service_locator.f617acae575b1f6ed7e5ef0240a5e0a2": it references class "Symfony\Component\HttpFoundation\Request" but no such service exists. It cannot be auto-registered because it is from a different root namespace.
+Symfony\Component\DependencyInjection\Compiler\AutowirePass: Type "AppBundle\Entity\projet" has been auto-registered for service "service_locator.8623dc0110292f01225f7c6ce8a82d3d".
+Symfony\Component\DependencyInjection\Compiler\AutowirePass: Cannot autowire service "service_locator.50cb7670c2df63ea3c7cede293e642cf": it references class "Symfony\Component\HttpFoundation\Request" but no such service exists. It cannot be auto-registered because it is from a different root namespace.
 Symfony\Component\HttpKernel\DependencyInjection\RemoveEmptyControllerArgumentLocatorsPass: Removing service-argument resolver for controller "AppBundle\Controller\DefaultController:indexAction": no corresponding services exist for the referenced types.
 Symfony\Component\HttpKernel\DependencyInjection\RemoveEmptyControllerArgumentLocatorsPass: Removing service-argument resolver for controller "AppBundle\Controller\SecurityController:loginAction": no corresponding services exist for the referenced types.
 Symfony\Component\HttpKernel\DependencyInjection\RemoveEmptyControllerArgumentLocatorsPass: Removing service-argument resolver for controller "AppBundle\Controller\UserController:newAction": no corresponding services exist for the referenced types.
 Symfony\Component\HttpKernel\DependencyInjection\RemoveEmptyControllerArgumentLocatorsPass: Removing service-argument resolver for controller "AppBundle\Controller\chargeController:newAction": no corresponding services exist for the referenced types.
 Symfony\Component\HttpKernel\DependencyInjection\RemoveEmptyControllerArgumentLocatorsPass: Removing service-argument resolver for controller "AppBundle\Controller\discussionController:newAction": no corresponding services exist for the referenced types.
+Symfony\Component\HttpKernel\DependencyInjection\RemoveEmptyControllerArgumentLocatorsPass: Removing service-argument resolver for controller "AppBundle\Controller\projetController:newAction": no corresponding services exist for the referenced types.
 Symfony\Component\DependencyInjection\Compiler\RemovePrivateAliasesPass: Removed service "Psr\Container\ContainerInterface"; reason: private alias.
 Symfony\Component\DependencyInjection\Compiler\RemovePrivateAliasesPass: Removed service "Symfony\Component\DependencyInjection\ContainerInterface"; reason: private alias.
 Symfony\Component\DependencyInjection\Compiler\RemovePrivateAliasesPass: Removed service "Symfony\Component\EventDispatcher\EventDispatcherInterface"; reason: private alias.
@@ -300,13 +308,17 @@ Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Re
 Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "abstract.instanceof.AppBundle\Controller\chargeController"; reason: abstract.
 Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.AppBundle\Controller\discussionController"; reason: abstract.
 Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "abstract.instanceof.AppBundle\Controller\discussionController"; reason: abstract.
+Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.AppBundle\Controller\projetController"; reason: abstract.
+Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "abstract.instanceof.AppBundle\Controller\projetController"; reason: abstract.
 Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "instanceof.Symfony\Component\Form\FormTypeInterface.0.AppBundle\Form\UserType"; reason: abstract.
 Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "abstract.instanceof.AppBundle\Form\UserType"; reason: abstract.
 Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "instanceof.Symfony\Component\Form\FormTypeInterface.0.AppBundle\Form\chargeType"; reason: abstract.
 Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "abstract.instanceof.AppBundle\Form\chargeType"; reason: abstract.
 Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "instanceof.Symfony\Component\Form\FormTypeInterface.0.AppBundle\Form\discussionType"; reason: abstract.
 Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "abstract.instanceof.AppBundle\Form\discussionType"; reason: abstract.
-Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "service_locator.e0ee7dcce2ed14ddefbe010061747c97" to "argument_resolver.service".
+Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "instanceof.Symfony\Component\Form\FormTypeInterface.0.AppBundle\Form\projetType"; reason: abstract.
+Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "abstract.instanceof.AppBundle\Form\projetType"; reason: abstract.
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "service_locator.efdeb63eb038d4af041d2c32a6437313" to "argument_resolver.service".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "templating.cache_warmer.template_paths" to "cache_warmer".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "validator.mapping.cache_warmer" to "cache_warmer".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "translation.warmer" to "cache_warmer".
@@ -320,7 +332,7 @@ Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inl
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "1_733c9b355b7b195a0da3f1da5f8b9d9006ff6352223cc44465db9f121b256a54" to "session_listener".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "1_3075c443f04c057e0b56373e905a8ce44f3391510160608dcdee6520c41a7ac2" to "form.resolved_type_factory".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "form.extension" to "form.registry".
-Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "service_locator.b96c87f10cd4b95b40b2bb9820d8a79c" to "form.extension".
+Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "service_locator.a247c684f9092b85a96430c0244a1792" to "form.extension".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "form.choice_list_factory.default" to "form.choice_list_factory.property_access".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "form.choice_list_factory.property_access" to "form.choice_list_factory.cached".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "form.choice_list_factory.cached" to "form.type.choice".
@@ -606,9 +618,10 @@ Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Remo
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "service_locator.4f27295e1ee3cd81c185c2a4cb89efcf"; reason: unused.
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "service_locator.5cce645b04095d3555c8a87c6cec508a"; reason: unused.
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "service_locator.884002e11e179f8f3a218c1cfbd83257"; reason: unused.
-Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "service_locator.e0ee7dcce2ed14ddefbe010061747c97"; reason: unused.
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "service_locator.f617acae575b1f6ed7e5ef0240a5e0a2"; reason: unused.
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "service_locator.efdeb63eb038d4af041d2c32a6437313"; reason: unused.
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "service_locator.20ccd3ddf0f78b2202986f924e362585"; reason: unused.
-Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "service_locator.b96c87f10cd4b95b40b2bb9820d8a79c"; reason: unused.
+Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "service_locator.a247c684f9092b85a96430c0244a1792"; reason: unused.
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "service_locator.6f24348b77840ec12a20c22a3f985cf7"; reason: unused.
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "debug.event_dispatcher.inner"; reason: unused.
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "debug.controller_resolver.inner"; reason: unused.
