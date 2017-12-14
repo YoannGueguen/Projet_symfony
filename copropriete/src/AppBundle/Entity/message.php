@@ -86,6 +86,38 @@ class message
         return $this->discussion_id;
     }
 
+    /**
+     * @param mixed $contenu
+     */
+    public function setContenu($contenu)
+    {
+        $this->contenu = $contenu;
+    }
+
+    /**
+     * @param mixed $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * @param mixed $discussion_id
+     */
+    public function setDiscussionId($discussion_id)
+    {
+        $this->discussion_id = $discussion_id;
+    }
+
+    /**
+     * @param mixed $user_id
+     */
+    public function setUserId($user_id)
+    {
+        $this->user_id = $user_id;
+    }
+
 
 }
 
