@@ -76,6 +76,8 @@ class charge
     }
 
     /**
+     * get titre
+     *
      * @return mixed
      */
     public function getTitre()
@@ -130,6 +132,69 @@ class charge
     public function getUtilisateurs()
     {
         return $this->utilisateurs;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param mixed $date_echeance
+     */
+    public function setDateEcheance($date_echeance)
+    {
+        $this->date_echeance = $date_echeance;
+    }
+
+    /**
+     * @param mixed $titre
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+    }
+
+    /**
+     * @param mixed $montant
+     */
+    public function setMontant($montant)
+    {
+        $this->montant = $montant;
+    }
+
+    /**
+     * @param mixed $statut
+     */
+    public function setStatut($statut)
+    {
+        $this->statut = $statut;
+    }
+
+    /**
+     * @param mixed $utilisateurs
+     */
+    public function setUtilisateurs($utilisateurs)
+    {
+        $this->utilisateurs = $utilisateurs;
+    }
+    /**
+     * @param mixed $contrat_id
+     */
+    public function setContratId($contrat_id)
+    {
+        $this->contrat_id = $contrat_id;
+    }
+
+    /**
+     * @param mixed $pj_id
+     */
+    public function setPjId($pj_id)
+    {
+        $this->pj_id = $pj_id;
     }
 
 }
