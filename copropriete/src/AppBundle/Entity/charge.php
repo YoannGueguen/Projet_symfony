@@ -123,7 +123,7 @@ class charge
     public function getPjId()
     {
         return $this->pj_id;
-        
+
     }
 
     /**
