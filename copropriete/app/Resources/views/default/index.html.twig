@@ -11,6 +11,37 @@
         <div class="col-3"></div>
         <div class="col-lg-6 col-md-6 block" id="div_message">
             <h2 style="text-align:center">Fil de discussion en cours</h2>
+            <table class="table_list">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Date_debut</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for discussion in discussions %}
+                    <tr>
+                        <td><a href="{{ path('discussion_show', { 'id': discussion.id }) }}">{{ discussion.id }}</a></td>
+                        <td>{{ discussion.nom }}</td>
+                        <td>{% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{{ discussion.type }}</td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('discussion_show', { 'id': discussion.id }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('discussion_edit', { 'id': discussion.id }) }}">edit</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
     <br/>
@@ -19,6 +50,41 @@
         <div class="col-3"></div>
         <div class="col-lg-6 col-md-6 block" id="div_projet">
             <h2 style="text-align:center">Projet en cours</h2>
+            <table class="table_list">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Titre</th>
+                    <th>Description</th>
+                    <th>Statut</th>
+                    <th>Date_debut</th>
+                    <th>Date_fin</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for projet in projets %}
+                    <tr>
+                        <td><a href="{{ path('projet_show', { 'id': projet.id }) }}">{{ projet.id }}</a></td>
+                        <td>{{ projet.titre }}</td>
+                        <td>{{ projet.description }}</td>
+                        <td>{{ projet.statut }}</td>
+                        <td>{% if projet.datedebut %}{{ projet.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{% if projet.datefin %}{{ projet.datefin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('projet_show', { 'id': projet.id }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('projet_edit', { 'id': projet.id }) }}">edit</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
     <br/>
@@ -27,6 +93,39 @@
         <div class="col-3"></div>
         <div class="col-lg-6 col-md-6 block" id="div_charge">
             <h2 style="text-align:center">Charges restantes</h2>
+            <table class="table_list">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Titre</th>
+                    <th>Date_echeance</th>
+                    <th>Montant</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for charge in charges %}
+                    <tr>
+                        <td><a href="{{ path('charge_show', { 'id': charge.id }) }}">{{ charge.id }}</a></td>
+                        <td>{{ charge.titre }}</td>
+                        <td>{% if charge.dateecheance %}{{ charge.dateecheance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{{ charge.montant }}</td>
+                        <td>{{ charge.statut }}</td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('charge_show', { 'id': charge.id }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('charge_edit', { 'id': charge.id }) }}">edit</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
     {% endif %}

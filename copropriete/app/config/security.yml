@@ -29,4 +29,5 @@ security:
             - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/charge, role: ROLE_USER }
             - { path: ^/message, role: ROLE_USER }
+            - { path: ^/discussion, role: ROLE_USER }
             - { path: ^/admin/, role: ROLE_ADMIN }

@@ -75,3 +75,14 @@
 #div_charge{
     height:400px;
 }
+.table_list tr td, .table_list tr th{
+    text-align: center;
+    border-style:solid;
+    border-color:orange;
+    border-width:0px 0px 1px 0px;
+    color:black
+}
+
+.table_list tr th{
+    background-color: orange;
+}

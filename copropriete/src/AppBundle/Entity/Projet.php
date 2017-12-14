@@ -129,5 +129,70 @@ class projet
         return $this->user_id;
     }
 
+    /**
+     * @param mixed $date_debut
+     */
+    public function setDateDebut($date_debut)
+    {
+        $this->date_debut = $date_debut;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUtilisateurs()
+    {
+        return $this->utilisateurs;
+    }
+
+    /**
+     * @param mixed $utilisateurs
+     */
+    public function setUtilisateurs($utilisateurs)
+    {
+        $this->utilisateurs = $utilisateurs;
+    }
+
+    /**
+     * @param mixed $statut
+     */
+    public function setStatut($statut)
+    {
+        $this->statut = $statut;
+    }
+
+    /**
+     * @param mixed $titre
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+    }
+
+    /**
+     * @param mixed $date_fin
+     */
+
+    public function setDateFin($date_fin)
+    {
+        $this->date_fin = $date_fin;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @param mixed $discu_id
+     */
+    public function setDiscuId($discu_id)
+    {
+        $this->discu_id = $discu_id;
+    }
+
 }
 

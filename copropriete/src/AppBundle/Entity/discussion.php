@@ -81,5 +81,48 @@ class discussion
         return $this->type;
     }
 
+    /**
+     * @param mixed $utilisateurs
+     */
+    public function setUtilisateurs($utilisateurs)
+    {
+        $this->utilisateurs = $utilisateurs;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUtilisateurs()
+    {
+        return $this->utilisateurs;
+    }
+
+    /**
+     * @param mixed $date_debut
+     */
+    public function setDateDebut($date_debut)
+    {
+        $this->date_debut = $date_debut;
+    }
+
+    /**
+     * @param mixed $nom
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+    public function __toString()
+    {
+        return $this->getNom();
+    }
 }
 
