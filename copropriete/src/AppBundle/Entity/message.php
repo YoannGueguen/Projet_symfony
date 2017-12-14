@@ -33,7 +33,7 @@ class message
     private $contenu;
 
     /**
-     * @ORM\Column(name="archive", type="boolean")
+     * @ORM\Column(name="archive", type="boolean", options={"default":false})
      */
     private $archive;
 

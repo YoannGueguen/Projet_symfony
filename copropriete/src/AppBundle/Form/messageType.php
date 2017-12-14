@@ -16,9 +16,7 @@ class messageType extends AbstractType
         $builder->add('date');
             $builder->add('contenu');
 
-        if (in_array('ROLE_ADMIN', $options['role'])) {
             $builder->add('archive');
-        }
             $builder->add('user_id');
             $builder->add('discussion_id');
     }
