@@ -13,7 +13,14 @@ class messageType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date')->add('contenu')->add('user_id')->add('discussion_id');
+        $builder->add('date');
+            $builder->add('contenu');
+
+        if (in_array('ROLE_ADMIN', $options['role'])) {
+            $builder->add('archive');
+        }
+            $builder->add('user_id');
+            $builder->add('discussion_id');
     }
     
     /**
@@ -22,7 +29,8 @@ class messageType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\message'
+            'data_class' => 'AppBundle\Entity\message',
+            'role' => ['ROLE_USER']
         ));
     }
 

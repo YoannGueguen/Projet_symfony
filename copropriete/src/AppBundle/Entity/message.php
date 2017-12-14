@@ -33,6 +33,11 @@ class message
     private $contenu;
 
     /**
+     * @ORM\Column(name="archive", type="boolean")
+     */
+    private $archive;
+
+    /**
      * @ORM\ManyToOne(targetEntity="user")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
@@ -68,6 +73,22 @@ class message
     public function getContenu()
     {
         return $this->contenu;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArchive()
+    {
+        return $this->archive;
+    }
+
+    /**
+     * @param mixed $archive
+     */
+    public function setArchive($archive)
+    {
+        $this->archive = $archive;
     }
 
     /**

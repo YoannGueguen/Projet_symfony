@@ -3,12 +3,13 @@
 {% block body %}
     <h1>Messages list</h1>
 
-    <table class="table_list">
+    <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Date</th>
                 <th>Contenu</th>
+                <th>Archive</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,6 +19,7 @@
                 <td><a href="{{ path('message_show', { 'id': message.id }) }}">{{ message.id }}</a></td>
                 <td>{% if message.date %}{{ message.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ message.contenu }}</td>
+                <td>{% if message.archive %}Yes{% else %}No{% endif %}</td>
                 <td>
                     <ul>
                         <li>

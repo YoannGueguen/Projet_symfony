@@ -17,6 +17,10 @@
                 <th>Contenu</th>
                 <td>{{ message.contenu }}</td>
             </tr>
+            <tr>
+                <th>Archive</th>
+                <td>{% if message.archive %}Yes{% else %}No{% endif %}</td>
+            </tr>
         </tbody>
     </table>
 
