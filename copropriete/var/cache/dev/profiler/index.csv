@@ -31,3 +31,11 @@ c578a6,127.0.0.1,GET,http://127.0.0.1/projet/copropriete/web/app_dev.php/login,1
 73d6be,127.0.0.1,POST,http://127.0.0.1/projet/copropriete/web/app_dev.php/login_check,1513238619,,302
 d475fb,127.0.0.1,GET,http://127.0.0.1/projet/copropriete/web/app_dev.php/,1513238619,,200
 1c308b,127.0.0.1,GET,http://127.0.0.1/projet/copropriete/web/app_dev.php/profile/,1513238632,,200
+ac8b30,127.0.0.1,GET,http://127.0.0.1/Projet_symfony/copropriete/web/app_dev.php/login,1513241874,,200
+96e8a4,127.0.0.1,GET,http://127.0.0.1/Projet_symfony/copropriete/web/app_dev.php/register/,1513241881,,200
+4f5967,127.0.0.1,POST,http://127.0.0.1/Projet_symfony/copropriete/web/app_dev.php/register/,1513241904,,200
+ce0057,127.0.0.1,GET,http://127.0.0.1/Projet_symfony/copropriete/web/app_dev.php/register/,1513241905,d6e2a9,200
+d6e2a9,127.0.0.1,POST,http://127.0.0.1/Projet_symfony/copropriete/web/app_dev.php/register/,1513241905,,500
+5fd751,127.0.0.1,GET,http://127.0.0.1/Projet_symfony/copropriete/web/app_dev.php/login,1513241912,,200
+2ee129,127.0.0.1,POST,http://127.0.0.1/Projet_symfony/copropriete/web/app_dev.php/login_check,1513241919,,302
+76b180,127.0.0.1,GET,http://127.0.0.1/Projet_symfony/copropriete/web/app_dev.php/,1513241920,,200

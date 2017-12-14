@@ -15,21 +15,21 @@ class __TwigTemplate_2961e6dd794f5ad61cab103fc58c35c73c879d5280d682b86535d5f061e
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_646bd468c59662b10908a8390f1d0b509edbf933445c9a27657b85be60a2b2a1 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_646bd468c59662b10908a8390f1d0b509edbf933445c9a27657b85be60a2b2a1->enter($__internal_646bd468c59662b10908a8390f1d0b509edbf933445c9a27657b85be60a2b2a1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "default/nav/footer.html.twig"));
+        $__internal_65450c824ad069a6598fe04e254a532db1dd957d671255ea7ea407358784574c = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_65450c824ad069a6598fe04e254a532db1dd957d671255ea7ea407358784574c->enter($__internal_65450c824ad069a6598fe04e254a532db1dd957d671255ea7ea407358784574c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "default/nav/footer.html.twig"));
 
-        $__internal_e6327e3920ae7a5deb068a896ee497a0aa9f11918fa3239e9b9415d26ab3362e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_e6327e3920ae7a5deb068a896ee497a0aa9f11918fa3239e9b9415d26ab3362e->enter($__internal_e6327e3920ae7a5deb068a896ee497a0aa9f11918fa3239e9b9415d26ab3362e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "default/nav/footer.html.twig"));
+        $__internal_c1b704a171d4753c084b520a90a2e244f10edda397c80db5ad23776eee64ef43 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_c1b704a171d4753c084b520a90a2e244f10edda397c80db5ad23776eee64ef43->enter($__internal_c1b704a171d4753c084b520a90a2e244f10edda397c80db5ad23776eee64ef43_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "default/nav/footer.html.twig"));
 
         // line 1
         echo "<div style=\"background-color: #000000; display: block;\">
     <label style=\"color: #ffffff\">2017-2018 copyright </label>
 </div>";
         
-        $__internal_646bd468c59662b10908a8390f1d0b509edbf933445c9a27657b85be60a2b2a1->leave($__internal_646bd468c59662b10908a8390f1d0b509edbf933445c9a27657b85be60a2b2a1_prof);
+        $__internal_65450c824ad069a6598fe04e254a532db1dd957d671255ea7ea407358784574c->leave($__internal_65450c824ad069a6598fe04e254a532db1dd957d671255ea7ea407358784574c_prof);
 
         
-        $__internal_e6327e3920ae7a5deb068a896ee497a0aa9f11918fa3239e9b9415d26ab3362e->leave($__internal_e6327e3920ae7a5deb068a896ee497a0aa9f11918fa3239e9b9415d26ab3362e_prof);
+        $__internal_c1b704a171d4753c084b520a90a2e244f10edda397c80db5ad23776eee64ef43->leave($__internal_c1b704a171d4753c084b520a90a2e244f10edda397c80db5ad23776eee64ef43_prof);
 
     }
 
@@ -47,6 +47,6 @@ class __TwigTemplate_2961e6dd794f5ad61cab103fc58c35c73c879d5280d682b86535d5f061e
     {
         return new Twig_Source("<div style=\"background-color: #000000; display: block;\">
     <label style=\"color: #ffffff\">2017-2018 copyright </label>
-</div>", "default/nav/footer.html.twig", "C:\\xampp\\htdocs\\projet\\copropriete\\app\\Resources\\views\\default\\nav\\footer.html.twig");
+</div>", "default/nav/footer.html.twig", "C:\\xampp\\htdocs\\Projet_symfony\\copropriete\\app\\Resources\\views\\default\\nav\\footer.html.twig");
     }
 }
