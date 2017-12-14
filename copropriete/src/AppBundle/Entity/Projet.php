@@ -57,15 +57,10 @@ class projet
      * @ORM\JoinTable(name="projets_utilisateurs")
      */
     private $utilisateurs;
-    /**
-     * @ORM\ManyToMany(targetEntity="sondage", inversedBy="projets")
-     * @ORM\JoinTable(name="projets_sondages")
-     */
-    private $sondages;
+
     public function __construct()
     {
         $this->utilisateurs = new ArrayCollection();
-        $this->sondages = new ArrayCollection();
     }
 
     /**

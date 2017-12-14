@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -122,6 +123,13 @@ class charge
         return $this->pj_id;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getUtilisateurs()
+    {
+        return $this->utilisateurs;
+    }
 
 }
 

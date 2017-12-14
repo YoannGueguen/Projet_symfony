@@ -21,41 +21,9 @@ class user extends BaseUser
      */
     protected $id;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="charge", inversedBy="users")
-     */
-    private $charges;
-    /**
-     * @ORM\ManyToMany(targetEntity="reunion", inversedBy="users")
-     */
-    private $reunions;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="discussion", inversedBy="users")
-     */
-    private $discussions;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="projet", inversedBy="users")
-     */
-    private $projets;
-
     public function __construct()
     {
-        /*$this->charges = new ArrayCollection();
-        $this->discussions = new ArrayCollection();
-        $this->projets = new ArrayCollection();
-        $this->reunions = new ArrayCollection();*/
         $this->roles = ['ROLE_USER'];
-    }
-
-    /**
-     * @return mixed
-     */
-
-    public function getCharge()
-    {
-        return $this->charges;
     }
 }
 
