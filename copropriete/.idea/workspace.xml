@@ -17,8 +17,13 @@
       <file leaf-file-name="user.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/user.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="136">
               <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+=======
+            <state relative-caret-position="425">
+              <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+>>>>>>> Stashed changes
               <folding>
                 <element signature="e#36#68#0#PHP" expanded="true" />
               </folding>
@@ -366,6 +371,109 @@
           <select />
         </subPane>
       </pane>
+<<<<<<< Updated upstream
+=======
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="copropriete" type="cbb8eebc:String" user="copropriete" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="copropriete" type="cbb8eebc:String" user="copropriete" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="copropriete" type="cbb8eebc:String" user="copropriete" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+              <item name="config" type="cbb8eebc:String" user="config" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="copropriete" type="cbb8eebc:String" user="copropriete" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+              <item name="Resources" type="cbb8eebc:String" user="Resources" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="copropriete" type="cbb8eebc:String" user="copropriete" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="copropriete" type="cbb8eebc:String" user="copropriete" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="AppBundle" type="cbb8eebc:String" user="AppBundle" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="copropriete" type="cbb8eebc:String" user="copropriete" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="AppBundle" type="cbb8eebc:String" user="AppBundle" />
+              <item name="Entity" type="cbb8eebc:String" user="Entity" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="copropriete" type="cbb8eebc:String" user="copropriete" />
+              <item name="var" type="cbb8eebc:String" user="var" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="copropriete" type="cbb8eebc:String" user="copropriete" />
+              <item name="var" type="cbb8eebc:String" user="var" />
+              <item name="cache" type="cbb8eebc:String" user="cache" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="copropriete" type="cbb8eebc:String" user="copropriete" />
+              <item name="var" type="cbb8eebc:String" user="var" />
+              <item name="cache" type="cbb8eebc:String" user="cache" />
+              <item name="dev" type="cbb8eebc:String" user="dev" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="copropriete" type="cbb8eebc:String" user="copropriete" />
+              <item name="var" type="cbb8eebc:String" user="var" />
+              <item name="cache" type="cbb8eebc:String" user="cache" />
+              <item name="dev" type="cbb8eebc:String" user="dev" />
+              <item name="profiler" type="cbb8eebc:String" user="profiler" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="copropriete" type="cbb8eebc:String" user="copropriete" />
+              <item name="var" type="cbb8eebc:String" user="var" />
+              <item name="cache" type="cbb8eebc:String" user="cache" />
+              <item name="dev" type="cbb8eebc:String" user="dev" />
+              <item name="profiler" type="cbb8eebc:String" user="profiler" />
+              <item name="c3" type="cbb8eebc:String" user="c3" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="copropriete" type="cbb8eebc:String" user="copropriete" />
+              <item name="web" type="cbb8eebc:String" user="web" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="copropriete" type="cbb8eebc:String" user="copropriete" />
+              <item name="web" type="cbb8eebc:String" user="web" />
+              <item name="contents" type="cbb8eebc:String" user="contents" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="copropriete" type="cbb8eebc:String" user="copropriete" />
+              <item name="web" type="cbb8eebc:String" user="web" />
+              <item name="contents" type="cbb8eebc:String" user="contents" />
+              <item name="css" type="cbb8eebc:String" user="css" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+>>>>>>> Stashed changes
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -418,13 +526,21 @@
       <workItem from="1512113655788" duration="19395000" />
       <workItem from="1512631625798" duration="4496000" />
       <workItem from="1512719103765" duration="23885000" />
+<<<<<<< Updated upstream
       <workItem from="1513237548547" duration="753000" />
       <workItem from="1513241594722" duration="76000" />
+=======
+      <workItem from="1513237548547" duration="1403000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="56898000" />
+=======
+    <option name="totallyTimeSpent" value="57472000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -516,6 +632,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -523,6 +640,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -746,8 +864,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/user.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="136">
           <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+=======
+        <state relative-caret-position="425">
+          <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+>>>>>>> Stashed changes
           <folding>
             <element signature="e#36#68#0#PHP" expanded="true" />
           </folding>
