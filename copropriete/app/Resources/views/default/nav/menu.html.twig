@@ -1,10 +1,13 @@
 
     <ul id="menu-demo2">
         <li><a href="{{ path('index') }}">Accueil</a>
-            {% if is_granted('ROLE_USER') or is_granted('ROLE_MANAGER') %}
-        <li><a href="#">Forum</a>
-            {% endif %}
             {% if is_granted('ROLE_USER') %}
+        <li><a href="#">Forum</a>
+            <ul>
+                <li>Discussions</li>
+                <li>Charges</li>
+            </ul>
+        </li>
         <li><a href="#">Bienvenue {{ app.user.username }}</a>
             <ul>
                 {% if is_granted('ROLE_ADMIN') %}
@@ -21,22 +24,4 @@
                 </ul>
             </li>
         {% endif %}
-        <!--
-        <li><a href="#">Lien menu 3</a>
-            <ul>
-                <li><a href="#">lien sous menu 3</a></li>
-                <li><a href="#">lien sous menu 3</a></li>
-                <li><a href="#">lien sous menu 3</a></li>
-                <li><a href="#">lien sous menu 3</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Lien menu 4</a>
-            <ul>
-                <li><a href="#">Lien sous menu 4</a></li>
-                <li><a href="#">Lien sous menu 4</a></li>
-                <li><a href="#">Lien sous menu 4</a></li>
-                <li><a href="#">Lien sous menu 4</a></li>
-            </ul>
-        </li>
-        -->
     </ul>
