@@ -4,10 +4,11 @@
             {% if is_granted('ROLE_USER') %}
         <li><a href="#">Forum</a>
             <ul>
-                <li>Discussions</li>
-                <li>Charges</li>
+                <li><a href="{{ path('discussion_index') }}">Discussions</a></li>
+                <li><a href="{{ path('charge_index') }}">Charges</a></li>
             </ul>
         </li>
+        <li><a href="{{ path('projet_index') }}">Projets</a></li>
         <li><a href="#">Bienvenue {{ app.user.username }}</a>
             <ul>
                 {% if is_granted('ROLE_ADMIN') %}
