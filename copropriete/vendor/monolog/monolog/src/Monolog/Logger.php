@@ -34,7 +34,7 @@ class Logger implements LoggerInterface
     /**
      * Interesting events
      *
-     * Examples: utilisateur logs in, SQL logs.
+     * Examples: user logs in, SQL logs.
      */
     const INFO = 200;
 

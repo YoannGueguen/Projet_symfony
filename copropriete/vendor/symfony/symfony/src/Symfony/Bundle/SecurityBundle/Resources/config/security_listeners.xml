@@ -183,22 +183,22 @@
         <service id="security.authentication.listener.digest" class="Symfony\Component\Security\Http\Firewall\DigestAuthenticationListener" abstract="true">
             <tag name="monolog.logger" channel="security" />
             <argument type="service" id="security.token_storage" />
-            <argument /> <!-- utilisateur Provider -->
+            <argument /> <!-- user Provider -->
             <argument /> <!-- Provider-shared Key -->
             <argument /> <!-- Entry Point -->
             <argument type="service" id="logger" on-invalid="null" />
         </service>
 
         <service id="security.authentication.provider.dao" class="Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider" abstract="true">
-            <argument /> <!-- utilisateur Provider -->
-            <argument /> <!-- utilisateur Checker -->
+            <argument /> <!-- user Provider -->
+            <argument /> <!-- user Checker -->
             <argument /> <!-- Provider-shared Key -->
             <argument type="service" id="security.encoder_factory" />
             <argument>%security.authentication.hide_user_not_found%</argument>
         </service>
 
         <service id="security.authentication.provider.ldap_bind" class="Symfony\Component\Security\Core\Authentication\Provider\LdapBindAuthenticationProvider" abstract="true">
-            <argument /> <!-- utilisateur Provider -->
+            <argument /> <!-- user Provider -->
             <argument /> <!-- UserChecker -->
             <argument /> <!-- Provider-shared Key -->
             <argument /> <!-- LDAP -->
@@ -208,13 +208,13 @@
 
         <service id="security.authentication.provider.simple" class="Symfony\Component\Security\Core\Authentication\Provider\SimpleAuthenticationProvider" abstract="true">
             <argument /> <!-- Simple Authenticator -->
-            <argument /> <!-- utilisateur Provider -->
+            <argument /> <!-- user Provider -->
             <argument /> <!-- Provider-shared Key -->
         </service>
 
         <service id="security.authentication.provider.pre_authenticated" class="Symfony\Component\Security\Core\Authentication\Provider\PreAuthenticatedAuthenticationProvider" abstract="true">
-            <argument /> <!-- utilisateur Provider -->
-            <argument /> <!-- utilisateur Checker -->
+            <argument /> <!-- user Provider -->
+            <argument /> <!-- user Checker -->
         </service>
 
         <service id="security.exception_listener" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" abstract="true">
@@ -233,8 +233,8 @@
         <service id="security.authentication.switchuser_listener" class="Symfony\Component\Security\Http\Firewall\SwitchUserListener" abstract="true">
             <tag name="monolog.logger" channel="security" />
             <argument type="service" id="security.token_storage" />
-            <argument /> <!-- utilisateur Provider -->
-            <argument /> <!-- utilisateur Checker -->
+            <argument /> <!-- user Provider -->
+            <argument /> <!-- user Checker -->
             <argument /> <!--  Provider Key -->
             <argument type="service" id="security.access.decision_manager" />
             <argument type="service" id="logger" on-invalid="null" />

@@ -1,9 +1,9 @@
 fos_user:
     username:
-        already_used: 'Le nom d''utilisateur est déjà utilisé.'
-        blank: 'Entrez un nom d''utilisateur s''il vous plait.'
-        short: 'Le nom d''utilisateur est trop court.'
-        long: 'Le nom d''utilisateur est trop long.'
+        already_used: 'Le nom d''user est déjà utilisé.'
+        blank: 'Entrez un nom d''user s''il vous plait.'
+        short: 'Le nom d''user est trop court.'
+        long: 'Le nom d''user est trop long.'
     email:
         already_used: 'L''adresse e-mail est déjà utilisée.'
         blank: 'Entrez une adresse e-mail s''il vous plait.'

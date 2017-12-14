@@ -38,7 +38,7 @@ class FirePHPHandler extends BaseFirePHPHandler
             return;
         }
 
-        if (!preg_match('{\bFirePHP/\d+\.\d+\b}', $event->getRequest()->headers->get('utilisateur-Agent'))
+        if (!preg_match('{\bFirePHP/\d+\.\d+\b}', $event->getRequest()->headers->get('user-Agent'))
             && !$event->getRequest()->headers->has('X-FirePHP-Version')) {
             $this->sendHeaders = false;
             $this->headers = array();

@@ -37,7 +37,7 @@ class versement
     private $type;
 
     /**
-     * @ORM\OneToOne(targetEntity="utilisateur")
+     * @ORM\OneToOne(targetEntity="user")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user_id;

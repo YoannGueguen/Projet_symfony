@@ -37,7 +37,7 @@ class discussion
     private $type;
 
     /**
-     * @ORM\ManyToMany(targetEntity="utilisateur", inversedBy="discussions")
+     * @ORM\ManyToMany(targetEntity="user", inversedBy="discussions")
      * @ORM\JoinTable(name="utilisateurs_discussions")
      */
     private $utilisateurs;

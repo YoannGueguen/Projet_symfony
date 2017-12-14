@@ -9,7 +9,7 @@ services:
               - '@logger'
           - method: setClass
             arguments:
-              - utilisateur
+              - user
         tags:
           - name: manager
             alias: user

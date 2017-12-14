@@ -411,21 +411,21 @@ class ResponseTest extends ResponseTestCase
         $this->assertEquals(array('Accept-Language'), $response->getVary(), '->getVary() parses a single header name value');
 
         $response = new Response();
-        $response->headers->set('Vary', 'Accept-Language utilisateur-Agent    X-Foo');
-        $this->assertEquals(array('Accept-Language', 'utilisateur-Agent', 'X-Foo'), $response->getVary(), '->getVary() parses multiple header name values separated by spaces');
+        $response->headers->set('Vary', 'Accept-Language user-Agent    X-Foo');
+        $this->assertEquals(array('Accept-Language', 'user-Agent', 'X-Foo'), $response->getVary(), '->getVary() parses multiple header name values separated by spaces');
 
         $response = new Response();
-        $response->headers->set('Vary', 'Accept-Language,utilisateur-Agent,    X-Foo');
-        $this->assertEquals(array('Accept-Language', 'utilisateur-Agent', 'X-Foo'), $response->getVary(), '->getVary() parses multiple header name values separated by commas');
+        $response->headers->set('Vary', 'Accept-Language,user-Agent,    X-Foo');
+        $this->assertEquals(array('Accept-Language', 'user-Agent', 'X-Foo'), $response->getVary(), '->getVary() parses multiple header name values separated by commas');
 
-        $vary = array('Accept-Language', 'utilisateur-Agent', 'X-foo');
+        $vary = array('Accept-Language', 'user-Agent', 'X-foo');
 
         $response = new Response();
         $response->headers->set('Vary', $vary);
         $this->assertEquals($vary, $response->getVary(), '->getVary() parses multiple header name values in arrays');
 
         $response = new Response();
-        $response->headers->set('Vary', 'Accept-Language, utilisateur-Agent, X-foo');
+        $response->headers->set('Vary', 'Accept-Language, user-Agent, X-foo');
         $this->assertEquals($vary, $response->getVary(), '->getVary() parses multiple header name values in arrays');
     }
 
@@ -435,11 +435,11 @@ class ResponseTest extends ResponseTestCase
         $response->setVary('Accept-Language');
         $this->assertEquals(array('Accept-Language'), $response->getVary());
 
-        $response->setVary('Accept-Language, utilisateur-Agent');
-        $this->assertEquals(array('Accept-Language', 'utilisateur-Agent'), $response->getVary(), '->setVary() replace the vary header by default');
+        $response->setVary('Accept-Language, user-Agent');
+        $this->assertEquals(array('Accept-Language', 'user-Agent'), $response->getVary(), '->setVary() replace the vary header by default');
 
         $response->setVary('X-Foo', false);
-        $this->assertEquals(array('Accept-Language', 'utilisateur-Agent', 'X-Foo'), $response->getVary(), '->setVary() doesn\'t wipe out earlier Vary headers if replace is set to false');
+        $this->assertEquals(array('Accept-Language', 'user-Agent', 'X-Foo'), $response->getVary(), '->setVary() doesn\'t wipe out earlier Vary headers if replace is set to false');
     }
 
     public function testDefaultContentType()
@@ -791,7 +791,7 @@ class ResponseTest extends ResponseTestCase
         $response = new Response();
         $this->assertFalse($response->hasVary());
 
-        $response->setVary('utilisateur-Agent');
+        $response->setVary('user-Agent');
         $this->assertTrue($response->hasVary());
     }
 

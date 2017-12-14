@@ -53,7 +53,7 @@ class projet
     private $discu_id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="utilisateur", inversedBy="projets")
+     * @ORM\ManyToMany(targetEntity="user", inversedBy="projets")
      * @ORM\JoinTable(name="projets_utilisateurs")
      */
     private $utilisateurs;

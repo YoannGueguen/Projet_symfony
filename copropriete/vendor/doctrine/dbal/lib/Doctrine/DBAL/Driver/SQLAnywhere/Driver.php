@@ -73,7 +73,7 @@ class Driver extends AbstractSQLAnywhereDriver
      *                               SQL Anywhere allows multiple database server instances on the same host,
      *                               therefore specifying the server instance name to use is mandatory.
      * @param string  $dbname        Name of the database on the server instance to connect to.
-     * @param string  $username      utilisateur name to use for connection authentication.
+     * @param string  $username      user name to use for connection authentication.
      * @param string  $password      Password to use for connection authentication.
      * @param array   $driverOptions Additional parameters to use for the connection.
      *

@@ -282,7 +282,7 @@ class YamlFileLoaderTest extends TestCase
         $loader->load('services21.yml');
 
         $definition = $container->getDefinition('manager');
-        $this->assertEquals(array(array('setLogger', array(new Reference('logger'))), array('setClass', array('utilisateur'))), $definition->getMethodCalls());
+        $this->assertEquals(array(array('setLogger', array(new Reference('logger'))), array('setClass', array('user'))), $definition->getMethodCalls());
         $this->assertEquals(array(true), $definition->getArguments());
         $this->assertEquals(array('manager' => array(array('alias' => 'user'))), $definition->getTags());
     }

@@ -86,7 +86,7 @@ class Process implements \IteratorAggregate
     /**
      * Exit codes translation table.
      *
-     * utilisateur-defined errors must use exit codes in the 64-113 range.
+     * user-defined errors must use exit codes in the 64-113 range.
      */
     public static $exitCodes = array(
         0 => 'OK',
@@ -107,9 +107,9 @@ class Process implements \IteratorAggregate
         135 => 'Bus error: "access to undefined portion of memory object"',
         136 => 'Floating point exception: "erroneous arithmetic operation"',
         137 => 'Kill (terminate immediately)',
-        138 => 'utilisateur-defined 1',
+        138 => 'user-defined 1',
         139 => 'Segmentation violation',
-        140 => 'utilisateur-defined 2',
+        140 => 'user-defined 2',
         141 => 'Write to pipe with no one reading',
         142 => 'Signal raised by alarm',
         143 => 'Termination (request to terminate)',

@@ -53,8 +53,8 @@ You have to limit generation of entities:
 
 * To a single entity:
 
-  <info>php %command.full_name% MyCustomBundle:utilisateur</info>
-  <info>php %command.full_name% MyCustomBundle/Entity/utilisateur</info>
+  <info>php %command.full_name% MyCustomBundle:user</info>
+  <info>php %command.full_name% MyCustomBundle/Entity/user</info>
 
 * To a namespace
 

@@ -58,7 +58,7 @@ class EntityUserProvider implements UserProviderInterface
         }
 
         if (null === $user) {
-            throw new UsernameNotFoundException(sprintf('utilisateur "%s" not found.', $username));
+            throw new UsernameNotFoundException(sprintf('user "%s" not found.', $username));
         }
 
         return $user;
@@ -92,7 +92,7 @@ class EntityUserProvider implements UserProviderInterface
 
             $refreshedUser = $repository->find($id);
             if (null === $refreshedUser) {
-                throw new UsernameNotFoundException(sprintf('utilisateur with id %s not found', json_encode($id)));
+                throw new UsernameNotFoundException(sprintf('user with id %s not found', json_encode($id)));
             }
         }
 

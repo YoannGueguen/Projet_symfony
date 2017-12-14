@@ -51,7 +51,7 @@ EOT
         $manipulator = $this->getContainer()->get('fos_user.util.user_manipulator');
         $manipulator->activate($username);
 
-        $output->writeln(sprintf('utilisateur "%s" has been activated.', $username));
+        $output->writeln(sprintf('user "%s" has been activated.', $username));
     }
 
     /**

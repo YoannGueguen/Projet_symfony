@@ -43,7 +43,7 @@ class note
     private $projet_id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="utilisateur")
+     * @ORM\ManyToOne(targetEntity="user")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user_id;

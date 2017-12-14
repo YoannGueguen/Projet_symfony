@@ -63,7 +63,7 @@ class UserProvider implements UserProviderInterface
         }
 
         if (null === $reloadedUser = $this->userManager->findUserBy(array('id' => $user->getId()))) {
-            throw new UsernameNotFoundException(sprintf('utilisateur with ID "%s" could not be reloaded.', $user->getId()));
+            throw new UsernameNotFoundException(sprintf('user with ID "%s" could not be reloaded.', $user->getId()));
         }
 
         return $reloadedUser;

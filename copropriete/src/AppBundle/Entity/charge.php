@@ -54,7 +54,7 @@ class charge
     private $pj_id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="utilisateur", inversedBy="charges")
+     * @ORM\ManyToMany(targetEntity="user", inversedBy="charges")
      * @ORM\JoinTable(name="utilisateurs_charges")
      */
     private $utilisateurs;

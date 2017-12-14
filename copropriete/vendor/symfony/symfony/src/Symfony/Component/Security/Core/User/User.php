@@ -12,7 +12,7 @@
 namespace Symfony\Component\Security\Core\User;
 
 /**
- * utilisateur is the user implementation used by the in-memory user provider.
+ * user is the user implementation used by the in-memory user provider.
  *
  * This should not be used for anything else.
  *

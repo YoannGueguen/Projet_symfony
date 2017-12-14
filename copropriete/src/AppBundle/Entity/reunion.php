@@ -43,7 +43,7 @@ class reunion
     private $pj_id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="utilisateur", inversedBy="reunions")
+     * @ORM\ManyToMany(targetEntity="user", inversedBy="reunions")
      * @ORM\JoinTable(name="utilisateurs_reunions")
      */
     private $utilisateurs;

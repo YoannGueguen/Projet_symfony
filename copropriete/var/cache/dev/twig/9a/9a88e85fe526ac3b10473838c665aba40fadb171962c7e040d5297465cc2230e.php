@@ -287,7 +287,7 @@ class __TwigTemplate_ee68b603a70578448aff8c055e9dd02ecce695c46cbafc5cc66183e6624
                 // line 102
                 if (( !twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new Twig_Error_Runtime('Variable "collector" does not exist.', 102, $this->getSourceContext()); })()), "authenticated", array()) && twig_test_empty(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new Twig_Error_Runtime('Variable "collector" does not exist.', 102, $this->getSourceContext()); })()), "roles", array())))) {
                     // line 103
-                    echo "                                <p class=\"help\">User is not authenticated probably because they have no roles.</p>
+                    echo "                                <p class=\"help\">user is not authenticated probably because they have no roles.</p>
                             ";
                 }
                 // line 105
@@ -756,7 +756,7 @@ class __TwigTemplate_ee68b603a70578448aff8c055e9dd02ecce695c46cbafc5cc66183e6624
                             {{ collector.roles is empty ? 'none' : profiler_dump(collector.roles, maxDepth=1) }}
 
                             {% if not collector.authenticated and collector.roles is empty %}
-                                <p class=\"help\">User is not authenticated probably because they have no roles.</p>
+                                <p class=\"help\">user is not authenticated probably because they have no roles.</p>
                             {% endif %}
                         </td>
                     </tr>

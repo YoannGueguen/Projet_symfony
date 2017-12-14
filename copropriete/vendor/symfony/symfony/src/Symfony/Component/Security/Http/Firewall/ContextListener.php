@@ -51,7 +51,7 @@ class ContextListener implements ListenerInterface
 
         foreach ($userProviders as $userProvider) {
             if (!$userProvider instanceof UserProviderInterface) {
-                throw new \InvalidArgumentException(sprintf('utilisateur provider "%s" must implement "Symfony\Component\Security\Core\utilisateur\UserProviderInterface".', get_class($userProvider)));
+                throw new \InvalidArgumentException(sprintf('user provider "%s" must implement "Symfony\Component\Security\Core\user\UserProviderInterface".', get_class($userProvider)));
             }
         }
 
@@ -155,7 +155,7 @@ class ContextListener implements ListenerInterface
                 $token->setUser($refreshedUser);
 
                 if (null !== $this->logger) {
-                    $this->logger->debug('utilisateur was reloaded from a user provider.', array('username' => $refreshedUser->getUsername(), 'provider' => get_class($provider)));
+                    $this->logger->debug('user was reloaded from a user provider.', array('username' => $refreshedUser->getUsername(), 'provider' => get_class($provider)));
                 }
 
                 return $token;

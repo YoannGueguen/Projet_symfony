@@ -62,7 +62,7 @@ class Table
     private $columnStyles = array();
 
     /**
-     * utilisateur set column widths.
+     * user set column widths.
      *
      * @var array
      */

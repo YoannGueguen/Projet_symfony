@@ -26,7 +26,7 @@ class ChangePasswordFormType extends AbstractType
     private $class;
 
     /**
-     * @param string $class The utilisateur class name
+     * @param string $class The user class name
      */
     public function __construct($class)
     {
