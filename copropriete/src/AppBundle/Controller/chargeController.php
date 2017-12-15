@@ -111,6 +111,7 @@ class chargeController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
             $em->remove($charge);
             $em->flush();
         }
@@ -130,7 +131,6 @@ class chargeController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('charge_delete', array('id' => $charge->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }
