@@ -36,6 +36,13 @@ class discussion
      */
     private $type;
 
+
+    /**
+     * @ORM\Column(name="archive", type="boolean", options={"default":false})
+     */
+    private $archive;
+
+
     /**
      * @ORM\ManyToMany(targetEntity="user", inversedBy="discussions")
      * @ORM\JoinTable(name="utilisateurs_discussions")
@@ -79,6 +86,22 @@ class discussion
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArchive()
+    {
+        return $this->archive;
+    }
+
+    /**
+     * @param mixed $archive
+     */
+    public function setArchive($archive)
+    {
+        $this->archive = $archive;
     }
 
     /**
