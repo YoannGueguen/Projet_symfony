@@ -47,7 +47,7 @@ class projet
     private $date_fin;
 
     /**
-     * @ORM\OneToMany(targetEntity="discussion", mappedBy="projet")
+     * @ORM\OneToMany(targetEntity="discussion", mappedBy="projet", orphanRemoval=true)
      * @ORM\JoinColumn(name="discu_id", referencedColumnName="id")
      */
     private $discu_id;
