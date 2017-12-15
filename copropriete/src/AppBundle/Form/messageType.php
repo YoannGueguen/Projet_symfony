@@ -28,6 +28,7 @@ class messageType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\message',
+            'role' => ['ROLE_USER']
         ));
     }
 
@@ -38,4 +39,6 @@ class messageType extends AbstractType
     {
         return 'appbundle_message';
     }
+
+
 }
