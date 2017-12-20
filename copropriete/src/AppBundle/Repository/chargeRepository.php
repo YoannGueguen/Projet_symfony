@@ -21,7 +21,9 @@ class chargeRepository extends \Doctrine\ORM\EntityRepository
         //On ajoute des contraintes et paramètres
         $queryBuilder
             ->where('a.date_echeance < :date_now')
-            ->setParameter('date_now', $time);
+            ->setParameter('date_now', $time)
+            ->andWhere('a.statut = :stat')
+            ->setParameter('stat', "A payer");
         //on récup la requête
         $query = $queryBuilder->getQuery();
         $res = $query->getResult();

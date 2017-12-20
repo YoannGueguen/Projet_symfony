@@ -23,8 +23,8 @@ class discussionType extends AbstractType
     {
         $builder->add('nom');
             $builder->add('date_debut');
-        if($this->secu->isGranted('ROLE_ADMIN')) {
-            $builder->add('archive', CheckboxType::class, array( 'empty_data' => 'No'));
+        if($this->secu->isGranted('ROLE_MANAGER')) {
+            $builder->add('archive', CheckboxType::class, array( 'empty_data' => 'No', 'required' => false));
         }
             $builder->add('type');
             $builder->add('utilisateurs');
