@@ -197,5 +197,20 @@ class charge
         $this->pj_id = $pj_id;
     }
 
+    public function __toString()
+    {
+        $str = $this->getId()."  ";
+        $str = $str.$this->getTitre()."  ";
+        $str = $str . $this->getStatut() ."  ";
+        $str = $str . $this->getMontant() ."  ";
+        $str = $str . $this->getDateEcheance()->format('Y-m-d H:i:s') ."  ";
+        $str = $str . $this->getContratId() ."  ";
+        $users = $this->getUtilisateurs();
+        foreach ($users as &$user) {
+            $str= $str . $user . ',';
+        }
+        return $str;
+    }
+
 }
 

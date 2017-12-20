@@ -10,4 +10,21 @@ namespace AppBundle\Repository;
  */
 class chargeRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getAllLateCharges(){
+        //instanciation queryBuilder
+        $queryBuilder = $this->createQueryBuilder('a');
+        //On récupère la date actuelle
+        $time = new \DateTime();
+        //on formate la date pour être cohérent avec SQL
+        $time->format('Y-m-d H:i:s');//2013-01-04 06:00:00
+        //On ajoute des contraintes et paramètres
+        $queryBuilder
+            ->where('a.date_echeance < :date_now')
+            ->setParameter('date_now', $time);
+        //on récup la requête
+        $query = $queryBuilder->getQuery();
+        $res = $query->getResult();
+        return $res;
+    }
 }

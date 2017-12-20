@@ -36,10 +36,11 @@
         {% endfor %}
         </tbody>
     </table>
-
+{% if is_granted('ROLE_MANAGER') %}
     <ul>
         <li>
             <a href="{{ path('charge_new') }}">Create a new charge</a>
         </li>
     </ul>
+{% endif %}
 {% endblock %}

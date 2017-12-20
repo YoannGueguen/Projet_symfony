@@ -1,5 +1,8 @@
 
     <ul id="menu-demo2">
+        {% if is_granted('ROLE_ADMIN') %}
+            <li style="color: red;">Admin</li>
+        {% endif %}
         <li><a href="{{ path('index') }}">Accueil</a>
             {% if is_granted('ROLE_USER') %}
         <li><a href="#">Forum</a>
@@ -11,9 +14,6 @@
         <li><a href="{{ path('projet_index') }}">Projets</a></li>
         <li><a href="#">Bienvenue {{ app.user.username }}</a>
             <ul>
-                {% if is_granted('ROLE_ADMIN') %}
-                    <li style="color: red;">test admin</li>
-                {% endif %}
                 <li><a href="{{ path('fos_user_profile_show') }}">Show profile</a></li>
                 <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
             </ul>
