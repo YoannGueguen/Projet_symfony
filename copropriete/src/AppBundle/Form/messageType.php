@@ -7,6 +7,7 @@ use FOS\UserBundle\Controller\SecurityController;
 use SensioLabs\Security\SecurityChecker;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -27,10 +28,12 @@ class messageType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-            $builder->add('date');
+        $time = new \DateTime();
+        //on formate la date pour être cohérent avec SQL
+        $time->format('Y-m-d H:i:s');
             $builder->add('contenu');
-            if($this->secu->isGranted('ROLE_ADMIN')) {
-                $builder->add('archive', CheckboxType::class, array( 'empty_data' => 'No'));
+            if($this->secu->isGranted('ROLE_MANAGER')) {
+                $builder->add('archive', CheckboxType::class, array( 'empty_data' => 'No', 'required' => false));
             }
             $builder->add('user_id');
             $builder->add('discussion_id');

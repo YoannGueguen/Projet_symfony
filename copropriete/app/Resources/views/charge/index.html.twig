@@ -27,9 +27,14 @@
                         <li>
                             <a href="{{ path('charge_show', { 'id': charge.id }) }}">show</a>
                         </li>
+                        {% if is_granted('ROLE_MANAGER') %}
                         <li>
                             <a href="{{ path('charge_edit', { 'id': charge.id }) }}">edit</a>
                         </li>
+                        <li>
+                            <a href="{{ path('charge_delete', { 'id': charge.id }) }}">delete</a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </td>
             </tr>

@@ -12,6 +12,22 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class discussion
 {
+
+    public function __construct()
+    {
+        $this->utilisateurs = new ArrayCollection();
+        if($this->archive==null){
+            $this->setArchive(false);
+        }
+
+        if($this->getDateDebut() == ''){
+            $time = new \DateTime();
+            //on formate la date pour être cohérent avec SQL
+            $time->format('Y-m-d H:i:s');
+            $this->setDateDebut($time);
+        }
+    }
+
     /**
      * @var int
      *
@@ -48,11 +64,6 @@ class discussion
      * @ORM\JoinTable(name="utilisateurs_discussions")
      */
     private $utilisateurs;
-
-    public function __construct()
-    {
-        $this->utilisateurs = new ArrayCollection();
-    }
 
     /**
      * Get id

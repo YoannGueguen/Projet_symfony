@@ -5,10 +5,10 @@
 
     <table>
         <tbody>
-            <tr>
+            <!--<tr>
                 <th>Id</th>
                 <td>{{ discussion.id }}</td>
-            </tr>
+            </tr>-->
             <tr>
                 <th>Nom</th>
                 <td>{{ discussion.nom }}</td>
@@ -17,10 +17,12 @@
                 <th>Date_debut</th>
                 <td>{% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
+            <!--
             <tr>
                 <th>Type</th>
                 <td>{{ discussion.type }}</td>
             </tr>
+            -->
         </tbody>
     </table>
 

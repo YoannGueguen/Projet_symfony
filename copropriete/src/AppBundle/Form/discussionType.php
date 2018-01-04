@@ -22,12 +22,8 @@ class discussionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nom');
-            $builder->add('date_debut');
-        if($this->secu->isGranted('ROLE_MANAGER')) {
-            $builder->add('archive', CheckboxType::class, array( 'empty_data' => 'No', 'required' => false));
-        }
-            $builder->add('type');
-            $builder->add('utilisateurs');
+        $builder->add('type');
+        $builder->add('utilisateurs');
     }
     
     /**

@@ -12,6 +12,20 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class message
 {
+    public function __construct()
+    {
+        if($this->getDate() == ''){
+            $time = new \DateTime();
+            //on formate la date pour être cohérent avec SQL
+            $time->format('Y-m-d H:i:s');
+            $this->setDate($time);
+        }
+
+        if($this->archive==null){
+            $this->setArchive(false);
+        }
+    }
+
     /**
      * @var int
      *

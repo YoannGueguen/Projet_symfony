@@ -3,7 +3,7 @@
             <li style="color: red;">Admin</li>
         {% endif %}
         <li><a href="{{ path('index') }}">Accueil</a>
-            {% if is_granted('ROLE_USER') %}
+        {% if is_granted('ROLE_USER') %}
         <li><a href="#">Forum</a>
             <ul>
                 <li><a href="{{ path('discussion_index') }}">Discussions</a></li>

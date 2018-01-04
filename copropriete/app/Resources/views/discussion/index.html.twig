@@ -25,16 +25,20 @@
                         <li>
                             <a href="{{ path('discussion_show', { 'id': discussion.id }) }}">show</a>
                         </li>
+                        {% if is_granted('ROLE_MANAGER') %}
                         <li>
                             <a href="{{ path('discussion_edit', { 'id': discussion.id }) }}">edit</a>
                         </li>
+                        <li>
+                            <a href="{{ path('discussion_delete', { 'id': discussion.id }) }}">delete</a>
+                        </li>
+                        {%  endif %}
                     </ul>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
     <ul>
         <li>
             <a href="{{ path('discussion_new') }}">Create a new discussion</a>

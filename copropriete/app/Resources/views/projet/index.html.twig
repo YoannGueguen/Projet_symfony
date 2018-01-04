@@ -29,9 +29,14 @@
                         <li>
                             <a href="{{ path('projet_show', { 'id': projet.id }) }}">show</a>
                         </li>
+                        {% if is_granted('ROLE_MANAGER') %}
                         <li>
                             <a href="{{ path('projet_edit', { 'id': projet.id }) }}">edit</a>
                         </li>
+                        <li>
+                            <a href="{{ path('projet_edit', { 'id': projet.id }) }}">edit</a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </td>
             </tr>
