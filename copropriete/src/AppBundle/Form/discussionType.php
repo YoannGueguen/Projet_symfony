@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -22,7 +23,11 @@ class discussionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nom');
-        $builder->add('type');
+        $builder->add('type', ChoiceType::class, array(
+            'choices'  => array(
+                'Public' => 'Public',
+                'Privé' => 'Privé',
+            )));
         $builder->add('utilisateurs');
     }
     

@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\discussion;
+use AppBundle\Repository\messageRepository;
+use AppBundle\Entity\message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -66,10 +68,13 @@ class discussionController extends Controller
     public function showAction(discussion $discussion)
     {
         $deleteForm = $this->createDeleteForm($discussion);
+        //on récupère les messages de la discussion
+        $messages = $this->getDoctrine()->getManager()->getRepository('AppBundle:message')->getMessagesFromDiscussion($discussion->getId());
 
         return $this->render('discussion/show.html.twig', array(
             'discussion' => $discussion,
             'delete_form' => $deleteForm->createView(),
+            'messages' => $messages,//cette ligne permet d'utiliser la liste de messages dans le fichier twig
         ));
     }
 

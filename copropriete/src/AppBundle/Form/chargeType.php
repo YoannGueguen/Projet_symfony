@@ -20,8 +20,8 @@ class chargeType extends AbstractType
             ->add('montant')
             ->add('statut', ChoiceType::class, array(
         'choices'  => array(
-            'En cours',
-            'Validé',
+            'En cours' => 'En cours',
+            'Validé' => 'Validé',
         )))
             ->add('contrat_id')
             ->add('pj_id')
