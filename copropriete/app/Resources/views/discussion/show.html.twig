@@ -10,12 +10,11 @@
                 <td>{{ discussion.id }}</td>
             </tr>-->
             <tr>
-                <th>Nom</th>
                 <td>{{ discussion.nom }}</td>
+                <td>{% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Date_debut</th>
-                <td>{% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
+
             </tr>
             <!--
             <tr>

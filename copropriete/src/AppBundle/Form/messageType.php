@@ -31,12 +31,12 @@ class messageType extends AbstractType
         $time = new \DateTime();
         //on formate la date pour être cohérent avec SQL
         $time->format('Y-m-d H:i:s');
-            $builder->add('contenu');
-            if($this->secu->isGranted('ROLE_MANAGER')) {
-                $builder->add('archive', CheckboxType::class, array( 'empty_data' => 'No', 'required' => false));
-            }
-            $builder->add('user_id');
-            $builder->add('discussion_id');
+        $builder->add('contenu');
+        if($this->secu->isGranted('ROLE_MANAGER')) {
+            $builder->add('archive', CheckboxType::class, array( 'empty_data' => 'No', 'required' => false));
+        }
+        $builder->add('user_id');
+        $builder->add('discussion_id');
     }
     
     /**

@@ -10,7 +10,6 @@ namespace AppBundle\Repository;
  */
 class chargeRepository extends \Doctrine\ORM\EntityRepository
 {
-
     public function getAllLateCharges(){
         //instanciation queryBuilder
         $queryBuilder = $this->createQueryBuilder('a');

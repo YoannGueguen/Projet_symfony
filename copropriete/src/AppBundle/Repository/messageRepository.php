@@ -10,4 +10,14 @@ namespace AppBundle\Repository;
  */
 class messageRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getMessagesFromDiscussion($idDiscu){
+        $queryBuilder = $this->createQueryBuilder('a');
+        $queryBuilder
+            ->where('a.discussion_id == discuId')
+            ->setParameter('discuId', $idDiscu);
+        //on récup la requête
+        $query = $queryBuilder->getQuery();
+        $res = $query->getResult();
+        return $res;
+    }
 }

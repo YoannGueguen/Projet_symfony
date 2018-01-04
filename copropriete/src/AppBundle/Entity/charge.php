@@ -55,7 +55,7 @@ class charge
     private $pj_id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="user", mappedBy="charges")
+     * @ORM\ManyToMany(targetEntity="user", inversedBy="charges")
      * @ORM\JoinTable(name="utilisateurs_charges")
      */
     private $utilisateurs;
@@ -206,7 +206,7 @@ class charge
         $str = $str . $this->getDateEcheance()->format('Y-m-d H:i:s') ."  ";
         $str = $str . $this->getContratId() ."  ";
         $users = $this->getUtilisateurs();
-        foreach ($users as &$user) {
+        foreach ($users as $user) {
             $str= $str . $user . ',';
         }
         return $str;

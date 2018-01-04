@@ -10,6 +10,7 @@ namespace AppBundle\Commands;
 
 
 use Symfony\Bridge\PhpUnit\Legacy\Command;
+use AppBundle\Repository\chargeRepository;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -35,15 +36,15 @@ class ChargesEnRetardCommand extends ContainerAwareCommand
     {
         $output->writeln([
             'Liste des charges en retard :',
-            '=============================================',
+            '=====================================================================================',
             "'Id  |  Titre  |  Statut  |  Montant  |  date d'échéance   |  Utilisateurs concernés",
-            '============================================='
+            '====================================================================================='
         ]);
 
         $doctrine = $this->getContainer()->get('doctrine');
         $repoCharge = $doctrine->getEntityManager()->getRepository('AppBundle:charge');
         $charges = $repoCharge->getAllLateCharges();
-        foreach ($charges as &$value) {
+        foreach ($charges as $value) {
             $output->writeln("");
             $output->writeln($value->__toString());
         }
