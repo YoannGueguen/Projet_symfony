@@ -56,24 +56,21 @@
 }
 /*END MENU*/
 /*INDEX*/
-#div_index_img{
-    height:500px;
-    width:100%;
-    display:block;
-}
 .block{
     border-radius: 5px;
     box-shadow: 5px 5px 5px 5px #aaa;
     background-color: #ffffff;
 }
 #div_message{
-    height:600px;
+    height:500px;
+    margin-right: 20px;
 }
 #div_projet{
     height:500px;
+    margin-right: 20px;
 }
 #div_charge{
-    height:400px;
+    height:500px;
 }
 .table_list tr td, .table_list tr th{
     text-align: center;
@@ -85,4 +82,10 @@
 
 .table_list tr th{
     background-color: orange;
+}
+table th, table tr td{
+    margin-left: 10px;
+}
+table{
+    width: 100%;
 }
