@@ -49,9 +49,9 @@ class charge
     private $contrat_id;
 
     /**
-     * @ORM\OneToOne(targetEntity="piece_jointe", orphanRemoval=true)
-     * @ORM\JoinColumn(nullable=true)
-     */
+ * @ORM\OneToOne(targetEntity="piece_jointe", orphanRemoval=true)
+ * @ORM\JoinColumn(nullable=true)
+ */
     private $pj_id;
 
     /**
