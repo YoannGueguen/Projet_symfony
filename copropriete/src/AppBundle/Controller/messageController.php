@@ -3,9 +3,11 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\message;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Message controller.
@@ -40,11 +42,14 @@ class messageController extends Controller
     public function newAction(Request $request)
     {
         $message = new Message();
+        $options = array('current_user' => $this->getUser());
         $form = $this->createForm('AppBundle\Form\messageType', $message);
         $form->handleRequest($request);
-
+        //$form->setData($this->getUser());
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $message = $form->getData();
+            //$message->setDiscussion($message->getDiscussion());
             $em->persist($message);
             $em->flush();
 
@@ -53,7 +58,7 @@ class messageController extends Controller
 
         return $this->render('message/new.html.twig', array(
             'message' => $message,
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ));
     }
 

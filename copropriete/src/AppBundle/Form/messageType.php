@@ -2,9 +2,12 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\message;
+use AppBundle\Entity\user;
 use Doctrine\DBAL\Types\TextType;
 use FOS\UserBundle\Controller\SecurityController;
 use SensioLabs\Security\SecurityChecker;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -36,8 +39,8 @@ class messageType extends AbstractType
         if($this->secu->isGranted('ROLE_MANAGER')) {
             $builder->add('archive', CheckboxType::class, array( 'empty_data' => 'No', 'required' => false));
         }
-        $builder->add('user_id');
         $builder->add('discussion_id');
+
     }
     
     /**
