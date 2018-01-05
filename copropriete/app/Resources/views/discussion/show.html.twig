@@ -1,21 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Discussion</h1>
-
+    <h1>Discussion {{ discussion.nom }}</h1>
+    <div>Date de création : {% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d H:i:s') }}{% endif %}</div>
     <table>
         <tbody>
             <!--<tr>
                 <th>Id</th>
                 <td>{{ discussion.id }}</td>
             </tr>-->
-            <tr>
-                <td><b>{{ discussion.nom }}</b></td>
-                <td>{% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
-                {% if is_granted('ROLE_MANAGER') %}
-                <td>Action</td>
-                {% endif %}
-            </tr>
             {% for message in messages %}
             <tr>
                 <td>{{ message.contenu }}</td>
@@ -41,12 +34,12 @@
             <a href="{{ path('discussion_index') }}">Retour aux discussions</a>
         </li>
         <li>
-            <a href="{{ path('discussion_edit', { 'id': discussion.id }) }}">Edit</a>
+            <a href="{{ path('discussion_edit', { 'id': discussion.id }) }}">Modifier discussion</a>
         </li>
         {% if is_granted('ROLE_MANAGER') %}
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer discussion">
             {{ form_end(delete_form) }}
         </li>
         {% endif %}

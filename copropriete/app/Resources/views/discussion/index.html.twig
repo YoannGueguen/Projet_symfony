@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Discussions list</h1>
+    <h1>Liste discussions</h1>
 
     <table class="table_list">
         <thead>
@@ -23,14 +23,14 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('discussion_show', { 'id': discussion.id }) }}">show</a>
+                            <a href="{{ path('discussion_show', { 'id': discussion.id }) }}">afficher</a>
                         </li>
                         {% if is_granted('ROLE_MANAGER') %}
                         <li>
-                            <a href="{{ path('discussion_edit', { 'id': discussion.id }) }}">edit</a>
+                            <a href="{{ path('discussion_edit', { 'id': discussion.id }) }}">modifier discussion</a>
                         </li>
                         <li>
-                            <a href="{{ path('discussion_delete', { 'id': discussion.id }) }}">delete</a>
+                            <a href="{{ path('discussion_delete', { 'id': discussion.id }) }}">supprimer discussion</a>
                         </li>
                         {%  endif %}
                     </ul>
