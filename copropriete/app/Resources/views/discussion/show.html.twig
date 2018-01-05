@@ -10,20 +10,35 @@
                 <td>{{ discussion.id }}</td>
             </tr>-->
             <tr>
-                <td>{{ discussion.nom }}</td>
+                <td><b>{{ discussion.nom }}</b></td>
                 <td>{% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
+                {% if is_granted('ROLE_MANAGER') %}
+                <td>Action</td>
+                {% endif %}
             </tr>
             {% for message in messages %}
             <tr>
                 <td>{{ message.contenu }}</td>
+                <td></td>
+                {% if is_granted('ROLE_MANAGER') %}
+                <td>
+                    <li>
+                        <a href="{{ path('message_edit', { 'id': message.id }) }}">edit</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('message_delete', { 'id': message.id }) }}">delete</a>
+                    </li>
+                </td>
+                {% endif %}
             </tr>
             {% endfor %}
         </tbody>
     </table>
 
     <ul>
+        <li><a href="{{ path('message_new') }}">Créer un nouveau message</a></li>
         <li>
-            <a href="{{ path('discussion_index') }}">Back to the list</a>
+            <a href="{{ path('discussion_index') }}">Retour aux discussions</a>
         </li>
         <li>
             <a href="{{ path('discussion_edit', { 'id': discussion.id }) }}">Edit</a>
