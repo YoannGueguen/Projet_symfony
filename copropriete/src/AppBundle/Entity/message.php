@@ -3,7 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * message
  *
@@ -42,6 +42,8 @@ class message
     private $date;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(min=20)
      * @ORM\Column(name="contenu", type="string", length=2048)
      */
     private $contenu;

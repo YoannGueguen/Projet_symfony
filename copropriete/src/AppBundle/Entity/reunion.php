@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * reunion
  *
@@ -23,6 +23,8 @@ class reunion
     private $id;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(min=2)
      * @ORM\Column(name="titre", type="string", length=255)
      */
     private $titre;

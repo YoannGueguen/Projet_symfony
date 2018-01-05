@@ -3,7 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * note
  *
@@ -22,11 +22,15 @@ class note
     private $id;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(min=2)
      * @ORM\Column(name="titre", type="string", length=255)
      */
     private $titre;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(min=2)
      * @ORM\Column(name="description", type="string", length=512)
      */
     private $description;

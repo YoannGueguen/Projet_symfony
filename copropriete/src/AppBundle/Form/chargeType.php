@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,11 +18,11 @@ class chargeType extends AbstractType
     {
         $builder->add('titre')
             ->add('date_echeance')
-            ->add('montant')
+            ->add('montant', MoneyType::class)
             ->add('statut', ChoiceType::class, array(
         'choices'  => array(
-            'En cours' => 'En cours',
-            'Validé' => 'Validé',
+            'A payer' => 'A payer',
+            'Payé' => 'Payé',
         )))
             ->add('contrat_id')
             ->add('pj_id')

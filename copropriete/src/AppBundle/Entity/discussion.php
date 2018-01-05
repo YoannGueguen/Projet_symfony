@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * discussion
  *
@@ -38,6 +39,8 @@ class discussion
     private $id;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(min=2)
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;

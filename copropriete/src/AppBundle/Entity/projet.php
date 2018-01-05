@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * projet
  *
@@ -23,11 +23,17 @@ class projet
     private $id;
 
     /**
+     * @Assert\NotBlank()
+     *@Assert\Length(min=2)
+     * @Assert\Length(max=255)
      * @ORM\Column(name="titre", type="string", length=255)
      */
     private $titre;
 
     /**
+     * @Assert\NotBlank()
+     *@Assert\Length(min=20)
+     * @Assert\Length(max=512)
      * @ORM\Column(name="description", type="string", length=512)
      */
     private $description;
