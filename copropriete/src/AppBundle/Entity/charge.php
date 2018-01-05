@@ -24,8 +24,6 @@ class charge
     private $id;
 
     /**
-     *@Assert\NotBlank()
-     *@Assert\Length(min=2)
      * @ORM\Column(name="titre", type="string", length=255)
      */
     private $titre;
@@ -36,7 +34,6 @@ class charge
     private $date_echeance;
 
     /**
-     * @Assert\NotBlank()
      * @ORM\Column(name="montant", type="decimal", scale=2)
      */
     private $montant;

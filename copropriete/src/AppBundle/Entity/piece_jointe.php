@@ -23,7 +23,7 @@ class piece_jointe
     private $id;
 
     /**
-     * @ORM\Column(name="url", type="string", length=512)
+     * @ORM\Column(name="url", type="string")
      */
     private $url;
 

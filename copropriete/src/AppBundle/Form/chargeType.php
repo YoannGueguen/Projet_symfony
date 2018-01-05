@@ -2,9 +2,11 @@
 
 namespace AppBundle\Form;
 
+//use AppBundle\DataTransformer\FilePathToFileTransformer;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -27,6 +29,8 @@ class chargeType extends AbstractType
             ->add('contrat_id')
             ->add('pj_id')
             ->add('utilisateurs');
+        //$builder->get('pj_id')
+         //   ->addModelTransformer($this->transformer);
     }
     
     /**
@@ -38,7 +42,13 @@ class chargeType extends AbstractType
             'data_class' => 'AppBundle\Entity\charge'
         ));
     }
-
+    private $transformer;
+/**
+    public function __construct(FilePathToFileTransformer $transformer)
+    {
+        $this->transformer = $transformer;
+    }
+*/
     /**
      * {@inheritdoc}
      */

@@ -42,7 +42,18 @@ class chargeController extends Controller
         $charge = new Charge();
         $form = $this->createForm('AppBundle\Form\chargeType', $charge);
         $form->handleRequest($request);
+/**
+        $file = $charge->getPjId();
 
+        // Generate a unique name for the file before saving it
+        $fileName = md5(uniqid()).'.'.$file->guessExtension();
+        $file->move(
+            $this->getParameter('brochures_directory'),
+            $fileName
+        );
+        $charge->setPjId($fileName);
+
+*/
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($charge);
