@@ -65,6 +65,39 @@ class messageController extends Controller
     }
 
     /**
+     * Creates a new message entity.
+     *
+     * @Route("/newm", name="message_new_discu")
+     * @ParamConverter("discussion", class="AppBundle:discussion")
+     * @Method({"GET", "POST"})
+     */
+    public function newAlterAction(Request $request, discussion $options)
+    {
+        $message = new Message();
+        //$discu = $options[0];
+        //$discuId = substr($request->getUri(), -1);
+        //$options = array('current_user' => $this->getUser());
+        $form = $this->createForm('AppBundle\Form\messageType', $message);
+        $form->handleRequest($request);
+        $message = $form->getData();
+        //remplissage auto des champs
+        $message->setUserId($this->getUser());
+        $message->setDiscussionId($discu);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($message);
+            $em->flush();
+
+            return $this->redirectToRoute('message_show', array('id' => $message->getId()));
+        }
+
+        return $this->render('message/new.html.twig', array(
+            'message' => $message,
+            'form' => $form->createView()
+        ));
+    }
+
+    /**
      * Finds and displays a message entity.
      *
      * @Route("/{id}", name="message_show")
