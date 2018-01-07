@@ -26,15 +26,12 @@
 
     <ul>
         <li>
-            <a href="{{ path('message_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('message_edit', { 'id': message.id }) }}">Edit</a>
+            <a href="{{ path('message_edit', { 'id': message.id }) }}">Modifier le message</a>
         </li>
         {% if is_granted('ROLE_MANAGER') %}
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
         {% endif %}

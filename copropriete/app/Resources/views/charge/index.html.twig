@@ -6,7 +6,6 @@
     <table class="table_list">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Titre</th>
                 <th>Date_echeance</th>
                 <th>Montant</th>
@@ -17,22 +16,21 @@
         <tbody>
         {% for charge in charges %}
             <tr>
-                <td><a href="{{ path('charge_show', { 'id': charge.id }) }}">{{ charge.id }}</a></td>
-                <td>{{ charge.titre }}</td>
+                <td><a href="{{ path('charge_show', { 'id': charge.id }) }}">{{ charge.titre }}</a></td>
                 <td>{% if charge.dateecheance %}{{ charge.dateecheance|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ charge.montant }}</td>
                 <td>{{ charge.statut }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('charge_show', { 'id': charge.id }) }}">show</a>
+                            <a href="{{ path('charge_show', { 'id': charge.id }) }}">Afficher</a>
                         </li>
                         {% if is_granted('ROLE_MANAGER') %}
                         <li>
-                            <a href="{{ path('charge_edit', { 'id': charge.id }) }}">edit</a>
+                            <a href="{{ path('charge_edit', { 'id': charge.id }) }}">Modifier</a>
                         </li>
                         <li>
-                            <a href="{{ path('charge_delete', { 'id': charge.id }) }}">delete</a>
+                            <a href="{{ path('charge_delete', { 'id': charge.id }) }}">Supprimer</a>
                         </li>
                         {% endif %}
                     </ul>
@@ -44,7 +42,7 @@
 {% if is_granted('ROLE_MANAGER') %}
     <ul>
         <li>
-            <a href="{{ path('charge_new') }}">Create a new charge</a>
+            <a href="{{ path('charge_new') }}">Créer une nouvelle charge</a>
         </li>
     </ul>
 {% endif %}

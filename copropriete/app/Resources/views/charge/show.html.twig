@@ -6,10 +6,6 @@
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ charge.id }}</td>
-            </tr>
-            <tr>
                 <th>Titre</th>
                 <td>{{ charge.titre }}</td>
             </tr>
@@ -30,15 +26,15 @@
 
     <ul>
         <li>
-            <a href="{{ path('charge_index') }}">Back to the list</a>
+            <a href="{{ path('charge_index') }}">Retour aux charges</a>
         </li>
         {% if is_granted('ROLE_MANAGER') %}
         <li>
-            <a href="{{ path('charge_edit', { 'id': charge.id }) }}">Edit</a>
+            <a href="{{ path('charge_edit', { 'id': charge.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer charge">
             {{ form_end(delete_form) }}
         </li>
         {% endif %}

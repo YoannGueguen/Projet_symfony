@@ -6,18 +6,16 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Date</th>
                 <th>Contenu</th>
+                <th>Date</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for message in messages %}
             <tr>
-                <td><a href="{{ path('message_show', { 'id': message.id }) }}">{{ message.id }}</a></td>
+                <td><a href="{{ path('message_show', { 'id': message.id }) }}">{{ message.contenu }}</a></td>
                 <td>{% if message.date %}{{ message.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ message.contenu }}</td>
                 <td>
                     <ul>
                         <li>
@@ -38,7 +36,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('message_new') }}">Create a new message</a>
+            <a href="{{ path('message_new') }}">Créer un nouveau message</a>
         </li>
     </ul>
 {% endblock %}

@@ -15,10 +15,10 @@
                 {% if is_granted('ROLE_MANAGER') %}
                 <td>
                     <li>
-                        <a href="{{ path('message_edit', { 'id': message.id }) }}">Modifier</a>
+                        <a href="{{ path('message_edit', { 'id': message.id }) }}">Modifier discussion</a>
                     </li>
                     <li>
-                        <a href="{{ path('message_delete', { 'id': message.id }) }}">Supprimer</a>
+                        <a href="{{ path('message_delete', { 'id': message.id }) }}">Supprimer discussion</a>
                     </li>
                 </td>
                 {% endif %}
