@@ -21,9 +21,9 @@
                  abstract="true"
             >
             <argument /> <!-- Simple Authenticator -->
-            <argument /> <!-- user Provider -->
+            <argument /> <!-- User Provider -->
             <argument /> <!-- Provider-shared Key -->
-            <argument /> <!-- user Checker -->
+            <argument /> <!-- User Checker -->
         </service>
 
         <service id="security.authentication.listener.guard"

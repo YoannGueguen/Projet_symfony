@@ -37,7 +37,7 @@ class UserPasswordEncoderCommand extends ContainerAwareCommand
     public function __construct(EncoderFactoryInterface $encoderFactory = null, array $userClasses = array())
     {
         if (null === $encoderFactory) {
-            @trigger_error(sprintf('Passing null as the first argument of "%s" is deprecated since version 3.3 and will be removed in 4.0. If the command was registered by convention, make it a service instead.', __METHOD__), E_USER_DEPRECATED);
+            @trigger_error(sprintf('Passing null as the first argument of "%s" is deprecated since Symfony 3.3 and will be removed in 4.0. If the command was registered by convention, make it a service instead.', __METHOD__), E_USER_DEPRECATED);
         }
 
         $this->encoderFactory = $encoderFactory;
@@ -53,7 +53,7 @@ class UserPasswordEncoderCommand extends ContainerAwareCommand
      */
     protected function getContainer()
     {
-        @trigger_error(sprintf('Method "%s" is deprecated since version 3.3 and "%s" won\'t extend "%s" nor implement "%s" anymore in 4.0.', __METHOD__, __CLASS__, ContainerAwareCommand::class, ContainerAwareInterface::class), E_USER_DEPRECATED);
+        @trigger_error(sprintf('Method "%s" is deprecated since Symfony 3.3 and "%s" won\'t extend "%s" nor implement "%s" anymore in 4.0.', __METHOD__, __CLASS__, ContainerAwareCommand::class, ContainerAwareInterface::class), E_USER_DEPRECATED);
 
         return parent::getContainer();
     }
@@ -67,7 +67,7 @@ class UserPasswordEncoderCommand extends ContainerAwareCommand
             ->setName('security:encode-password')
             ->setDescription('Encodes a password.')
             ->addArgument('password', InputArgument::OPTIONAL, 'The plain password to encode.')
-            ->addArgument('user-class', InputArgument::OPTIONAL, 'The user entity class path associated with the encoder used to encode the password.')
+            ->addArgument('user-class', InputArgument::OPTIONAL, 'The User entity class path associated with the encoder used to encode the password.')
             ->addOption('empty-salt', null, InputOption::VALUE_NONE, 'Do not generate a salt or let the encoder generate one.')
             ->setHelp(<<<EOF
 

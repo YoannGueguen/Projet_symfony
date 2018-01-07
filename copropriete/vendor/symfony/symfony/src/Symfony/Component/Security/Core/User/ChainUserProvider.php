@@ -15,7 +15,7 @@ use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 
 /**
- * Chain user Provider.
+ * Chain User Provider.
  *
  * This provider calls several leaf providers in a chain until one is able to
  * handle the request.

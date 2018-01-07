@@ -55,7 +55,7 @@ class MySqlSchemaManager extends AbstractSchemaManager
     protected function _getPortableUserDefinition($user)
     {
         return array(
-            'user' => $user['user'],
+            'user' => $user['User'],
             'password' => $user['Password'],
         );
     }

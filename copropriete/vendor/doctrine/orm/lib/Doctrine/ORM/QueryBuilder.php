@@ -163,7 +163,7 @@ class QueryBuilder
      *     $qb = $em->createQueryBuilder();
      *     $qb
      *         ->select('u')
-     *         ->from('user', 'u')
+     *         ->from('User', 'u')
      *         ->where($qb->expr()->eq('u.id', 1));
      * </code>
      *
@@ -298,8 +298,8 @@ class QueryBuilder
      * <code>
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u');
-     *     echo $qb->getDql(); // SELECT u FROM user u
+     *         ->from('User', 'u');
+     *     echo $qb->getDql(); // SELECT u FROM User u
      * </code>
      *
      * @return string The DQL query string.
@@ -337,7 +337,7 @@ class QueryBuilder
      * <code>
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u');
+     *         ->from('User', 'u');
      *     $q = $qb->getQuery();
      *     $results = $q->execute();
      * </code>
@@ -405,7 +405,7 @@ class QueryBuilder
      * <code>
      * $qb = $em->createQueryBuilder()
      *     ->select('u')
-     *     ->from('user', 'u');
+     *     ->from('User', 'u');
      *
      * echo $qb->getRootAlias(); // u
      * </code>
@@ -433,7 +433,7 @@ class QueryBuilder
      * <code>
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u');
+     *         ->from('User', 'u');
      *
      *     $qb->getRootAliases(); // array('u')
      * </code>
@@ -466,7 +466,7 @@ class QueryBuilder
      * <code>
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u')
+     *         ->from('User', 'u')
      *         ->join('u.articles','a';
      *
      *     $qb->getAllAliases(); // array('u','a')
@@ -484,9 +484,9 @@ class QueryBuilder
      * <code>
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u');
+     *         ->from('User', 'u');
      *
-     *     $qb->getRootEntities(); // array('user')
+     *     $qb->getRootEntities(); // array('User')
      * </code>
      *
      * @return array
@@ -516,7 +516,7 @@ class QueryBuilder
      * <code>
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u')
+     *         ->from('User', 'u')
      *         ->where('u.id = :user_id')
      *         ->setParameter('user_id', 1);
      * </code>
@@ -548,7 +548,7 @@ class QueryBuilder
      * <code>
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u')
+     *         ->from('User', 'u')
      *         ->where('u.id = :user_id1 OR u.id = :user_id2')
      *         ->setParameters(new ArrayCollection(array(
      *             new Parameter('user_id1', 1),
@@ -727,7 +727,7 @@ class QueryBuilder
      * <code>
      *     $qb = $em->createQueryBuilder()
      *         ->select('u', 'p')
-     *         ->from('user', 'u')
+     *         ->from('User', 'u')
      *         ->leftJoin('u.Phonenumbers', 'p');
      * </code>
      *
@@ -755,7 +755,7 @@ class QueryBuilder
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
      *         ->distinct()
-     *         ->from('user', 'u');
+     *         ->from('User', 'u');
      * </code>
      *
      * @param bool $flag
@@ -776,7 +776,7 @@ class QueryBuilder
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
      *         ->addSelect('p')
-     *         ->from('user', 'u')
+     *         ->from('User', 'u')
      *         ->leftJoin('u.Phonenumbers', 'p');
      * </code>
      *
@@ -803,7 +803,7 @@ class QueryBuilder
      *
      * <code>
      *     $qb = $em->createQueryBuilder()
-     *         ->delete('user', 'u')
+     *         ->delete('User', 'u')
      *         ->where('u.id = :user_id')
      *         ->setParameter('user_id', 1);
      * </code>
@@ -830,7 +830,7 @@ class QueryBuilder
      *
      * <code>
      *     $qb = $em->createQueryBuilder()
-     *         ->update('user', 'u')
+     *         ->update('User', 'u')
      *         ->set('u.password', md5('password'))
      *         ->where('u.id = ?');
      * </code>
@@ -858,7 +858,7 @@ class QueryBuilder
      * <code>
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u');
+     *         ->from('User', 'u');
      * </code>
      *
      * @param string $from    The class name.
@@ -885,7 +885,7 @@ class QueryBuilder
      *
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u', 'u.id');
+     *         ->from('User', 'u', 'u.id');
      * </code>
      *
      * @param string $alias   The root alias of the class.
@@ -926,7 +926,7 @@ class QueryBuilder
      * <code>
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u')
+     *         ->from('User', 'u')
      *         ->join('u.Phonenumbers', 'p', Expr\Join::WITH, 'p.is_primary = 1');
      * </code>
      *
@@ -953,7 +953,7 @@ class QueryBuilder
      *     [php]
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u')
+     *         ->from('User', 'u')
      *         ->innerJoin('u.Phonenumbers', 'p', Expr\Join::WITH, 'p.is_primary = 1');
      *
      * @param string      $join          The relationship to join.
@@ -987,7 +987,7 @@ class QueryBuilder
      * <code>
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u')
+     *         ->from('User', 'u')
      *         ->leftJoin('u.Phonenumbers', 'p', Expr\Join::WITH, 'p.is_primary = 1');
      * </code>
      *
@@ -1017,7 +1017,7 @@ class QueryBuilder
      *
      * <code>
      *     $qb = $em->createQueryBuilder()
-     *         ->update('user', 'u')
+     *         ->update('User', 'u')
      *         ->set('u.password', md5('password'))
      *         ->where('u.id = ?');
      * </code>
@@ -1039,7 +1039,7 @@ class QueryBuilder
      * <code>
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u')
+     *         ->from('User', 'u')
      *         ->where('u.id = ?');
      *
      *     // You can optionally programatically build and/or expressions
@@ -1049,7 +1049,7 @@ class QueryBuilder
      *     $or->add($qb->expr()->eq('u.id', 1));
      *     $or->add($qb->expr()->eq('u.id', 2));
      *
-     *     $qb->update('user', 'u')
+     *     $qb->update('User', 'u')
      *         ->set('u.password', md5('password'))
      *         ->where($or);
      * </code>
@@ -1074,7 +1074,7 @@ class QueryBuilder
      * <code>
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u')
+     *         ->from('User', 'u')
      *         ->where('u.username LIKE ?')
      *         ->andWhere('u.is_active = 1');
      * </code>
@@ -1107,7 +1107,7 @@ class QueryBuilder
      * <code>
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u')
+     *         ->from('User', 'u')
      *         ->where('u.id = 1')
      *         ->orWhere('u.id = 2');
      * </code>
@@ -1140,7 +1140,7 @@ class QueryBuilder
      * <code>
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u')
+     *         ->from('User', 'u')
      *         ->groupBy('u.id');
      * </code>
      *
@@ -1159,7 +1159,7 @@ class QueryBuilder
      * <code>
      *     $qb = $em->createQueryBuilder()
      *         ->select('u')
-     *         ->from('user', 'u')
+     *         ->from('User', 'u')
      *         ->groupBy('u.lastLogin')
      *         ->addGroupBy('u.createdAt');
      * </code>

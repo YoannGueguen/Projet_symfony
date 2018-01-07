@@ -94,7 +94,7 @@ class GuardAuthenticatorHandler
      */
     public function authenticateUserAndHandleSuccess(UserInterface $user, Request $request, GuardAuthenticatorInterface $authenticator, $providerKey)
     {
-        // create an authenticated token for the user
+        // create an authenticated token for the User
         $token = $authenticator->createAuthenticatedToken($user, $providerKey);
         // authenticate this in the system
         $this->authenticateWithToken($token, $request);

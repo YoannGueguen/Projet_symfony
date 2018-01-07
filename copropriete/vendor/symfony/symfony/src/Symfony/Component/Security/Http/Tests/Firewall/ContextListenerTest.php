@@ -49,7 +49,7 @@ class ContextListenerTest extends TestCase
 
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage user provider "stdClass" must implement "Symfony\Component\Security\Core\user\UserProviderInterface
+     * @expectedExceptionMessage User provider "stdClass" must implement "Symfony\Component\Security\Core\User\UserProviderInterface
      */
     public function testUserProvidersNeedToImplementAnInterface()
     {
