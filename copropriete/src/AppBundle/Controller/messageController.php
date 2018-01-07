@@ -68,10 +68,9 @@ class messageController extends Controller
      * Creates a new message entity.
      *
      * @Route("/newm", name="message_new_discu")
-     * @ParamConverter("discussion", class="AppBundle:discussion")
      * @Method({"GET", "POST"})
      */
-    public function newAlterAction(Request $request, discussion $options)
+    public function newAlterAction(Request $request, discussion $discussion)
     {
         $message = new Message();
         //$discu = $options[0];
