@@ -70,24 +70,23 @@ class messageController extends Controller
      * @Route("/newm", name="message_new_discu")
      * @Method({"GET", "POST"})
      */
-    public function newAlterAction(Request $request, discussion $discussion)
+    public function newAlterAction(Request $request)
     {
         $message = new Message();
-        //$discu = $options[0];
-        //$discuId = substr($request->getUri(), -1);
-        //$options = array('current_user' => $this->getUser());
+        $discuId = substr($request->getUri(), -1);
         $form = $this->createForm('AppBundle\Form\messageType', $message);
         $form->handleRequest($request);
         $message = $form->getData();
         //remplissage auto des champs
         $message->setUserId($this->getUser());
+        $discu =$this->getDoctrine()->getManager()->getRepository('AppBundle:discussion')->find($discuId);
         $message->setDiscussionId($discu);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($message);
             $em->flush();
 
-            return $this->redirectToRoute('message_show', array('id' => $message->getId()));
+            return $this->redirectToRoute('discussion_show', array('id' => $discu->getId()));
         }
 
         return $this->render('message/new.html.twig', array(
