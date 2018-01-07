@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Contrat</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ contrat.nom }}</td>
+            </tr>
+            <tr>
+                <th>Date_signature</th>
+                <td>{% if contrat.datesignature %}{{ contrat.datesignature|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Date_fin</th>
+                <td>{% if contrat.datefin %}{{ contrat.datefin|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer le contrat">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

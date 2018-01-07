@@ -22,9 +22,6 @@
                 <td>{{ charge.statut }}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('charge_show', { 'id': charge.id }) }}">Afficher</a>
-                        </li>
                         {% if is_granted('ROLE_MANAGER') %}
                         <li>
                             <a href="{{ path('charge_edit', { 'id': charge.id }) }}">Modifier</a>

@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Charge creation</h1>
+    <h1>Nouvelle Charge</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
+    <a href="{{ path('contrat_new') }}">Ajouter un contrat</a>
         <input type="submit" value="Créer charge" />
     {{ form_end(form) }}
 

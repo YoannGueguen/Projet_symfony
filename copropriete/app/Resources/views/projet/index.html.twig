@@ -6,35 +6,30 @@
     <table class="table_list">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Titre</th>
                 <th>Description</th>
                 <th>Statut</th>
-                <th>Date_debut</th>
-                <th>Date_fin</th>
+                <th>Date debut</th>
+                <th>Date fin</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for projet in projets %}
             <tr>
-                <td><a href="{{ path('projet_show', { 'id': projet.id }) }}">{{ projet.id }}</a></td>
-                <td>{{ projet.titre }}</td>
+                <td><a href="{{ path('projet_show', { 'id': projet.id }) }}">{{ projet.titre }}</a></td>
                 <td>{{ projet.description }}</td>
                 <td>{{ projet.statut }}</td>
                 <td>{% if projet.datedebut %}{{ projet.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if projet.datefin %}{{ projet.datefin|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('projet_show', { 'id': projet.id }) }}">show</a>
-                        </li>
                         {% if is_granted('ROLE_MANAGER') %}
                         <li>
-                            <a href="{{ path('projet_edit', { 'id': projet.id }) }}">edit</a>
+                            <a href="{{ path('projet_edit', { 'id': projet.id }) }}">Modifier le projet</a>
                         </li>
                         <li>
-                            <a href="{{ path('projet_edit', { 'id': projet.id }) }}">edit</a>
+                            <a href="{{ path('projet_edit', { 'id': projet.id }) }}">Supprimer le projet</a>
                         </li>
                         {% endif %}
                     </ul>
@@ -46,7 +41,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('projet_new') }}">Create a new projet</a>
+            <a href="{{ path('projet_new') }}">Créer un projet</a>
         </li>
     </ul>
 {% endblock %}

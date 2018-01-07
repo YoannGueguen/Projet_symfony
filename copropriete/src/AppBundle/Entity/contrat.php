@@ -22,7 +22,7 @@ class contrat
     private $id;
 
     /**
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom", type="string")
      */
     private $nom;
 
@@ -55,11 +55,27 @@ class contrat
     }
 
     /**
+     * @param mixed $nom
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+    /**
      * @return mixed
      */
     public function getDateSignature()
     {
         return $this->date_signature;
+    }
+
+    /**
+     * @param mixed $date_signature
+     */
+    public function setDateSignature($date_signature)
+    {
+        $this->date_signature = $date_signature;
     }
 
     /**
@@ -69,6 +85,24 @@ class contrat
     {
         return $this->date_fin;
     }
+    /**
+     * @param mixed $date_fin
+     */
+    public function setDateFin($date_fin)
+    {
+        $this->date_fin = $date_fin;
+    }
 
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+    public function __toString()
+    {
+        return $this->getNom();
+    }
 }
 

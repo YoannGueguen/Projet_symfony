@@ -92,3 +92,6 @@ table{
 #appbundle_message{
 
 }
+body ul li{
+    text-decoration: none;
+}
