@@ -6,10 +6,6 @@
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ message.id }}</td>
-            </tr>
-            <tr>
                 <th>Date</th>
                 <td>{% if message.date %}{{ message.date|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
@@ -18,8 +14,12 @@
                 <td>{{ message.contenu }}</td>
             </tr>
             <tr>
-                <th>Archive</th>
-                <td>{% if message.archive %}Yes{% else %}No{% endif %}</td>
+                <th>Discussion</th>
+                <td>La discussion s'affiche pas :-( }}</td>
+            </tr>
+            <tr>
+                <th>Expéditeur</th>
+                <td></td>
             </tr>
         </tbody>
     </table>

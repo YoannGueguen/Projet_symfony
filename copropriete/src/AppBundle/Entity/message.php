@@ -20,10 +20,6 @@ class message
             $time->format('Y-m-d H:i:s');
             $this->setDate($time);
         }
-
-        if($this->archive==null){
-            $this->setArchive(false);
-        }
     }
 
     /**
@@ -43,15 +39,10 @@ class message
 
     /**
      * @Assert\NotBlank()
-     * @Assert\Length(min=20)
+     * @Assert\Length(min=10)
      * @ORM\Column(name="contenu", type="string", length=2048)
      */
     private $contenu;
-
-    /**
-     * @ORM\Column(name="archive", type="boolean", options={"default":false})
-     */
-    private $archive;
 
     /**
      * @ORM\ManyToOne(targetEntity="user")
@@ -89,22 +80,6 @@ class message
     public function getContenu()
     {
         return $this->contenu;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getArchive()
-    {
-        return $this->archive;
-    }
-
-    /**
-     * @param mixed $archive
-     */
-    public function setArchive($archive)
-    {
-        $this->archive = $archive;
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\discussion;
 use AppBundle\Entity\message;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -42,14 +43,15 @@ class messageController extends Controller
     public function newAction(Request $request)
     {
         $message = new Message();
-        $options = array('current_user' => $this->getUser());
+        //$options = array('current_user' => $this->getUser());
         $form = $this->createForm('AppBundle\Form\messageType', $message);
         $form->handleRequest($request);
-        //$form->setData($this->getUser());
+        $message = $form->getData();
+        //remplissage auto des champs
+        $message->setUserId($this->getUser());
+        //$message->setDiscussionId();
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $message = $form->getData();
-            //$message->setDiscussion($message->getDiscussion());
             $em->persist($message);
             $em->flush();
 

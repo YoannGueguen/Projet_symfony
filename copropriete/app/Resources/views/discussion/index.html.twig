@@ -9,6 +9,7 @@
                 <th>Nom</th>
                 <th>Date_debut</th>
                 <th>Type</th>
+                <th>Archive</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,6 +19,7 @@
                 <td>{{ discussion.nom }}</td>
                 <td>{% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ discussion.type }}</td>
+                <td>{% if discussion.archive %}Yes{% else %}No{% endif %}</td>
                 <td>
                     <ul>
                         <li>
