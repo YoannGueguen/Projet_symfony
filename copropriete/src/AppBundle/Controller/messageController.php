@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Swift_Mailer;
 
 /**
  * Message controller.
@@ -84,6 +85,7 @@ class messageController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($message);
+            $this->sendEmailMessageReceived($form->getData());
             $em->flush();
 
             return $this->redirectToRoute('discussion_show', array('id' => $discu->getId()));
@@ -93,6 +95,34 @@ class messageController extends Controller
             'message' => $message,
             'form' => $form->createView()
         ));
+    }
+
+    public function sendEmailMessageReceived(message $message){
+        $mail = (new \Swift_Message('Notification'))
+            ->setFrom('clorporate@gmail.com')
+            ->setTo('akeribin@gmail.com')
+            ->setBody(
+                $this->renderView(
+                // app/Resources/views/Emails/registration.html.twig
+                    'email/message.html.twig',
+                    array('name' => $this->getUser()->getUsername(),
+                        'message' =>$message->getContenu())
+                ),
+                'text/html'
+            )
+            /*
+             * If you also want to include a plaintext version of the message
+            ->addPart(
+                $this->renderView(
+                    'Emails/registration.txt.twig',
+                    array('name' => $name)
+                ),
+                'text/plain'
+            )
+            */
+        ;
+
+        $this->get('mailer')->send($mail);
     }
 
     /**
