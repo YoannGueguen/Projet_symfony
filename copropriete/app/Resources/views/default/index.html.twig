@@ -8,86 +8,89 @@
     </div>
     <br/>
     <br/>
-    {% if is_granted('ROLE_USER') or is_granted('ROLE_MANAGER') %}
-    <div class="row">
-        <div class="col-lg-1 col-md-1"></div>
-        <div class="col-lg-3 col-md-3 block" id="div_message">
-            <h4>Fil de discussion en cours</h4>
-            <table class="table_list">
-                <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Date_debut</th>
-                    <th>Type</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for discussion in discussions %}
+    {% if is_granted('ROLE_ADMIN') %}
+    {% else %}
+        {% if is_granted('ROLE_USER') %}
+        <div class="row">
+            <div class="col-lg-1 col-md-1"></div>
+            <div class="col-lg-3 col-md-3 block" id="div_message">
+                <h4>Fil de discussion en cours</h4>
+                <table class="table_list">
+                    <thead>
                     <tr>
-                        <td><a href="{{ path('discussion_show', { 'id': discussion.id }) }}">{{ discussion.nom }}</a></td>
-                        <td>{% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
-                        <td>{{ discussion.type }}</td>
+                        <th>Nom</th>
+                        <th>Date_debut</th>
+                        <th>Type</th>
                     </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <div class="col-lg-3 col-md-3 block" id="div_projet">
-            <h4>Projet en cours</h4>
-            <table class="table_list">
-                <thead>
-                <tr>
-                    <th>Titre</th>
-                    <th>Description</th>
-                    <th>Statut</th>
-                    <th>Date_debut</th>
-                    <th>Date_fin</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for projet in projets %}
+                    </thead>
+                    <tbody>
+                    {% for discussion in discussions %}
+                        <tr>
+                            <td><a href="{{ path('discussion_show', { 'id': discussion.id }) }}">{{ discussion.nom }}</a></td>
+                            <td>{% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>{{ discussion.type }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-3 col-md-3 block" id="div_projet">
+                <h4>Projet en cours</h4>
+                <table class="table_list">
+                    <thead>
                     <tr>
-                        <td><a href="{{ path('projet_show', { 'id': projet.id }) }}">{{ projet.titre }}</a></td>
-                        <td>{{ projet.description }}</td>
-                        <td>{{ projet.statut }}</td>
-                        <td>{% if projet.datedebut %}{{ projet.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
-                        <td>{% if projet.datefin %}{{ projet.datefin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <th>Titre</th>
+                        <th>Description</th>
+                        <th>Statut</th>
+                        <th>Date_debut</th>
+                        <th>Date_fin</th>
                     </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <div class="col-lg-3 col-md-3 block" id="div_charge">
-            <h4>Charges restantes</h4>
-            <table class="table_list">
-                <thead>
-                <tr>
-                    <th>Titre</th>
-                    <th>Date_echeance</th>
-                    <th>Montant</th>
-                    <th>Statut</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for charge in charges %}
+                    </thead>
+                    <tbody>
+                    {% for projet in projets %}
+                        <tr>
+                            <td><a href="{{ path('projet_show', { 'id': projet.id }) }}">{{ projet.titre }}</a></td>
+                            <td>{{ projet.description }}</td>
+                            <td>{{ projet.statut }}</td>
+                            <td>{% if projet.datedebut %}{{ projet.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>{% if projet.datefin %}{{ projet.datefin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-3 col-md-3 block" id="div_charge">
+                <h4>Charges restantes</h4>
+                <table class="table_list">
+                    <thead>
                     <tr>
-                        <td><a href="{{ path('charge_show', { 'id': charge.id }) }}">{{ charge.titre }}</a></td>
-                        <td>{% if charge.dateecheance %}{{ charge.dateecheance|date('Y-m-d H:i:s') }}{% endif %}</td>
-                        <td>{{ charge.montant }}</td>
-                        <td>{{ charge.statut }}</td>
+                        <th>Titre</th>
+                        <th>Date_echeance</th>
+                        <th>Montant</th>
+                        <th>Statut</th>
                     </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    {% for charge in charges %}
+                        <tr>
+                            <td><a href="{{ path('charge_show', { 'id': charge.id }) }}">{{ charge.titre }}</a></td>
+                            <td>{% if charge.dateecheance %}{{ charge.dateecheance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>{{ charge.montant }}</td>
+                            <td>{{ charge.statut }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <div class="row">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="row">
 
-    </div>
+        </div>
+        {% endif %}
     {% endif %}
     <br/>
     <br/>

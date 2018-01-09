@@ -37,5 +37,13 @@ monolog:
         #    type: chromephp
         #    level: info
 
-#swiftmailer:
-#    delivery_addresses: ['me@example.com']
+swiftmailer:
+  transport: '%mailer_transport%'
+  host: smtp-mail.outlook.com
+  username: null
+  password: null
+  spool:     { type: memory }
+
+web_profiler:
+    toolbar: true
+    intercept_redirects: true

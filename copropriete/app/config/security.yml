@@ -5,10 +5,11 @@ security:
             AppBundle\Entity\User: bcrypt
 
         role_hierarchy:
-            ROLE_ADMIN:       ROLE_USER
-            ROLE_MANAGER:     ROLE_USER,ROLE_MANAGER
-            ROLE_PREVIOUS_ADMIN: ROLE_USER,ROLE_MODERATOR
-            ROLE_SUPER_ADMIN: ROLE_ADMIN
+            ROLE_USER:        ROLE_USER
+            ROLE_MANAGER:     ROLE_MANAGER
+            ROLE_ADMIN:       ROLE_ADMIN
+            ROLE_PREVIOUS_ADMIN: ROLE_PREVIOUS_ADMIN
+            #ROLE_SUPER_ADMIN: ROLE_ADMIN
 
         providers:
             fos_userbundle:
@@ -28,6 +29,7 @@ security:
             - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/charge, role: ROLE_USER }
-            - { path: ^/message, role: ROLE_USER }
+            - { path: ^/projet, role: ROLE_USER }
+            #- { path: ^/message, role: ROLE_USER }
             - { path: ^/discussion, role: ROLE_USER }
             - { path: ^/admin/, role: ROLE_ADMIN }

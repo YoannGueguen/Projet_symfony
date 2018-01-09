@@ -30,7 +30,7 @@ class messageController extends Controller
 
         $messages = $em->getRepository('AppBundle:message')->findAll();
 
-        return $this->render('message/index.html.twig', array(
+        return $this->render('message/index.html.twig.twig', array(
             'messages' => $messages,
         ));
     }
@@ -59,7 +59,7 @@ class messageController extends Controller
             return $this->redirectToRoute('message_show', array('id' => $message->getId()));
         }
 
-        return $this->render('message/new.html.twig', array(
+        return $this->render('message/new.html.twig.twig', array(
             'message' => $message,
             'form' => $form->createView()
         ));
@@ -85,13 +85,13 @@ class messageController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($message);
-            $this->sendEmailMessageReceived($form->getData());
+            //$this->sendEmailMessageReceived($form->getData());
             $em->flush();
 
             return $this->redirectToRoute('discussion_show', array('id' => $discu->getId()));
         }
 
-        return $this->render('message/new.html.twig', array(
+        return $this->render('message/new.html.twig.twig', array(
             'message' => $message,
             'form' => $form->createView()
         ));
@@ -101,6 +101,7 @@ class messageController extends Controller
         $mail = (new \Swift_Message('Notification'))
             ->setFrom('clorporate@gmail.com')
             ->setTo('akeribin@gmail.com')
+            //->setBody('you should receive the mail bitch !')
             ->setBody(
                 $this->renderView(
                 // app/Resources/views/Emails/registration.html.twig
@@ -109,18 +110,7 @@ class messageController extends Controller
                         'message' =>$message->getContenu())
                 ),
                 'text/html'
-            )
-            /*
-             * If you also want to include a plaintext version of the message
-            ->addPart(
-                $this->renderView(
-                    'Emails/registration.txt.twig',
-                    array('name' => $name)
-                ),
-                'text/plain'
-            )
-            */
-        ;
+            );
 
         $this->get('mailer')->send($mail);
     }
@@ -135,7 +125,7 @@ class messageController extends Controller
     {
         $deleteForm = $this->createDeleteForm($message);
 
-        return $this->render('message/show.html.twig', array(
+        return $this->render('message/show.html.twig.twig', array(
             'message' => $message,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -159,7 +149,7 @@ class messageController extends Controller
             return $this->redirectToRoute('message_edit', array('id' => $message->getId()));
         }
 
-        return $this->render('message/edit.html.twig', array(
+        return $this->render('message/edit.html.twig.twig', array(
             'message' => $message,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

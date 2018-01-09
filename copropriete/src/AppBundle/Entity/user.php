@@ -25,5 +25,11 @@ class user extends BaseUser
     {
         $this->roles = ['ROLE_USER'];
     }
+
+    public function setRole(string $role){
+            $this->roles = [$role];
+    }
+
+
 }
 

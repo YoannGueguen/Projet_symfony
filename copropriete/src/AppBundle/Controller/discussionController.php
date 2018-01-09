@@ -28,7 +28,7 @@ class discussionController extends Controller
 
         $discussions = $em->getRepository('AppBundle:discussion')->findAll();
 
-        return $this->render('discussion/index.html.twig', array(
+        return $this->render('discussion/index.html.twig.twig', array(
             'discussions' => $discussions,
         ));
     }
@@ -53,7 +53,7 @@ class discussionController extends Controller
             return $this->redirectToRoute('discussion_show', array('id' => $discussion->getId()));
         }
 
-        return $this->render('discussion/new.html.twig', array(
+        return $this->render('discussion/new.html.twig.twig', array(
             'discussion' => $discussion,
             'form' => $form->createView(),
         ));
@@ -71,7 +71,7 @@ class discussionController extends Controller
         //on récupère les messages de la discussion
         $messages = $this->getDoctrine()->getManager()->getRepository('AppBundle:message')->getMessagesFromDiscussion($discussion->getId());
 
-        return $this->render('discussion/show.html.twig', array(
+        return $this->render('discussion/show.html.twig.twig', array(
             'discussion' => $discussion,
             'delete_form' => $deleteForm->createView(),
             'messages' => $messages,//cette ligne permet d'utiliser la liste de messages dans le fichier twig
@@ -96,7 +96,7 @@ class discussionController extends Controller
             return $this->redirectToRoute('discussion_edit', array('id' => $discussion->getId()));
         }
 
-        return $this->render('discussion/edit.html.twig', array(
+        return $this->render('discussion/edit.html.twig.twig', array(
             'discussion' => $discussion,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
