@@ -34,7 +34,7 @@ class contratController extends Controller
             return $this->redirectToRoute('contrat_show', array('id' => $contrat->getId()));
         }
 
-        return $this->render('contrat/new.html.twig.twig', array(
+        return $this->render('contrat/new.html.twig', array(
             'contrat' => $contrat,
             'form' => $form->createView(),
         ));
@@ -50,7 +50,7 @@ class contratController extends Controller
     {
         $deleteForm = $this->createDeleteForm($contrat);
 
-        return $this->render('contrat/show.html.twig.twig', array(
+        return $this->render('contrat/show.html.twig', array(
             'contrat' => $contrat,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -74,7 +74,7 @@ class contratController extends Controller
             return $this->redirectToRoute('contrat_edit', array('id' => $contrat->getId()));
         }
 
-        return $this->render('contrat/edit.html.twig.twig', array(
+        return $this->render('contrat/edit.html.twig', array(
             'contrat' => $contrat,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

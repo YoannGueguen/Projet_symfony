@@ -30,7 +30,7 @@ class messageController extends Controller
 
         $messages = $em->getRepository('AppBundle:message')->findAll();
 
-        return $this->render('message/index.html.twig.twig', array(
+        return $this->render('message/index.html.twig', array(
             'messages' => $messages,
         ));
     }
@@ -59,7 +59,7 @@ class messageController extends Controller
             return $this->redirectToRoute('message_show', array('id' => $message->getId()));
         }
 
-        return $this->render('message/new.html.twig.twig', array(
+        return $this->render('message/new.html.twig', array(
             'message' => $message,
             'form' => $form->createView()
         ));
@@ -91,7 +91,7 @@ class messageController extends Controller
             return $this->redirectToRoute('discussion_show', array('id' => $discu->getId()));
         }
 
-        return $this->render('message/new.html.twig.twig', array(
+        return $this->render('message/new.html.twig', array(
             'message' => $message,
             'form' => $form->createView()
         ));
@@ -125,7 +125,7 @@ class messageController extends Controller
     {
         $deleteForm = $this->createDeleteForm($message);
 
-        return $this->render('message/show.html.twig.twig', array(
+        return $this->render('message/show.html.twig', array(
             'message' => $message,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -149,7 +149,7 @@ class messageController extends Controller
             return $this->redirectToRoute('message_edit', array('id' => $message->getId()));
         }
 
-        return $this->render('message/edit.html.twig.twig', array(
+        return $this->render('message/edit.html.twig', array(
             'message' => $message,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

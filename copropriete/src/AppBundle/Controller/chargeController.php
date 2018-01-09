@@ -26,7 +26,7 @@ class chargeController extends Controller
 
         $charges = $em->getRepository('AppBundle:charge')->findAll();
 
-        return $this->render('charge/index.html.twig.twig', array(
+        return $this->render('charge/index.html.twig', array(
             'charges' => $charges,
         ));
     }
@@ -51,7 +51,7 @@ class chargeController extends Controller
             return $this->redirectToRoute('charge_show', array('id' => $charge->getId()));
         }
 
-        return $this->render('charge/new.html.twig.twig', array(
+        return $this->render('charge/new.html.twig', array(
             'charge' => $charge,
             'form' => $form->createView(),
         ));
@@ -67,7 +67,7 @@ class chargeController extends Controller
     {
         $deleteForm = $this->createDeleteForm($charge);
 
-        return $this->render('charge/show.html.twig.twig', array(
+        return $this->render('charge/show.html.twig', array(
             'charge' => $charge,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -91,7 +91,7 @@ class chargeController extends Controller
             return $this->redirectToRoute('charge_edit', array('id' => $charge->getId()));
         }
 
-        return $this->render('charge/edit.html.twig.twig', array(
+        return $this->render('charge/edit.html.twig', array(
             'charge' => $charge,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
