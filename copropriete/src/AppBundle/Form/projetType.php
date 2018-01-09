@@ -25,6 +25,8 @@ class projetType extends AbstractType
                 )))
             ->add('date_debut')
             ->add('date_fin')
+            ->add('discu_id')
+            ->add('pj_id')
             ->add('utilisateurs');
     }
     
