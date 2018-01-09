@@ -35,6 +35,6 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
-   # AppBundle\DataTransformer\FilePathToFileTransformer:
-    #            arguments:
-     #               $uploadDirectory: '%upload_directory%'
+    AppBundle\DataTransformer\FilePathToFileTransformer:
+                arguments:
+                    $uploadDirectory: '../../web/file'

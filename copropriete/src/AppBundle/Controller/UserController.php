@@ -5,15 +5,14 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\user;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
- * user controller.
+ * User controller.
  *
  * @Route("user")
  */
-class UserController extends Controller
+class userController extends Controller
 {
     /**
      * Lists all user entities.
@@ -40,8 +39,8 @@ class UserController extends Controller
      */
     public function newAction(Request $request)
     {
-        $user = new user();
-        $form = $this->createForm('AppBundle\Form\UserType', $user);
+        $user = new User();
+        $form = $this->createForm('AppBundle\Form\userType', $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -83,7 +82,7 @@ class UserController extends Controller
     public function editAction(Request $request, user $user)
     {
         $deleteForm = $this->createDeleteForm($user);
-        $editForm = $this->createForm('AppBundle\Form\UserType', $user);
+        $editForm = $this->createForm('AppBundle\Form\userType', $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {

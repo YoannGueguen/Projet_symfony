@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Fonds list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fond in fonds %}
+            <tr>
+                <td><a href="{{ path('fond_show', { 'id': fond.id }) }}">{{ fond.id }}</a></td>
+                <td>{{ fond.titre }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('fond_show', { 'id': fond.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fond_edit', { 'id': fond.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('fond_new') }}">Create a new fond</a>
+        </li>
+    </ul>
+{% endblock %}
