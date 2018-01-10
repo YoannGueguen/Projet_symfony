@@ -42,7 +42,7 @@ class userController extends Controller
         $user = new User();
         $form = $this->createForm('AppBundle\Form\userType', $user);
         $form->handleRequest($request);
-
+        $form->getData()->setEnabled(1);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
@@ -70,6 +70,18 @@ class userController extends Controller
         return $this->render('user/show.html.twig', array(
             'user' => $user,
             'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     *
+     * @Route("/profil/{id}", name="user_show_profil")
+     * @Method("GET")
+     */
+    public function showProfilAction(user $user)
+    {
+        return $this->render('user/show_profil.html.twig', array(
+            'user' => $user
         ));
     }
 

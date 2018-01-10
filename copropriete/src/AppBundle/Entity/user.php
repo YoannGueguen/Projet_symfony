@@ -25,11 +25,15 @@ class user extends BaseUser
     {
         $this->roles = ['ROLE_USER'];
     }
-
-    public function setRole(string $role){
-            $this->roles = [$role];
+/*
+    public function getRoles()
+    {
+        return $this->roles;
     }
 
-
+    public function setRoles(array $roles)
+    {
+        return $this->roles = $roles;
+    }*/
 }
 

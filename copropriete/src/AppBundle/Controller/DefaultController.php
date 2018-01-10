@@ -29,6 +29,7 @@ class DefaultController extends Controller
             'projets' => $projets,
             'discussions' => $discussions,
             'charges' => $charges,
+            'user' => $this->getUser(),
 
         ]);
     }
