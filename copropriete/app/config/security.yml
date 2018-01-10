@@ -33,3 +33,5 @@ security:
             #- { path: ^/message, role: ROLE_USER }
             - { path: ^/discussion, role: ROLE_USER }
             - { path: ^/admin/, role: ROLE_ADMIN }
+            - { path: ^/versement/, role: ROLE_MANAGER }
+            - { path: ^/fond/, role: ROLE_USER }

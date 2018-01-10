@@ -34,12 +34,6 @@ class piece_jointe
     private $projet_id;
 
     /**
-     * @ORM\OneToMany(targetEntity="versement", mappedBy="piece_jointe")
-     * @ORM\JoinColumn(name="versement_id", referencedColumnName="id")
-     */
-    private $versement_id;
-
-    /**
      * @ORM\OneToMany(targetEntity="message", mappedBy="piece_jointe")
      * @ORM\JoinColumn(name="message_id", referencedColumnName="id")
      */

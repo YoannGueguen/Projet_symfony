@@ -28,10 +28,10 @@ class chargeType extends AbstractType
             'Payé' => 'Payé',
         )))
             ->add('contrat_id')
-            ->add('pj_id')
-            //->add('pj_id', FileType::class)
+            //->add('pj_id')
+            ->add('pj_id', FileType::class)
             ->add('utilisateurs');
-        //$builder->get('pj_id')
+        //->get('pj_id')
             //->addModelTransformer($this->transformer);
     }
     

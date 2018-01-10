@@ -6,10 +6,6 @@
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ fond.id }}</td>
-            </tr>
-            <tr>
                 <th>Titre</th>
                 <td>{{ fond.titre }}</td>
             </tr>
@@ -18,14 +14,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('fond_index') }}">Back to the list</a>
+            <a href="{{ path('fond_index') }}">Retour aux fonds</a>
         </li>
         <li>
-            <a href="{{ path('fond_edit', { 'id': fond.id }) }}">Edit</a>
+            <a href="{{ path('fond_edit', { 'id': fond.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

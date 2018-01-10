@@ -6,7 +6,6 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Titre</th>
                 <th>Actions</th>
             </tr>
@@ -14,15 +13,14 @@
         <tbody>
         {% for fond in fonds %}
             <tr>
-                <td><a href="{{ path('fond_show', { 'id': fond.id }) }}">{{ fond.id }}</a></td>
-                <td>{{ fond.titre }}</td>
+                <td><a href="{{ path('fond_show', { 'id': fond.id }) }}">{{ fond.titre }}</a></td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('fond_show', { 'id': fond.id }) }}">show</a>
+                            <a href="{{ path('fond_show', { 'id': fond.id }) }}">Afficher</a>
                         </li>
                         <li>
-                            <a href="{{ path('fond_edit', { 'id': fond.id }) }}">edit</a>
+                            <a href="{{ path('fond_edit', { 'id': fond.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -33,7 +31,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('fond_new') }}">Create a new fond</a>
+            <a href="{{ path('fond_new') }}">Créer un nouveau fond</a>
         </li>
     </ul>
 {% endblock %}

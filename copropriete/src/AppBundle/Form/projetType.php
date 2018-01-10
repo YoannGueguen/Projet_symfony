@@ -2,8 +2,10 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\DataTransformer\FilePathToFileTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -26,7 +28,7 @@ class projetType extends AbstractType
             ->add('date_debut')
             ->add('date_fin')
             ->add('discu_id')
-            ->add('pj_id')
+            ->add('pj_id', FileType::class)
             ->add('utilisateurs');
     }
     
@@ -38,6 +40,13 @@ class projetType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\projet'
         ));
+    }
+
+    private $transformer;
+
+    public function __construct(FilePathToFileTransformer $transformer)
+    {
+        $this->transformer = $transformer;
     }
 
     /**

@@ -48,6 +48,11 @@ class versement
      */
     private $charge_id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="piece_jointe", mappedBy="versement")
+     * @ORM\JoinColumn(name="pj_id", referencedColumnName="id")
+     */
+    private $pj_id;
 
     /**
      * Get id
@@ -99,5 +104,68 @@ class versement
         return $this->charge_id;
     }
 
+    /**
+     * @param mixed $user_id
+     */
+    public function setUserId($user_id)
+    {
+        $this->user_id = $user_id;
+    }
+
+    /**
+     * @param mixed $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * @param mixed $montant
+     */
+    public function setMontant($montant)
+    {
+        $this->montant = $montant;
+    }
+
+    /**
+     * @param mixed $charge_id
+     */
+    public function setChargeId($charge_id)
+    {
+        $this->charge_id = $charge_id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @param mixed $pj_id
+     */
+    public function setPjId($pj_id)
+    {
+        $this->pj_id = $pj_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPjId()
+    {
+        return $this->pj_id;
+    }
 }
 

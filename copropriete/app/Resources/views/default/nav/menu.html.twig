@@ -16,11 +16,12 @@
 
         <li><a href="{{ path('index') }}">Accueil</a>
             {% if is_granted('ROLE_USER') %}
-                <li><a href="#">Forum</a>
-                    <ul>
                         <li><a href="{{ path('discussion_index') }}">Discussions</a></li>
                         <li><a href="{{ path('charge_index') }}">Charges</a></li>
-                    </ul>
+        {% if is_granted('ROLE_MANAGER') %}
+            <li><a href="{{ path('fond_index') }}">Fonds</a></li>
+            <li><a href="{{ path('versement_index') }}">Versements</a></li>
+            {% endif %}
                 </li>
                 <li><a href="{{ path('projet_index') }}">Projets</a></li>
                 <li><a href="#">Bienvenue {{ app.user.username }}</a>

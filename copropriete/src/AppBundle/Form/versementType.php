@@ -13,7 +13,13 @@ class versementType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('montant')->add('date')->add('type')->add('user_id')->add('charge_id');
+        $builder
+            ->add('montant')
+            ->add('date')
+            ->add('type')
+            ->add('pj_id')
+            ->add('user_id')
+            ->add('charge_id');
     }/**
      * {@inheritdoc}
      */

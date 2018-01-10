@@ -65,6 +65,12 @@ class projet
      */
     private $utilisateurs;
 
+    /**
+     * @ORM\OneToMany(targetEntity="piece_jointe", mappedBy="projet")
+     * @ORM\JoinColumn(name="pj_id", referencedColumnName="id")
+     */
+    private $pj_id;
+
     public function __construct()
     {
         $this->utilisateurs = new ArrayCollection();
@@ -201,5 +207,28 @@ class projet
         $this->discu_id = $discu_id;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPjId()
+    {
+        return $this->pj_id;
+    }
+
+    /**
+     * @param mixed $pj_id
+     */
+    public function setPjId($pj_id)
+    {
+        $this->pj_id = $pj_id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
 }
 

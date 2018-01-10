@@ -128,7 +128,7 @@ class discussionController extends Controller
      *
      * @param discussion $discussion The discussion entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createDeleteForm(discussion $discussion)
     {

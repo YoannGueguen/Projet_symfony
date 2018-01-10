@@ -59,5 +59,28 @@ class fond
         return $this->charge_id;
     }
 
+    /**
+     * @param mixed $charge_id
+     */
+    public function setChargeId($charge_id)
+    {
+        $this->charge_id = $charge_id;
+    }
+
+    /**
+     * @param mixed $titre
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
 }
 
