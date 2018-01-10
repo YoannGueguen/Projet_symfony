@@ -27,8 +27,8 @@ class fond
     private $titre;
 
     /**
-     * @ORM\OneToOne(targetEntity="charge")
-     * @ORM\JoinColumn(name="charge_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="charge", cascade={"remove"})
+     * @ORM\JoinColumn(name="charge_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $charge_id;
 

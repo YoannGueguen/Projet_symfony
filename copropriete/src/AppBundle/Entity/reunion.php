@@ -47,7 +47,7 @@ class reunion
 
     /**
      * @ORM\ManyToMany(targetEntity="user", inversedBy="reunions")
-     * @ORM\JoinTable(name="utilisateurs_reunions")
+     * @ORM\JoinTable(name="user_reunion")
      */
     private $utilisateurs;
 

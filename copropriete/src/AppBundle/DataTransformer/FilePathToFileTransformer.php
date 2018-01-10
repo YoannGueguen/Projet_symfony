@@ -5,6 +5,7 @@ namespace AppBundle\DataTransformer;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class FilePathToFileTransformer implements DataTransformerInterface
 {
@@ -71,7 +72,7 @@ class FilePathToFileTransformer implements DataTransformerInterface
      * By convention, reverseTransform() should return NULL if an empty string
      * is passed.
      *
-     * @param mixed $value The value in the transformed representation
+     * @param UploadedFile $file The value in the transformed representation
      *
      * @return mixed The value in the original representation
      *
@@ -80,7 +81,9 @@ class FilePathToFileTransformer implements DataTransformerInterface
     public function reverseTransform($file)
     {
         if (!is_null($file)) {
-            return $file->getFilename();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(__DIR__.$this->uploadDirectory.'/', $fileName);
+            return $fileName;
         }
         return null;
     }

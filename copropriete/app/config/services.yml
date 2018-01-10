@@ -37,4 +37,4 @@ services:
 
     AppBundle\DataTransformer\FilePathToFileTransformer:
                 arguments:
-                    $uploadDirectory: '../../web/file'
+                    $uploadDirectory: '../../../../web/file'

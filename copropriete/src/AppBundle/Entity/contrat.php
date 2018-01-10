@@ -27,12 +27,12 @@ class contrat
     private $nom;
 
     /**
-     * @ORM\Column(name="date_signature", type="datetime")
+     * @ORM\Column(name="date_signature", type="date")
      */
     private $date_signature;
 
     /**
-     * @ORM\Column(name="date_fin", type="datetime")
+     * @ORM\Column(name="date_fin", type="date")
      */
     private $date_fin;
 

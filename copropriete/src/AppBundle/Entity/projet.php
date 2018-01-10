@@ -44,29 +44,31 @@ class projet
     private $statut;
 
     /**
-     * @ORM\Column(name="date_debut", type="datetime")
+     * @Assert\Date()
+     * @ORM\Column(name="date_debut", type="date")
      */
     private $date_debut;
 
     /**
-     * @ORM\Column(name="date_fin", type="datetime")
+     * @Assert\Date()
+     * @ORM\Column(name="date_fin", type="date")
      */
     private $date_fin;
 
     /**
-     * @ORM\OneToMany(targetEntity="discussion", mappedBy="projet", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="discussion", mappedBy="projet", orphanRemoval=true, cascade={"remove"})
      * @ORM\JoinColumn(name="discu_id", referencedColumnName="id")
      */
     private $discu_id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="user", inversedBy="projets")
-     * @ORM\JoinTable(name="projets_utilisateurs")
+     * @ORM\ManyToMany(targetEntity="user", inversedBy="projets", cascade={"remove"})
+     * @ORM\JoinTable(name="user_projet")
      */
     private $utilisateurs;
 
     /**
-     * @ORM\OneToMany(targetEntity="piece_jointe", mappedBy="projet")
+     * @ORM\OneToMany(targetEntity="piece_jointe", mappedBy="projet", cascade={"remove"})
      * @ORM\JoinColumn(name="pj_id", referencedColumnName="id")
      */
     private $pj_id;

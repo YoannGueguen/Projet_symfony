@@ -28,13 +28,13 @@ class piece_jointe
     private $url;
 
     /**
-     * @ORM\ManyToOne(targetEntity="projet")
+     * @ORM\ManyToOne(targetEntity="projet", cascade={"remove"})
      * @ORM\JoinColumn(name="projet_id", referencedColumnName="id")
      */
     private $projet_id;
 
     /**
-     * @ORM\OneToMany(targetEntity="message", mappedBy="piece_jointe")
+     * @ORM\OneToMany(targetEntity="message", mappedBy="piece_jointe", cascade={"remove"})
      * @ORM\JoinColumn(name="message_id", referencedColumnName="id")
      */
     private $message_id;

@@ -25,11 +25,13 @@
                     </thead>
                     <tbody>
                     {% for discussion in discussions %}
+                        {% if discussion.archive == "0"  %}
                         <tr>
                             <td><a href="{{ path('discussion_show', { 'id': discussion.id }) }}">{{ discussion.nom }}</a></td>
-                            <td>{% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>{% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d') }}{% endif %}</td>
                             <td>{{ discussion.type }}</td>
                         </tr>
+                            {% endif %}
                     {% endfor %}
                     </tbody>
                 </table>
@@ -52,8 +54,8 @@
                             <td><a href="{{ path('projet_show', { 'id': projet.id }) }}">{{ projet.titre }}</a></td>
                             <td>{{ projet.description }}</td>
                             <td>{{ projet.statut }}</td>
-                            <td>{% if projet.datedebut %}{{ projet.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
-                            <td>{% if projet.datefin %}{{ projet.datefin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>{% if projet.datedebut %}{{ projet.datedebut|date('Y-m-d') }}{% endif %}</td>
+                            <td>{% if projet.datefin %}{{ projet.datefin|date('Y-m-d') }}{% endif %}</td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -74,7 +76,7 @@
                     {% for charge in charges %}
                         <tr>
                             <td><a href="{{ path('charge_show', { 'id': charge.id }) }}">{{ charge.titre }}</a></td>
-                            <td>{% if charge.dateecheance %}{{ charge.dateecheance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>{% if charge.dateecheance %}{{ charge.dateecheance|date('Y-m-d') }}{% endif %}</td>
                             <td>{{ charge.montant }}</td>
                             <td>{{ charge.statut }}</td>
                         </tr>
@@ -87,9 +89,7 @@
         <br/>
         <br/>
         <br/>
-        <div class="row">
 
-        </div>
         {% endif %}
     {% endif %}
     <br/>

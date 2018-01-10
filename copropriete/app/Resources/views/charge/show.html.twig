@@ -2,7 +2,6 @@
 
 {% block body %}
     <h1>Charge</h1>
-
     <table>
         <tbody>
             <tr>
@@ -11,7 +10,7 @@
             </tr>
             <tr>
                 <th>Date_echeance</th>
-                <td>{% if charge.dateecheance %}{{ charge.dateecheance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if charge.dateecheance %}{{ charge.dateecheance|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Montant</th>
@@ -20,6 +19,10 @@
             <tr>
                 <th>Statut</th>
                 <td>{{ charge.statut }}</td>
+            </tr>
+            <tr>
+                <th>Fichiers</th>
+                <td><a href="../../../web/file/{{ charge.pjid }}">{{ charge.pjid }}</a></td>
             </tr>
         </tbody>
     </table>

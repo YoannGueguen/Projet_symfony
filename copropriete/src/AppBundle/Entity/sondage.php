@@ -40,6 +40,7 @@ class sondage
 
     /**
      * @ORM\ManyToMany(targetEntity="projet", inversedBy="sondages")
+     * @ORM\JoinTable(name="sondage_projet")
      */
     private $projets;
     public function __construct()

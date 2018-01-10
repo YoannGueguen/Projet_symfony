@@ -29,7 +29,8 @@ class charge
     private $titre;
 
     /**
-     * @ORM\Column(name="date_echeance", type="datetime")
+     * @Assert\Date()
+     * @ORM\Column(name="date_echeance", type="date")
      */
     private $date_echeance;
 
@@ -44,20 +45,19 @@ class charge
     private $statut;
 
     /**
-     * @ORM\OneToOne(targetEntity="contrat")
+     * @ORM\OneToOne(targetEntity="contrat", cascade={"remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $contrat_id;
 
     /**
- * @ORM\OneToOne(targetEntity="piece_jointe", orphanRemoval=true)
- * @ORM\JoinColumn(nullable=true)
- */
+     * @ORM\Column(name="pj_id", type="string", length=255, nullable=true)
+     */
     private $pj_id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="user", inversedBy="charges")
-     * @ORM\JoinTable(name="utilisateurs_charges")
+     * @ORM\ManyToMany(targetEntity="user", inversedBy="charges", cascade={"remove"})
+     * @ORM\JoinTable(name="user_charge")
      */
     private $utilisateurs;
 
@@ -197,7 +197,6 @@ class charge
     {
         $this->pj_id = $pj_id;
     }
-
     public function __toString()
     {
         $str = $this->getId()."  ";

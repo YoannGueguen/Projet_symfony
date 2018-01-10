@@ -10,11 +10,15 @@
             </tr>
             <tr>
                 <th>Date</th>
-                <td>{% if versement.date %}{{ versement.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if versement.date %}{{ versement.date|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Type</th>
                 <td>{{ versement.type }}</td>
+            </tr>
+            <tr>
+                <th>Fichiers</th>
+                <td><a href="../../../web/file/{{ versement.pjid }}">{{ versement.pjid }}</a></td>
             </tr>
         </tbody>
     </table>

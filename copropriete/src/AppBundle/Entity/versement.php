@@ -27,7 +27,8 @@ class versement
     private $montant;
 
     /**
-     * @ORM\Column(name="date", type="datetime")
+     * @Assert\Date()
+     * @ORM\Column(name="date", type="date")
      */
     private $date;
 
@@ -43,14 +44,13 @@ class versement
     private $user_id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="charge")
-     * @ORM\JoinColumn(name="charge_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="charge", cascade={"remove"})
+     * @ORM\JoinColumn(name="charge_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $charge_id;
 
     /**
-     * @ORM\OneToMany(targetEntity="piece_jointe", mappedBy="versement")
-     * @ORM\JoinColumn(name="pj_id", referencedColumnName="id")
+     * @ORM\Column(name="pj_id", type="string", length=255, nullable=true)
      */
     private $pj_id;
 
