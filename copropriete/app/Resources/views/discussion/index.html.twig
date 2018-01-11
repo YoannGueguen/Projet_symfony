@@ -15,17 +15,18 @@
         </thead>
         <tbody>
         {% for discussion in discussions %}
+            {% if not discussion.archive == "1" and app.user in discussion.utilisateurs %}
             <tr>
                 <td><a href="{{ path('discussion_show', { 'id': discussion.id }) }}">{{  discussion.nom }}</a></td>
                 <td>{% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ discussion.type }}</td>
-                <td>{% if discussion.archive %}Yes{% else %}No{% endif %}</td>
+                <td>{% if discussion.archive %}Oui{% else %}Non{% endif %}</td>
                 <td>
                     <ul style="list-style-type: none">
                         <li>
                             <a href="{{ path('discussion_show', { 'id': discussion.id }) }}">afficher</a>
                         </li>
-                        {% if is_granted('ROLE_MANAGER') %}
+                        {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
                         <li>
                             <a href="{{ path('discussion_edit', { 'id': discussion.id }) }}">modifier discussion</a>
                         </li>
@@ -36,6 +37,7 @@
                     </ul>
                 </td>
             </tr>
+        {% endif %}
         {% endfor %}
         </tbody>
     </table>

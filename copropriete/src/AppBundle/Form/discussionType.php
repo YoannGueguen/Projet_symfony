@@ -30,7 +30,7 @@ class discussionType extends AbstractType
                 'Privé' => 'Privé',
             )));
         $builder->add('utilisateurs');
-        if($this->secu->isGranted('ROLE_MANAGER')) {
+        if($this->secu->isGranted('ROLE_PREVIOUS_ADMIN')) {
             $builder->add('archive', CheckboxType::class, array( 'data' => false, 'required' => false));
         }
     }
