@@ -1,6 +1,6 @@
 {# app/Resources/views/Emails/registration.html.twig #}
 <h2>De nouvelles infos sur votre copropriété</h2>
 
-<div>Bonjour {{ name }}! Vous avez reçus des messages :</div>
-
+<div>Bonjour {{ name }}! Vous avez reçu un message de la discussion {{ message.discussionid.nom }} :</div>
+<div>{{ message.userid.username }} :</div><br>
 <div>{{ message }}</div>

@@ -2,15 +2,16 @@
 
 {% block body %}
 
-    <h1>Discussion {{ discussion.nom }}</h1>
-    <div>Date de création : {% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d') }}{% endif %}</div>
-    <br><br>
+    <h3>Date de création : {% if discussion.datedebut %}{{ discussion.datedebut|date('d/m/Y') }}{% endif %}</h3>
+    <br>
     <div style="height:300px;overflow-y: auto;">
     <table class="table">
         <tbody>
             <tr>
-                <th>Message</th>
+                <th>Messages de {{ discussion.nom }}</th>
+                {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
                 <th>Actions</th>
+                {% endif %}
             </tr>
             {% for message in messages %}
             <tr>
