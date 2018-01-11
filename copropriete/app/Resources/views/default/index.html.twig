@@ -67,7 +67,13 @@
                             </div>
                             <div class="panel-body">
                                 <h5>Statut :</h5>{{ projet.statut }}<br>
-                                <h5>Détails :</h5>{{ projet.description }}
+                                <h5>Détails :</h5>{{ projet.description }}<br>
+                                <h5>Personnes conernées :</h5>{% for user in projet.utilisateurs %}{{ user.username }},{% endfor %}<br>
+                                <a href="{{ path('projet_show',{'id': projet.id}) }}">
+                                    <button class="btn btn-default" type="button">
+                                        Plus de détails
+                                    </button>
+                                </a>
                             </div>
                         </div>
                             {% endif %}

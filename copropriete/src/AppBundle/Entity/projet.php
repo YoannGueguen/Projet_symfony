@@ -62,7 +62,7 @@ class projet
     private $discu_id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="user", inversedBy="projets", cascade={"remove"})
+     * @ORM\ManyToMany(targetEntity="user", inversedBy="projets")
      * @ORM\JoinTable(name="user_projet")
      */
     private $utilisateurs;
