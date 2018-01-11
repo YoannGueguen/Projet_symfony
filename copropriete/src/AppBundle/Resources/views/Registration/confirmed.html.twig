@@ -1,0 +1,12 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "base.html.twig" %}
+{% block body %}
+{% block fos_user_content %}
+<div class="container">
+    <div class="card card-container">
+    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+        <a href="{{ path('fos_user_security_login') }}"><button type="button" class="btn btn-lg btn-primary btn-block btn-signin">Retour à la connexion</button></a>
+    </div>
+</div>
+{% endblock fos_user_content %}
+{% endblock body %}
