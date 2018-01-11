@@ -5,15 +5,15 @@
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Modifier message" class="btn btn-warning"/>
-    {{ form_end(edit_form) }}
+
 
     <ul style="list-style-type: none">
+        <input type="submit" value="Modifier message" class="btn btn-warning"/>
+        <br>
+        {{ form_end(edit_form) }}
         <a href="{{ path('discussion_show',{'id':message.discussionid.id}) }}"><button type="button" class="btn btn-primary">Retour a la discussion</button></a>
-        <li>
             {{ form_start(delete_form) }}
                 <input type="submit" value="Supprimer message" class="btn btn-danger">
             {{ form_end(delete_form) }}
-        </li>
     </ul>
 {% endblock %}

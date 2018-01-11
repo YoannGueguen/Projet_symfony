@@ -39,6 +39,7 @@ class userType extends AbstractType
             'choices'   => array(
                 'Utilisateur'   => 'ROLE_USER',
                 'Manager'      => 'ROLE_MANAGER',
+                'Moderateur' => 'ROLE_PREVIOUS_ADMIN',
                 'Admin'      => 'ROLE_ADMIN',
             ),
             'multiple'  => true));

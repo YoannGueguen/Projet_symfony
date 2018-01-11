@@ -15,7 +15,7 @@
             {% for message in messages %}
             <tr>
                 <td>{{ message.contenu }}</td>
-                {% if is_granted('ROLE_MANAGER') %}
+                {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
                 <td><ul  style="list-style-type: none">
                     <li>
                         <a href="{{ path('message_edit', { 'id': message.id }) }}">Modifier message</a>
@@ -32,13 +32,15 @@
     </table>
 </div>
     <ul  style="list-style-type: none">
+        {% if discussion.archive == "0" %}
         <li>
             <a href="{{ path('message_new_discu', {'id': discussion.id}) }}"><button type="button" class="btn btn-primary">Créer un nouveau message</button></a>
         </li>
-        <li>
-            <a href="{{ path('discussion_edit', { 'id': discussion.id }) }}"><button type="button" class="btn btn-warning">Modifier discussion</button></a>
-        </li>
-        {% if is_granted('ROLE_MANAGER') %}
+        {% endif %}
+        {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+            <li>
+                <a href="{{ path('discussion_edit', { 'id': discussion.id }) }}"><button type="button" class="btn btn-warning">Modifier discussion</button></a>
+            </li>
         <li>
             {{ form_start(delete_form) }}
                 <input type="submit" value="Supprimer discussion" class="btn btn-danger">
