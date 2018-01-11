@@ -28,6 +28,9 @@
         <li>
             <a href="{{ path('message_edit', { 'id': message.id }) }}">Modifier le message</a>
         </li>
+        <li>
+            <a href="{{ path('index') }}">Retour accueil</a>
+        </li>
         {% if is_granted('ROLE_MANAGER') %}
         <li>
             {{ form_start(delete_form) }}

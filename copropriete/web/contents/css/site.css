@@ -15,7 +15,7 @@ body{
 
 .bloc_charge, .bloc_projet, .bloc_discussion{
     overflow-y: auto;
-    max-height: 450px;
+    max-height: 400px;
 }
 #menu-demo2 li{
     display:inline-block;

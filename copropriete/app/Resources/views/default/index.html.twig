@@ -104,6 +104,13 @@
                             </div>
                         </div>
                         {% endfor %}
+                {% if is_granted('ROLE_MANAGER') %}
+                    <a href="{{ path('charge_new') }}">
+                        <button class="btn btn-primary" type="button">
+                            Nouvelle charge
+                        </button>
+                    </a>
+                {% endif %}
             </div>
         </div>
         </div>

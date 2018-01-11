@@ -12,7 +12,8 @@
         <div style='height:100px;' class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             {% if is_granted('ROLE_ADMIN') %}
                 <ul class="nav nav-default navbar-nav navbar-default" style="text-align: center;">
-                    <li class="active"><a href="{{ path('user_index') }}">Gestion des utilisateurs</a></li>
+                    <li class="active"><a href="{{ path('index') }}"><img style='height:40px;width:auto'src="{{ asset('contents/img/logo.png') }}"></a></li>
+                    <li><a href="{{ path('user_index') }}">Gestion des utilisateurs</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bienvenue {{ app.user.username }}<span class="caret"></span></a>
@@ -46,7 +47,7 @@
                 </ul>
             {% else %}
             <ul class="nav nav-default navbar-nav navbar-default">
-                <li class="active"><a href="{{ path('index') }}"><img style='height:40px;width:auto'src="{{ asset('contents/img/logo.png') }}"></a></li>-->
+                <li class="active"><a href="{{ path('index') }}"><img style='height:40px;width:auto'src="{{ asset('contents/img/logo.png') }}"></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Authentification<span class="caret"></span></a>

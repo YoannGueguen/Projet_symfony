@@ -3,35 +3,33 @@
 {% block body %}
     <h1>Users list</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Actions</th>
+                <th>Pseudo</th>
+                <th>E-mail</th>
+                <th>Roles</th>
             </tr>
         </thead>
         <tbody>
         {% for user in users %}
             <tr>
-                <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('user_show', { 'id': user.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.username }}</a>
                 </td>
+                <td>{% for role in user.roles %}
+                        {{ role }},
+                    {% endfor %}</td>
+                <td>{{ user.email }}</td>
+                <td><a href="{{ path('user_edit', { 'id': user.id }) }}">modifier</a></td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
+    <br><br>
     <ul>
         <li>
-            <a href="{{ path('user_new') }}">Create a new user</a>
+            <a href="{{ path('user_new') }}">Nouvel utilisateur</a>
         </li>
     </ul>
 {% endblock %}
