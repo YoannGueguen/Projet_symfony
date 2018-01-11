@@ -68,6 +68,12 @@ class projet
     private $utilisateurs;
 
     /**
+     * @ORM\OneToMany(targetEntity="note", mappedBy="projet")
+     */
+    private $note;
+
+
+    /**
      * @ORM\Column(name="pj_id", type="string", length=255, nullable=true)
      */
     private $pj_id;
@@ -136,19 +142,27 @@ class projet
     }
 
     /**
-     * @return mixed
-     */
-    public function getUserId()
-    {
-        return $this->user_id;
-    }
-
-    /**
      * @param mixed $date_debut
      */
     public function setDateDebut($date_debut)
     {
         $this->date_debut = $date_debut;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * @param mixed $note
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
     }
 
     /**

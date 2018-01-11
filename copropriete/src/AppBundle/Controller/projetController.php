@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\note;
 use AppBundle\Entity\projet;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -66,8 +67,12 @@ class projetController extends Controller
     public function showAction(projet $projet)
     {
         $deleteForm = $this->createDeleteForm($projet);
+        $note = new note();
+        $note->setProjet($projet);
+        $noteForm = $this->createForm('AppBundle\Form\noteType', $note);
 
         return $this->render('projet/show.html.twig', array(
+            'note_form' => $noteForm->createView(),
             'projet' => $projet,
             'delete_form' => $deleteForm->createView(),
         ));

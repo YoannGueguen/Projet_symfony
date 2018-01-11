@@ -36,21 +36,21 @@ class note
     private $description;
 
     /**
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="date", type="date")
      */
     private $date;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="projet")
-     * @ORM\JoinColumn(name="projet_id", referencedColumnName="id")
-     */
-    private $projet_id;
 
     /**
      * @ORM\ManyToOne(targetEntity="user")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user_id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="projet", inversedBy="notes")
+     * @ORM\JoinColumn(name="projet", referencedColumnName="id")
+     */
+    private $projet;
 
     /**
      * Get id
@@ -89,18 +89,65 @@ class note
     /**
      * @return mixed
      */
-    public function getProjetId()
-    {
-        return $this->projet_id;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getUserId()
     {
         return $this->user_id;
     }
 
+    /**
+     * @param int $id
+     */
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param mixed $titre
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+    }
+
+    /**
+     * @param mixed $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * @param mixed $user_id
+     */
+    public function setUserId($user_id)
+    {
+        $this->user_id = $user_id;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProjet()
+    {
+        return $this->projet;
+    }
+
+    /**
+     * @param mixed $projet
+     */
+    public function setProjet($projet)
+    {
+        $this->projet = $projet;
+    }
 }
 
