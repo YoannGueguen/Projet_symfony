@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use AppBundle\DataTransformer\FilePathToFileTransformer;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -30,17 +31,17 @@ class projetType extends AbstractType
                 'widget' => 'single_text',
                 // do not render as type="date", to avoid HTML5 date pickers
                 'html5' => false,
-                'format' => 'dd/MM/yyyy',
+                'format' => 'MM-dd-yyyy',
                 // add a class that can be selected in JavaScript
                 'attr' => ['class' => 'js-datepicker']))
             ->add('date_fin', DateType::class, array(
                 'widget' => 'single_text',
                 // do not render as type="date", to avoid HTML5 date pickers
                 'html5' => false,
-                'format' => 'dd/MM/yyyy',
+                'format' => 'MM-dd-yyyy',
                 // add a class that can be selected in JavaScript
                 'attr' => ['class' => 'js-datepicker']))
-            ->add('discu_id')
+            ->add('discu_id'/*, EntityType::class, array('class' => 'AppBundle:discussion','multiple'=>false)*/)
             ->add('pj_id', FileType::class, array('empty_data'=>null, 'required'=>false))
             ->add('utilisateurs');
     }

@@ -10,8 +10,8 @@
     <br/>
     {% if is_granted('ROLE_ADMIN') %}
         <div class="page-header">
-            <h1>Accueil Admin</h1>
-            <h1><small>Veuillez ajouter des utilisateurs et leur attribuer un rôle</small></h1>
+            <h1 style="text-align: center;">Accueil Admin</h1>
+            <h1 style="text-align: center;"><small>Veuillez ajouter des utilisateurs et leur attribuer un rôle</small></h1>
         </div>
     {% else %}
         {% if is_granted('ROLE_USER') %}
@@ -24,9 +24,9 @@
                         {% if discussion.archive == "0" and app.user in discussion.utilisateurs %}
                             <div class="panel panel-warning">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title">
+                                    <h4 style='height:40px;' class="panel-title">
                                         <span style="overflow: hidden;"><a href="{{ path('discussion_show', { 'id': discussion.id }) }}">{{ discussion.nom }}</a></span>
-                                        <span style="float: right;">{% if discussion.datedebut %}crée le : {{ discussion.datedebut|date('d m Y') }}{% endif %}</span>
+                                        <br><span style="float: right;">{% if discussion.datedebut %}crée le : {{ discussion.datedebut|date('d m Y') }}{% endif %}</span>
                                     </h4>
                                 </div>
                                 <div class="panel-body">
@@ -40,6 +40,7 @@
                         {% endif %}
                     {% endfor %}
             </div>
+                <br>
                 <a href="{{ path('discussion_new') }}">
                     <button class="btn btn-primary" type="button">
                         Nouvelle discussion
@@ -53,9 +54,10 @@
                         {% if app.user in projet.utilisateurs %}
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                <h4 style="height: 30px;" class="panel-title">
+                                <h4 style="height: 50px;" class="panel-title">
                                     <span style="overflow: hidden;"><a href="{{ path('projet_show', { 'id': projet.id }) }}">{{ projet.titre }}</a></span>
-                                    <span style="float: right;">
+                                    <br>
+                                    <span style="float: right;" >
                                     {% if projet.datedebut %}
                                         Débute le : {{ projet.datedebut|date('d/m/Y') }}<br>
                                         Prend fin le : {{ projet.datefin|date('d/m/Y') }}
@@ -72,6 +74,7 @@
                     {% endfor %}
             </div>
                 {% if is_granted('ROLE_MANAGER') %}
+                    <br>
                     <a href="{{ path('projet_new') }}">
                         <button class="btn btn-primary" type="button">
                             Nouveau projet
@@ -113,6 +116,7 @@
                         {% endfor %}
             </div>
                 {% if is_granted('ROLE_MANAGER') %}
+                    <br>
                     <a href="{{ path('charge_new') }}">
                         <button class="btn btn-primary" type="button">
                             Nouvelle charge

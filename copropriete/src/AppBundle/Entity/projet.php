@@ -57,12 +57,12 @@ class projet
 
     /**
      * @ORM\OneToMany(targetEntity="discussion", mappedBy="projet", orphanRemoval=true, cascade={"remove"})
-     * @ORM\JoinColumn(name="discu_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="discu_id", referencedColumnName="id", nullable=true)
      */
     private $discu_id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="user", inversedBy="projets", cascade={"remove"})
+     * @ORM\ManyToOne(targetEntity="user", inversedBy="projets", cascade={"remove"})
      * @ORM\JoinTable(name="user_projet")
      */
     private $utilisateurs;
