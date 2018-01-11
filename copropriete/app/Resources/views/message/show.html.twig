@@ -7,7 +7,7 @@
         <tbody>
             <tr>
                 <th>Date</th>
-                <td>{% if message.date %}{{ message.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if message.date %}{{ message.date|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Contenu</th>
@@ -24,17 +24,21 @@
         </tbody>
     </table>
 
-    <ul>
+    <ul style="list-style-type: none">
         <li>
-            <a href="{{ path('message_edit', { 'id': message.id }) }}">Modifier le message</a>
+            <a href="{{ path('message_edit', { 'id': message.id }) }}">
+                <button type="button" class="btn btn-warning">Modifier le message</button>
+            </a>
         </li>
         <li>
-            <a href="{{ path('index') }}">Retour accueil</a>
+            <a href="{{ path('index') }}">
+                <button type="button" class="btn btn-primary">Retour à l'accueil</button>
+            </a>
         </li>
         {% if is_granted('ROLE_MANAGER') %}
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
+                <input type="submit" value="Supprimer" class="btn btn-danger">
             {{ form_end(delete_form) }}
         </li>
         {% endif %}

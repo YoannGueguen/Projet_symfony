@@ -21,7 +21,7 @@
                 <td>{{ discussion.type }}</td>
                 <td>{% if discussion.archive %}Yes{% else %}No{% endif %}</td>
                 <td>
-                    <ul>
+                    <ul style="list-style-type: none">
                         <li>
                             <a href="{{ path('discussion_show', { 'id': discussion.id }) }}">afficher</a>
                         </li>
@@ -39,9 +39,11 @@
         {% endfor %}
         </tbody>
     </table>
-    <ul>
+    <ul style="list-style-type: none">
         <li>
-            <a href="{{ path('discussion_new') }}">Créer une nouvelle discussion</a>
+            <a href="{{ path('discussion_new') }}">
+                <button type="button" class="btn btn-primary">Créer une nouvelle discussion</button>
+            </a>
         </li>
     </ul>
 {% endblock %}

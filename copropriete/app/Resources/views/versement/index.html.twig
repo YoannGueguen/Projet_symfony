@@ -19,7 +19,7 @@
                 <td>{% if versement.date %}{{ versement.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ versement.type }}</td>
                 <td>
-                    <ul>
+                    <ul style="list-style-type: none">
                         <li>
                             <a href="{{ path('versement_show', { 'id': versement.id }) }}">Afficher</a>
                         </li>
@@ -33,9 +33,11 @@
         </tbody>
     </table>
 
-    <ul>
+    <ul style="list-style-type: none">
         <li>
-            <a href="{{ path('versement_new') }}">Créer un nouveau versement</a>
+            <a href="{{ path('versement_new') }}">
+                <button type="button" class="btn btn-primary">Créer un nouveau versement</button>
+            </a>
         </li>
     </ul>
 {% endblock %}

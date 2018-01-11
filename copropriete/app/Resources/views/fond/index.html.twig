@@ -15,7 +15,7 @@
             <tr>
                 <td><a href="{{ path('fond_show', { 'id': fond.id }) }}">{{ fond.titre }}</a></td>
                 <td>
-                    <ul>
+                    <ul style="list-style-type: none">
                         <li>
                             <a href="{{ path('fond_show', { 'id': fond.id }) }}">Afficher</a>
                         </li>
@@ -29,9 +29,11 @@
         </tbody>
     </table>
 
-    <ul>
+    <ul style="list-style-type: none">
         <li>
-            <a href="{{ path('fond_new') }}">Créer un nouveau fond</a>
+            <a href="{{ path('fond_new') }}">
+                <button type="button" class="btn btn-primary">Créer un nouveau fond</button>
+            </a>
         </li>
     </ul>
 {% endblock %}

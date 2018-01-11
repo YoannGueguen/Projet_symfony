@@ -23,7 +23,7 @@
                 <td>{% if projet.datedebut %}{{ projet.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if projet.datefin %}{{ projet.datefin|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
-                    <ul>
+                    <ul style="list-style-type: none">
                         {% if is_granted('ROLE_MANAGER') %}
                         <li>
                             <a href="{{ path('projet_edit', { 'id': projet.id }) }}">Modifier le projet</a>
@@ -39,9 +39,11 @@
         </tbody>
     </table>
 
-    <ul>
+    <ul style="list-style-type: none">
         <li>
-            <a href="{{ path('projet_new') }}">Créer un projet</a>
+            <a href="{{ path('projet_new') }}">
+                <button type="button" class="btn btn-primary">Créer un projet</button>
+            </a>
         </li>
     </ul>
 {% endblock %}

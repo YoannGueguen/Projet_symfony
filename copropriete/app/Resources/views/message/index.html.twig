@@ -15,9 +15,9 @@
         {% for message in messages %}
             <tr>
                 <td><a href="{{ path('message_show', { 'id': message.id }) }}">{{ message.contenu }}</a></td>
-                <td>{% if message.date %}{{ message.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if message.date %}{{ message.date|date('Y-m-d') }}{% endif %}</td>
                 <td>
-                    <ul>
+                    <ul style="list-style-type: none">
                         <li>
                             <a href="{{ path('message_show', { 'id': message.id }) }}">show</a>
                         </li>
@@ -36,7 +36,9 @@
 
     <ul>
         <li>
-            <a href="{{ path('message_new') }}">Créer un nouveau message</a>
+            <a href="{{ path('message_new') }}">
+                <button type="button" class="btn btn-primary">Créer un nouveau message</button>
+            </a>
         </li>
     </ul>
 {% endblock %}
