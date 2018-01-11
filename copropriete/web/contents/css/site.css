@@ -116,6 +116,17 @@ body ul li{
     cursor: pointer!important;
 }
 
+.double_button{
+    display: inline-block;
+    width: 100%!important;
+}
+
+.double_button > input, .double_button > a > button{
+    width: auto!important;
+    display: inline-block;
+    font-size: 0.8em!important;
+}
+
 /*
  * Card component
  */
