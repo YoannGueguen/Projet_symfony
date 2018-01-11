@@ -5,16 +5,18 @@
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Modifier discussion" />
+        <input type="submit" value="Modifier discussion" class="btn btn-warning"/>
     {{ form_end(edit_form) }}
 
-    <ul>
+    <ul style="list-style-type: none">
         <li>
-            <a href="{{ path('discussion_index') }}">Retour aux discussions</a>
+            <a href="{{ path('discussion_index') }}">
+                <button type="button" class="btn btn-primary">Retour aux discussions</button>
+            </a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer discussion">
+                <input type="submit" value="Supprimer discussion" class="btn btn-danger">
             {{ form_end(delete_form) }}
         </li>
     </ul>

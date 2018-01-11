@@ -21,7 +21,7 @@
                 <td>Montant à payer :{{ charge.montant }}</td>
                 <td>Statut :{{ charge.statut }}</td>
                 <td>
-                    <ul>
+                    <ul style="list-style-type: none">
                         {% if is_granted('ROLE_MANAGER') %}
                             <li>
                                 <a href="{{ path('charge_edit', { 'id': charge.id }) }}">Modifier</a>
@@ -33,15 +33,13 @@
                     </ul>
                 </td>
             </tr>
-
-            </tr>
         {% endfor %}
         </tbody>
     </table>
 {% if is_granted('ROLE_MANAGER') %}
-    <ul>
+    <ul style="list-style-type: none">
         <li>
-            <a href="{{ path('charge_new') }}">Créer une nouvelle charge</a>
+            <a href="{{ path('charge_new') }}"><button type="button" class="btn btn-primary">Créer une nouvelle charge</button></a>
         </li>
     </ul>
 {% endif %}

@@ -99,5 +99,5 @@ table th, table tr td{
 
 }
 body ul li{
-    text-decoration: none;
+    list-style-type: none;
 }

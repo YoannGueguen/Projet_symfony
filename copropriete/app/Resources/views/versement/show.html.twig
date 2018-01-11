@@ -22,16 +22,24 @@
             </tr>
         </tbody>
     </table>
-    <ul>
+    <ul style="list-style-type: none">
         <li>
-            <a href="{{ path('versement_index') }}">Retour aux versements</a>
+            <a href="{{ path('versement_index') }}">
+                <button class="btn btn-primary" type="button">
+                    Retour aux versements
+                </button>
+            </a>
         </li>
         <li>
-            <a href="{{ path('versement_edit', { 'id': versement.id }) }}">Modifier</a>
+            <a href="{{ path('versement_edit', { 'id': versement.id }) }}">
+                <button class="btn btn-warning" type="button">
+                    Modifier
+                </button>
+            </a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
+                <input type="submit" value="Supprimer" class="btn btn-danger">
             {{ form_end(delete_form) }}
         </li>
     </ul>

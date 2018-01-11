@@ -5,21 +5,13 @@
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-    <a href="{{ path('contrat_new') }}">Ajouter un contrat</a>
-        <input type="submit" value="Créer charge" />
+    <a href="{{ path('contrat_new') }}"><button type="button" class="btn btn-primary">Ajouter un contrat</button></a>
+        <input type="submit" value="Créer charge" class="btn btn-success" />
     {{ form_end(form) }}
 
-    <ul>
+    <ul  style="list-style-type: none">
         <li>
-            <a href="{{ path('charge_index') }}">Retour aux charges</a>
+            <a href="{{ path('charge_index') }}"><button type="button" class="btn btn-primary">Retour aux charges</button></a>
         </li>
     </ul>
-    <script>
-        $(document).ready(function() {
-            // you may need to change this code if you are not using Bootstrap Datepicker
-            $('.js-datepicker').datepicker({
-                format: 'yyyy-mm-dd'
-            });
-        });
-    </script>
 {% endblock %}

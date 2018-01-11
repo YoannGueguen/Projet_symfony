@@ -5,12 +5,14 @@
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Créer le projet" />
+        <input type="submit" value="Créer le projet" class="btn btn-success" />
     {{ form_end(form) }}
 
-    <ul>
+    <ul style="list-style-type: none">
         <li>
-            <a href="{{ path('projet_index') }}">Retour aux projets</a>
+            <a href="{{ path('projet_index') }}">
+                <button type="button" class="btn btn-primary">Retour aux projets</button>
+            </a>
         </li>
     </ul>
 {% endblock %}

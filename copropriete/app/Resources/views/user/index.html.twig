@@ -27,9 +27,11 @@
         </tbody>
     </table>
     <br><br>
-    <ul>
+    <ul style="list-style-type: none">
         <li>
-            <a href="{{ path('user_new') }}">Nouvel utilisateur</a>
+            <a href="{{ path('user_new') }}">
+                <button type="button" class="btn btn-primary">Nouvel utilisateur</button>
+            </a>
         </li>
     </ul>
 {% endblock %}

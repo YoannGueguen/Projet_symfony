@@ -3,7 +3,7 @@
 {% block body %}
 
     <h1>Discussion {{ discussion.nom }}</h1>
-    <div>Date de création : {% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d H:i:s') }}{% endif %}</div>
+    <div>Date de création : {% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d') }}{% endif %}</div>
     <br><br>
     <div style="height:300px;overflow-y: auto;">
     <table class="table">
@@ -16,13 +16,14 @@
             <tr>
                 <td>{{ message.contenu }}</td>
                 {% if is_granted('ROLE_MANAGER') %}
-                <td>
+                <td><ul  style="list-style-type: none">
                     <li>
                         <a href="{{ path('message_edit', { 'id': message.id }) }}">Modifier message</a>
                     </li>
                     <li>
                         <a href="{{ path('message_delete', { 'id': message.id }) }}">Supprimer message</a>
                     </li>
+                    </ul>
                 </td>
                 {% endif %}
             </tr>
@@ -30,18 +31,20 @@
         </tbody>
     </table>
 </div>
-    <ul>
-        <li><a href="{{ path('message_new_discu', {'id': discussion.id}) }}">Créer un nouveau message</a></li>
+    <ul  style="list-style-type: none">
         <li>
-            <a href="{{ path('index') }}">Retour accueil</a>
+            <a href="{{ path('message_new_discu', {'id': discussion.id}) }}"><button type="button" class="btn btn-primary">Créer un nouveau message</button></a>
         </li>
         <li>
-            <a href="{{ path('discussion_edit', { 'id': discussion.id }) }}">Modifier discussion</a>
+            <a href="{{ path('index') }}"><button type="button" class="btn btn-primary">Retour à l'accueil</button></a>
+        </li>
+        <li>
+            <a href="{{ path('discussion_edit', { 'id': discussion.id }) }}"><button type="button" class="btn btn-warning">Modifier discussion</button></a>
         </li>
         {% if is_granted('ROLE_MANAGER') %}
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer discussion">
+                <input type="submit" value="Supprimer discussion" class="btn btn-danger">
             {{ form_end(delete_form) }}
         </li>
         {% endif %}
