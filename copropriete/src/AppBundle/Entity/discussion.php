@@ -46,7 +46,7 @@ class discussion
     private $nom;
 
     /**
-     * @ORM\Column(name="date_debut", type="datetime")
+     * @ORM\Column(name="date_debut", type="date")
      */
     private $date_debut;
 
