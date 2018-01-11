@@ -28,9 +28,6 @@
     </table>
 
     <ul style="list-style-type: none">
-        <li>
-            <a href="{{ path('index') }}"><button type="button" class="btn btn-primary">Retour à l'accueil</button></a>
-        </li>
         {% if is_granted('ROLE_MANAGER') %}
         <li>
             <a href="{{ path('charge_edit', { 'id': charge.id }) }}">

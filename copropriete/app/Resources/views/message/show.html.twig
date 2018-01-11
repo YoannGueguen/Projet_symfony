@@ -26,13 +26,8 @@
 
     <ul style="list-style-type: none">
         <li>
-            <a href="{{ path('message_edit', { 'id': message.id }) }}">
-                <button type="button" class="btn btn-warning">Modifier le message</button>
-            </a>
-        </li>
-        <li>
-            <a href="{{ path('index') }}">
-                <button type="button" class="btn btn-primary">Retour à l'accueil</button>
+            <a href="{{ path('discussion_show',{'id': message.discussionId.id}) }}">
+                <button type="button" class="btn btn-primary">Retour discussion</button>
             </a>
         </li>
         {% if is_granted('ROLE_MANAGER') %}
@@ -40,6 +35,11 @@
             {{ form_start(delete_form) }}
                 <input type="submit" value="Supprimer" class="btn btn-danger">
             {{ form_end(delete_form) }}
+        </li>
+        <li>
+            <a href="{{ path('message_edit', { 'id': message.id }) }}">
+                <button type="button" class="btn btn-warning">Modifier le message</button>
+            </a>
         </li>
         {% endif %}
     </ul>
