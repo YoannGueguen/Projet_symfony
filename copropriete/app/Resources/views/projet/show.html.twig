@@ -25,6 +25,12 @@
                 <th>Date_fin</th>
                 <td>{% if projet.datefin %}{{ projet.datefin|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
+            <tr>
+                <th>Utilisateurs</th>
+                <td>{% for user in projet.utilisateurs%}
+                    {{ user.username}},
+                    {% endfor %}</td>
+            </tr>
         <!--<tr>
             <th>Discussion</th>
             <td>{##} projet.getDiscuId() }}</td>

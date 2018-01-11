@@ -29,13 +29,13 @@
 
                 <ul class="nav nav-default navbar-nav navbar-default">
                     <li class="active"><a href="{{ path('index') }}"><img style='height:45px;width:auto'src="{{ asset('contents/img/logo.png') }}"></a></li>
-                    <!--<li><a href="{{ path('discussion_index') }}">Discussions</a></li>
-                    <li><a href="{{ path('charge_index') }}">Charges</a></li>-->
+                    <li><a href="{{ path('discussion_index') }}">Discussions</a></li>
+                    <li><a href="{{ path('charge_index') }}">Charges</a></li>
+                    <li><a href="{{ path('projet_index') }}">Projets</a></li>
                     {% if is_granted('ROLE_MANAGER') %}
                         <li><a href="{{ path('fond_index') }}">Fonds</a></li>
                         <li><a href="{{ path('versement_index') }}">Versements</a></li>
                     {% endif %}
-                    <!--<a href="{{ path('projet_index') }}">Projets</a></li>-->
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bienvenue {{ app.user.username }}<span class="caret"></span></a>
