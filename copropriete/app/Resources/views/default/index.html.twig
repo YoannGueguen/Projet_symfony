@@ -57,8 +57,8 @@
                                     <span style="overflow: hidden;"><a href="{{ path('projet_show', { 'id': projet.id }) }}">{{ projet.titre }}</a></span>
                                     <span style="float: right;">
                                     {% if projet.datedebut %}
-                                        Débute le : {{ projet.datedebut|date('d/m/Y') }}<br>
-                                        Prend fin le : {{ projet.datefin|date('d/m/Y') }}
+                                        De : {{ projet.datedebut|date('d/m/Y') }}<br>
+                                        A : {{ projet.datefin|date('d/m/Y') }}
                                     {% endif %}
                                     </span>
                                 </h4>
@@ -104,7 +104,7 @@
                                 {% if charge.dateecheance %}
                                     Prend fin le : {{ charge.dateecheance|date('d/m/Y') }}
                                 {% endif %}<br>
-                                Statut: {{ charge.statut }}
+                                Statut: {{ charge.statut }}<br>
                                 Montant à payer :{{ charge.montant }}<br>
 
                             </div>
