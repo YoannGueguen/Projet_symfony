@@ -101,6 +101,23 @@ class contratController extends Controller
         return $this->redirectToRoute('contrat_index');
     }
 
+    public function sendEmailContratCreated(contrat $contrat){
+        $mail = (new \Swift_Message('Notification'))
+            ->setFrom('clorporate@gmail.com')
+            ->setTo('akeribin@gmail.com')
+            ->setBody(
+                $this->renderView(
+                    'email/contrat.html.twig',
+                    array('name' => $this->getUser()->getUsername(),
+                        'nomcontrat' =>$contrat->getNom(),
+                        'datefin' =>$contrat->getDateFin()->format('d/m/Y'),
+                        'datesignature' =>$contrat->getDateSignature()->format('d/m/Y'))
+                ),
+                'text/html'
+            );
+        $this->get('mailer')->send($mail);
+    }
+
     /**
      * Creates a form to delete a contrat entity.
      *

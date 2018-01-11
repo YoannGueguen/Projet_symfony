@@ -123,6 +123,25 @@ class projetController extends Controller
         return $this->redirectToRoute('projet_index');
     }
 
+    public function sendEmailProjetCreated(projet $projet){
+        $mail = (new \Swift_Message('Notification'))
+            ->setFrom('clorporate@gmail.com')
+            ->setTo('akeribin@gmail.com')
+            ->setBody(
+                $this->renderView(
+                    'email/projet_new.html.twig',
+                    array('name' => $this->getUser()->getUsername(),
+                        'descprojet' =>$projet->getDescription(),
+                        'nomprojet' =>$projet->getTitre(),
+                        'datefin' =>$projet->getDateFin()->format('d/m/Y'),
+                        'datedebut' =>$projet->getDateDebut()->format('d/m/Y'),
+                        )
+                ),
+                'text/html'
+            );
+        $this->get('mailer')->send($mail);
+    }
+
     /**
      * Creates a form to delete a projet entity.
      *

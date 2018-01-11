@@ -8,13 +8,16 @@
     <table class="table">
         <tbody>
             <tr>
+                <th></th>
                 <th>Messages de {{ discussion.nom }}</th>
                 {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+
                 <th>Actions</th>
                 {% endif %}
             </tr>
             {% for message in messages %}
             <tr>
+                <td>{{ message.userid.username }} :</td>
                 <td>{{ message.contenu }}</td>
                 {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
                 <td><ul  style="list-style-type: none">
