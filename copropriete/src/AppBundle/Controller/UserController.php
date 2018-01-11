@@ -13,7 +13,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
  *
  * @Route("user")
  */
-class userController extends Controller
+class UserController extends Controller
 {
     /**
      * Lists all user entities.

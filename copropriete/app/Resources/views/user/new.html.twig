@@ -6,10 +6,11 @@
     {{ form_start(form) }}
 
         {{ form_widget(form) }}
-        <input type="submit" value="Créer" class="btn btn-success" />
-    {{ form_end(form) }}
+
 
     <ul style="list-style-type: none">
+        <input type="submit" value="Créer" class="btn btn-success" />
+        {{ form_end(form) }}
         <li>
             <a href="{{ path('user_index') }}">
                 <button type="button" class="btn btn-primary">Retour à la liste</button>
