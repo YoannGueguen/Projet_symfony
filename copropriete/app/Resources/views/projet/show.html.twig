@@ -31,18 +31,16 @@
                     {{ user.username}},
                     {% endfor %}</td>
             </tr>
+            {% if projet.discuId != "" %}
             <tr>
                 <th>Discussion liée</th>
-                <td></td>
+                <td><a href="{{ path('discussion_show',{'id': projet.discuid.id}) }}">{{ projet.discuid.nom }}</a></td>
             </tr>
+            {% endif %}
             <tr>
                 <th>Fichiers</th>
                 <td><a href="../../../web/file/{{ projet.pjid }}">{{ projet.pjid }}</a></td>
             </tr>
-        <!--<tr>
-            <th>Discussion</th>
-            <td>{##} projet.getDiscuId() }}</td>
-        </tr>-->
         </tbody>
     </table>
 
