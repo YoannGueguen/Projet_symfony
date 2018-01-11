@@ -21,7 +21,7 @@
                 <h3 style='text-align: center;' class="alert alert-warning" role="alert">Vos discussions</h3>
                 <div class="bloc_discussion">
                     {% for discussion in discussions %}
-                        {% if discussion.archive == "0"  %}
+                        {% if discussion.archive == "0" and app.user in discussion.utilisateurs %}
                             <div class="panel panel-warning">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
@@ -50,6 +50,7 @@
                 <h3 style='text-align: center;' class="alert alert-info" role="alert">Projets en cours</h3>
                 <div class="bloc_projet">
                     {% for projet in projets %}
+                        {% if app.user in projet.utilisateurs %}
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <h4 style="height: 30px;" class="panel-title">
@@ -67,6 +68,7 @@
                                 <h5>Détails :</h5>{{ projet.description }}
                             </div>
                         </div>
+                            {% endif %}
                     {% endfor %}
                 {% if is_granted('ROLE_MANAGER') %}
                     <a href="{{ path('projet_new') }}">
@@ -81,6 +83,7 @@
                 <h3 style='text-align: center;' class="alert alert-success" role="alert">Charges restantes</h3>
             <div class="bloc_charge">
                     {% for charge in charges %}
+                        {% if app.user in charge.utilisateurs %}
                         <div class="panel panel-success">
                             <div class="panel-heading">
                                 <h4 style="min-height:30px;" class="panel-title">
@@ -103,6 +106,7 @@
                                 {% endif %}
                             </div>
                         </div>
+                            {% endif %}
                         {% endfor %}
             </div>
         </div>
