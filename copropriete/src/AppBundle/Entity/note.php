@@ -149,5 +149,9 @@ class note
     {
         $this->projet = $projet;
     }
+    public function __toString()
+    {
+        return $this->getDate();
+    }
 }
 

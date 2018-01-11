@@ -43,17 +43,15 @@
             </tr>
         </tbody>
     </table>
-    <div>
+    <div class="row" style="max-height: 500px;">
         {% for oneNote in projet.note %}
             <div class="col-lg-4 col-sm-6 portfolio-item">
                 <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                     <div class="card-body">
-                        <h5></h5>
+                        <h5>{{ oneNote.userId }}    {{ oneNote.date|date('d-m-Y') }}</h5>
                         <h4 class="card-title">
                             {{ oneNote.titre }}
                         </h4>
-                        <h5>{{ oneNote.date }}</h5>
                         <p class="card-text">{{ oneNote.description }}</p>
                     </div>
                 </div>

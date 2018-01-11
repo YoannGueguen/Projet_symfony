@@ -6,7 +6,8 @@ use AppBundle\Entity\note;
 use AppBundle\Entity\projet;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Projet controller.
@@ -72,7 +73,7 @@ class projetController extends Controller
         $noteForm = $this->createForm('AppBundle\Form\noteType', $note);
 
         return $this->render('projet/show.html.twig', array(
-            'note_form' => $noteForm->createView(),
+            'new_form' => $noteForm->createView(),
             'projet' => $projet,
             'delete_form' => $deleteForm->createView(),
         ));
