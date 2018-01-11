@@ -28,12 +28,6 @@ class piece_jointe
     private $url;
 
     /**
-     * @ORM\ManyToOne(targetEntity="projet", cascade={"remove"})
-     * @ORM\JoinColumn(name="projet_id", referencedColumnName="id")
-     */
-    private $projet_id;
-
-    /**
      * @ORM\OneToMany(targetEntity="message", mappedBy="piece_jointe", cascade={"remove"})
      * @ORM\JoinColumn(name="message_id", referencedColumnName="id")
      */
@@ -54,22 +48,6 @@ class piece_jointe
     public function getUrl()
     {
         return $this->url;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getProjetId()
-    {
-        return $this->projet_id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getVersementId()
-    {
-        return $this->versement_id;
     }
 
     /**

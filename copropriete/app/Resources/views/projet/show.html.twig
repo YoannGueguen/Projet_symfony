@@ -43,8 +43,28 @@
             </tr>
         </tbody>
     </table>
+    <div>
+        {% for oneNote in projet.note %}
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+                <div class="card h-100">
+                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <div class="card-body">
+                        <h5></h5>
+                        <h4 class="card-title">
+                            {{ oneNote.titre }}
+                        </h4>
+                        <h5>{{ oneNote.date }}</h5>
+                        <p class="card-text">{{ oneNote.description }}</p>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            Il n'existe encore aucune note sur ce projet.
+        {% endfor %}
+    </div>
 
     <ul style="list-style-type: none">
+        <a href="{{ path('note_new') }}"><button type="button" class="btn btn-primary">Ajouter une note</button></a>
         <li>
             <a href="{{ path('projet_edit', { 'id': projet.id }) }}">
                 <button type="button" class="btn btn-warning">Modifier le projet</button>
