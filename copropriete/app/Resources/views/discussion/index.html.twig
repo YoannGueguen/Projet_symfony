@@ -9,17 +9,24 @@
                 <th>Nom</th>
                 <th>Date_debut</th>
                 <th>Type</th>
+                <th>Utilisateurs</th>
                 <th>Archive</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for discussion in discussions %}
-            {% if not discussion.archive == "1" and app.user in discussion.utilisateurs %}
+
+            {% if not discussion.archive == "1" and app.user in discussion.utilisateurs or is_granted('ROLE_PREVIOUS_ADMIN') %}
             <tr>
                 <td><a href="{{ path('discussion_show', { 'id': discussion.id }) }}">{{  discussion.nom }}</a></td>
                 <td>{% if discussion.datedebut %}{{ discussion.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ discussion.type }}</td>
+                <td>
+                    {% for user in discussion.utilisateurs %}
+                        {{ user.username }},
+                    {% endfor %}
+                </td>
                 <td>{% if discussion.archive %}Oui{% else %}Non{% endif %}</td>
                 <td>
                     <ul style="list-style-type: none">

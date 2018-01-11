@@ -18,14 +18,16 @@ class contratType extends AbstractType
             'widget' => 'single_text',
             // do not render as type="date", to avoid HTML5 date pickers
             'html5' => false,
+            'format' => 'MM-dd-yyyy',
             // add a class that can be selected in JavaScript
             'attr' => ['class' => 'js-datepicker']))
             ->add('date_fin', DateType::class, array(
-            'widget' => 'single_text',
-            // do not render as type="date", to avoid HTML5 date pickers
-            'html5' => false,
-            // add a class that can be selected in JavaScript
-            'attr' => ['class' => 'js-datepicker']));
+                'widget' => 'single_text',
+                // do not render as type="date", to avoid HTML5 date pickers
+                'html5' => false,
+                'format' => 'MM-dd-yyyy',
+                // add a class that can be selected in JavaScript
+                'attr' => ['class' => 'js-datepicker']));
     }/**
      * {@inheritdoc}
      */

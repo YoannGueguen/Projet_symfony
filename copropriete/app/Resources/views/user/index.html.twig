@@ -2,13 +2,14 @@
 
 {% block body %}
     <h1>Users list</h1>
-
+    <div style="height:400px;overflow-y: ">
     <table class="table table_list">
         <thead>
             <tr>
                 <th>Pseudo</th>
                 <th>E-mail</th>
                 <th>Roles</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -17,15 +18,16 @@
                 <td>
                     <a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.username }}</a>
                 </td>
+                <td>{{ user.email }}</td>
                 <td>{% for role in user.roles %}
                         {{ role }},
                     {% endfor %}</td>
-                <td>{{ user.email }}</td>
                 <td><a href="{{ path('user_edit', { 'id': user.id }) }}">modifier</a></td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+    </div>
     <br><br>
     <ul style="list-style-type: none">
         <li>

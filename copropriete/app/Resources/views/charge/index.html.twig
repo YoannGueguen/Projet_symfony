@@ -10,6 +10,7 @@
                 <th>Date_echeance</th>
                 <th>Montant</th>
                 <th>Statut</th>
+                <th>Contrat</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,6 +21,10 @@
                 <td>{% if charge.dateecheance %}{{ charge.dateecheance|date('Y-m-d') }}{% endif %}</td>
                 <td>Montant à payer :{{ charge.montant }}</td>
                 <td>Statut :{{ charge.statut }}</td>
+                <td>{% if charge.contratId != "" %}
+                    {{ charge.contratId.nom }}
+                    {% endif %}
+                </td>
                 <td>
                     <ul style="list-style-type: none">
                         {% if is_granted('ROLE_MANAGER') %}

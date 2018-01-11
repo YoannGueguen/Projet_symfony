@@ -31,7 +31,7 @@ class contratController extends Controller
             $em->persist($contrat);
             $em->flush();
 
-            return $this->redirectToRoute('contrat_show', array('id' => $contrat->getId()));
+            return $this->redirectToRoute('index');
         }
 
         return $this->render('contrat/new.html.twig', array(
