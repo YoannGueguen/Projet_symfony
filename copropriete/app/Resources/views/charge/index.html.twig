@@ -17,7 +17,7 @@
         {% for charge in charges %}
             <tr>
                 <td><a href="{{ path('charge_show', { 'id': charge.id }) }}">{{ charge.titre }}</a></td>
-                <td>{% if charge.dateecheance %}{{ charge.dateecheance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if charge.dateecheance %}{{ charge.dateecheance|date('Y-m-d') }}{% endif %}</td>
                 <td>Montant à payer :{{ charge.montant }}</td>
                 <td>Statut :{{ charge.statut }}</td>
                 <td>

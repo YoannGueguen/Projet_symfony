@@ -56,20 +56,19 @@ class projet
     private $date_fin;
 
     /**
-     * @ORM\OneToMany(targetEntity="discussion", mappedBy="projet", orphanRemoval=true, cascade={"remove"})
+     * @ORM\OneToOne(targetEntity="discussion", cascade={"remove"})
      * @ORM\JoinColumn(name="discu_id", referencedColumnName="id", nullable=true)
      */
     private $discu_id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="user", inversedBy="projets", cascade={"remove"})
+     * @ORM\ManyToMany(targetEntity="user", inversedBy="projets", cascade={"remove"})
      * @ORM\JoinTable(name="user_projet")
      */
     private $utilisateurs;
 
     /**
-     * @ORM\OneToMany(targetEntity="piece_jointe", mappedBy="projet", cascade={"remove"})
-     * @ORM\JoinColumn(name="pj_id", referencedColumnName="id")
+     * @ORM\Column(name="pj_id", type="string", length=255, nullable=true)
      */
     private $pj_id;
 

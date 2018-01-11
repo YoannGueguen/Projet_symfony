@@ -41,9 +41,11 @@ class projetType extends AbstractType
                 'format' => 'MM-dd-yyyy',
                 // add a class that can be selected in JavaScript
                 'attr' => ['class' => 'js-datepicker']))
-            ->add('discu_id'/*, EntityType::class, array('class' => 'AppBundle:discussion','multiple'=>false)*/)
-            ->add('pj_id', FileType::class, array('empty_data'=>null, 'required'=>false))
-            ->add('utilisateurs');
+            ->add('discu_id')
+            ->add('pj_id', FileType::class, array('required'=>false))
+            ->add('utilisateurs')
+            ->get('pj_id')
+            ->addModelTransformer($this->transformer);
     }
     
     /**
