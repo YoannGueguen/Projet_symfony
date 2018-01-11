@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Charges list</h1>
 
-    <table class="table_list">
+    <table class="table">
         <thead>
             <tr>
                 <th>Titre</th>
@@ -18,20 +18,22 @@
             <tr>
                 <td><a href="{{ path('charge_show', { 'id': charge.id }) }}">{{ charge.titre }}</a></td>
                 <td>{% if charge.dateecheance %}{{ charge.dateecheance|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ charge.montant }}</td>
-                <td>{{ charge.statut }}</td>
+                <td>Montant à payer :{{ charge.montant }}</td>
+                <td>Statut :{{ charge.statut }}</td>
                 <td>
                     <ul>
                         {% if is_granted('ROLE_MANAGER') %}
-                        <li>
-                            <a href="{{ path('charge_edit', { 'id': charge.id }) }}">Modifier</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('charge_delete', { 'id': charge.id }) }}">Supprimer</a>
-                        </li>
+                            <li>
+                                <a href="{{ path('charge_edit', { 'id': charge.id }) }}">Modifier</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('charge_delete', { 'id': charge.id }) }}">Supprimer</a>
+                            </li>
                         {% endif %}
                     </ul>
                 </td>
+            </tr>
+
             </tr>
         {% endfor %}
         </tbody>

@@ -103,7 +103,10 @@
                             <div class="panel-body">
                                 {% if charge.dateecheance %}
                                     Prend fin le : {{ charge.dateecheance|date('d/m/Y') }}
-                                {% endif %}
+                                {% endif %}<br>
+                                Statut: {{ charge.statut }}
+                                Montant à payer :{{ charge.montant }}<br>
+
                             </div>
                         </div>
                             {% endif %}
