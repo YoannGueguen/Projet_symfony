@@ -7,10 +7,11 @@
         {{ form_widget(form) }}
         <input type="submit" value="Créer discussion" />
     {{ form_end(form) }}
-
+{% if is_granted('ROLE_MANAGER') %}
     <ul>
         <li>
             <a href="{{ path('discussion_index') }}">Retour aux discussions</a>
         </li>
     </ul>
+    {% endif %}
 {% endblock %}

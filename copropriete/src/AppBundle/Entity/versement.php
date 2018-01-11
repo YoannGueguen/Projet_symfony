@@ -27,7 +27,7 @@ class versement
     private $montant;
 
     /**
-     * @Assert\Date()
+     *
      * @ORM\Column(name="date", type="date")
      */
     private $date;

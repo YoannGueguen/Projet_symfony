@@ -1,4 +1,8 @@
 /*MENU*/
+body{
+    overflow-y: hidden;
+    height: 100%;
+}
 
 #menu-demo2, #menu-demo2 ul{
     padding:0;
@@ -7,6 +11,11 @@
     text-align:center;
     background-color:#000000;
 
+}
+
+.bloc_charge, .bloc_projet, .bloc_discussion{
+    overflow-y: auto;
+    max-height: 450px;
 }
 #menu-demo2 li{
     display:inline-block;
@@ -58,8 +67,8 @@
 /*INDEX*/
 .block{
     border-radius: 5px;
-    box-shadow: 5px 5px 5px 5px #aaa;
     background-color: #ffffff;
+    overflow-y: auto;
 }
 #div_message{
     height:500px;
@@ -85,9 +94,6 @@
 }
 table th, table tr td{
     margin-left: 10px;
-}
-table{
-    width: 100%;
 }
 #appbundle_message{
 
