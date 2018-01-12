@@ -26,10 +26,7 @@ class noteType extends AbstractType
                 'html5' => false,
                 'format' => 'MM-dd-yyyy',
                 // add a class that can be selected in JavaScript
-                'attr' => ['class' => 'js-datepicker'],))
-            ->add('projet', HiddenType::class);
-        $builder->get('projet')
-            ->addModelTransformer($this->transformer);;
+                'attr' => ['class' => 'js-datepicker'],));
     }/**
      * {@inheritdoc}
      */
@@ -39,14 +36,6 @@ class noteType extends AbstractType
             'data_class' => 'AppBundle\Entity\note'
         ));
     }
-
-    private $transformer;
-
-    public function __construct(ProjectToIDTransformer  $transformer)
-    {
-        $this->transformer = $transformer;
-    }
-
     /**
      * {@inheritdoc}
      */

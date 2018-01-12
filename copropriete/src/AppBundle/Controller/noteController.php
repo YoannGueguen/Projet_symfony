@@ -34,25 +34,31 @@ class noteController extends Controller
     /**
      * Creates a new note entity.
      *
-     * @Route("/new", name="note_new")
+     * @Route("/new/{projetId}", name="note_new", requirements={"projetId"="\d+"})
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $projetId)
     {
-        $note = new Note();
-        $form = $this->createForm('AppBundle\Form\noteType', $note);
+        $form = $this->createForm('AppBundle\Form\noteType', new Note());
         $form->handleRequest($request);
-        $note->setUserId($this->getUser());
+
         if ($form->isSubmitted() && $form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
+
+            $projet = $em->getRepository('AppBundle:projet')->findOneBy(["id" => $projetId]);
+
+            $note = $form->getData();
+            $note->setUserId($this->getUser());
+            $note->setProjet($projet);
+
             $em->persist($note);
             $em->flush();
 
-            return $this->redirectToRoute('note_show', array('id' => $note->getId()));
+            return $this->redirectToRoute('projet_show', array('id' => $projetId));
         }
 
         return $this->render('note/new.html.twig', array(
-            'note' => $note,
             'form' => $form->createView(),
         ));
     }
@@ -60,7 +66,7 @@ class noteController extends Controller
     /**
      * Finds and displays a note entity.
      *
-     * @Route("/{id}", name="note_show")
+     * @Route("/{id}", name="note_show", requirements={"id"="\d+"})
      * @Method("GET")
      */
     public function showAction(note $note)
@@ -76,7 +82,7 @@ class noteController extends Controller
     /**
      * Displays a form to edit an existing note entity.
      *
-     * @Route("/{id}/edit", name="note_edit")
+     * @Route("/{id}/edit", name="note_edit", requirements={"id"="\d+"})
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, note $note)
@@ -101,7 +107,7 @@ class noteController extends Controller
     /**
      * Deletes a note entity.
      *
-     * @Route("/{id}", name="note_delete")
+     * @Route("/{id}", name="note_delete", requirements={"id"="\d+"})
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, note $note)

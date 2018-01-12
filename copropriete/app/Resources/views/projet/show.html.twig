@@ -56,13 +56,14 @@
                     </div>
                 </div>
             </div>
+            <br>
         {% else %}
             Il n'existe encore aucune note sur ce projet.
         {% endfor %}
     </div>
 
     <ul style="list-style-type: none">
-        <a href="{{ path('note_new') }}"><button type="button" class="btn btn-primary">Ajouter une note</button></a>
+        <a href="{{ path('note_new', { projetId: projet.id }) }}" class="btn btn-primary">Ajouter une note</a>
         <li>
             <a href="{{ path('projet_edit', { 'id': projet.id }) }}">
                 <button type="button" class="btn btn-warning">Modifier le projet</button>
