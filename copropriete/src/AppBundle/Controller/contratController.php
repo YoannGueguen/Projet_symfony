@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\contrat;
+use AppBundle\Entity\user;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -29,6 +30,7 @@ class contratController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($contrat);
+            $this->sendEmailToUsersNew($contrat);
             $em->flush();
 
             return $this->redirectToRoute('index');
@@ -99,23 +101,6 @@ class contratController extends Controller
         }
 
         return $this->redirectToRoute('contrat_index');
-    }
-
-    public function sendEmailContratCreated(contrat $contrat){
-        $mail = (new \Swift_Message('Notification'))
-            ->setFrom('clorporate@gmail.com')
-            ->setTo('akeribin@gmail.com')
-            ->setBody(
-                $this->renderView(
-                    'email/contrat.html.twig',
-                    array('name' => $this->getUser()->getUsername(),
-                        'nomcontrat' =>$contrat->getNom(),
-                        'datefin' =>$contrat->getDateFin()->format('d/m/Y'),
-                        'datesignature' =>$contrat->getDateSignature()->format('d/m/Y'))
-                ),
-                'text/html'
-            );
-        $this->get('mailer')->send($mail);
     }
 
     /**

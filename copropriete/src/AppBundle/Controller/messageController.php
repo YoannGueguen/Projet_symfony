@@ -4,6 +4,8 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\discussion;
 use AppBundle\Entity\message;
+use AppBundle\Entity\user;
+use AppBundle\Repository\discussionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -80,14 +82,15 @@ class messageController extends Controller
         $message = $form->getData();
         //remplissage auto des champs
         $message->setUserId($this->getUser());
+        //on attache le message à la discussion automatiquement
         $discu =$this->getDoctrine()->getManager()->getRepository('AppBundle:discussion')->find($discuId);
         $message->setDiscussionId($discu);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($message);
-            //$this->sendEmailMessageReceived($form->getData());
+            $users=$this->getUsersFromDiscussion($message);
+            $this->sendEmailToUsersNew($message,$users);
             $em->flush();
-
             return $this->redirectToRoute('discussion_show', array('id' => $discu->getId()));
         }
 
@@ -97,11 +100,10 @@ class messageController extends Controller
         ));
     }
 
-    public function sendEmailMessageReceived(message $message){
+    public function sendEmailMessageReceived(message $message, user $user){
         $mail = (new \Swift_Message('Notification'))
             ->setFrom('clorporate@gmail.com')
-            ->setTo('akeribin@gmail.com')
-            //->setBody('you should receive the mail bitch !')
+            ->setTo($user->getEmail())
             ->setBody(
                 $this->renderView(
                 // app/Resources/views/Emails/registration.html.twig
@@ -111,8 +113,22 @@ class messageController extends Controller
                 ),
                 'text/html'
             );
-
         $this->get('mailer')->send($mail);
+    }
+
+    public function sendEmailToUsersNew(message $message, $users){
+        foreach ($this->getUsersFromDiscussion($message) as $user) {
+            $this->sendEmailMessageReceived($message,$user);
+        }
+    }
+
+    public function getUsersFromDiscussion(message $message){
+        //récupérer le repo user et faire la requête :
+        $discuRepo = $this->getDoctrine()->getManager()->getRepository('AppBundle:discussion');
+        $discu = $discuRepo->findUsersByMessage($message);
+        //récup le premier élém si plus d'une discussion
+        $users = array_shift($discu)->getUtilisateurs();
+        return $users;
     }
 
     /**

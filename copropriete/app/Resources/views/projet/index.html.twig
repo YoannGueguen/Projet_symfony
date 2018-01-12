@@ -9,6 +9,7 @@
                 <th>Titre</th>
                 <th>Description</th>
                 <th>Statut</th>
+                <th>Concernés</th>
                 <th>Date debut</th>
                 <th>Date fin</th>
                 <th>Actions</th>
@@ -20,6 +21,11 @@
                 <td><a href="{{ path('projet_show', { 'id': projet.id }) }}">{{ projet.titre }}</a></td>
                 <td>{{ projet.description }}</td>
                 <td>{{ projet.statut }}</td>
+                <td>
+                    {% for user in projet.utilisateurs %}
+                        {{ user.username }},
+                    {% endfor %}
+                </td>
                 <td>{% if projet.datedebut %}{{ projet.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if projet.datefin %}{{ projet.datefin|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>

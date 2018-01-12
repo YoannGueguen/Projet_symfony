@@ -3,6 +3,11 @@
 {% block body %}
 
     <h3>Date de création : {% if discussion.datedebut %}{{ discussion.datedebut|date('d/m/Y') }}{% endif %}</h3>
+    <p>Participants : &nbsp;
+        {% for user in discussion.utilisateurs %}
+            {{ user.username }},
+        {% endfor %}
+    </p>
     <br>
     <div style="height:300px;overflow-y: auto;">
     <table class="table">

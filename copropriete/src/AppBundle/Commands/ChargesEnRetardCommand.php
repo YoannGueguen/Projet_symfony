@@ -37,7 +37,7 @@ class ChargesEnRetardCommand extends ContainerAwareCommand
         $output->writeln([
             'Liste des charges en retard :',
             '=====================================================================================',
-            "'Id  |  Titre  |  Statut  |  Montant  |  date d'échéance   |  Utilisateurs concernés",
+            "'Id  |  Titre  |  Statut  |  Montant  |  Date d'échéance   |  Utilisateurs concernés",
             '====================================================================================='
         ]);
 

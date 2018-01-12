@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Repository;
+use AppBundle\Entity\message;
 
 /**
  * discussionRepository
@@ -10,4 +11,21 @@ namespace AppBundle\Repository;
  */
 class discussionRepository extends \Doctrine\ORM\EntityRepository
 {
+    /*
+     * @parameter message
+     *
+     */
+    public function findUsersByMessage(message $message){
+        $message->getDiscussionId();
+        $queryBuilder = $this->createQueryBuilder('a');
+        $queryBuilder
+            ->where('a.id = :id_discu')
+            ->setParameter('id_discu', $message->getDiscussionId())
+            ->addSelect()
+            ->distinct();
+        //on récup la requête
+        $query = $queryBuilder->getQuery();
+        $res = $query->getResult();
+        return $res;
+    }
 }

@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\note;
 use AppBundle\Entity\projet;
+use AppBundle\Entity\user;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -48,6 +49,8 @@ class projetController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($projet);
+            $users = $projet->getUtilisateurs();
+            $this->sendEmailToUsersNew($users);
             $em->flush();
 
             return $this->redirectToRoute('projet_show', array('id' => $projet->getId()));
@@ -93,7 +96,8 @@ class projetController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $users = $editForm->getData();
+            $this->sendEmailToUsersEdit($users);
             return $this->redirectToRoute('projet_edit', array('id' => $projet->getId()));
         }
 
@@ -124,13 +128,34 @@ class projetController extends Controller
         return $this->redirectToRoute('projet_index');
     }
 
-    public function sendEmailProjetCreated(projet $projet){
+    public function sendEmailProjetEdit(projet $projet, user $user){
+        $destination = $user->getEmail();
         $mail = (new \Swift_Message('Notification'))
             ->setFrom('clorporate@gmail.com')
-            ->setTo('akeribin@gmail.com')
+            ->setTo($destination)
             ->setBody(
                 $this->renderView(
-                    'email/projet_new.html.twig',
+                    'email/projet_edit',
+                    array('name' => $this->getUser()->getUsername(),
+                        'descprojet' =>$projet->getDescription(),
+                        'nomprojet' =>$projet->getTitre(),
+                        'datefin' =>$projet->getDateFin()->format('d/m/Y'),
+                        'datedebut' =>$projet->getDateDebut()->format('d/m/Y'),
+                    )
+                ),
+                'text/html'
+            );
+        $this->get('mailer')->send($mail);
+    }
+
+    public function sendEmailProjetNew(projet $projet, user $user){
+        $destination = $user->getEmail();
+        $mail = (new \Swift_Message('Notification'))
+            ->setFrom('clorporate@gmail.com')
+            ->setTo($destination)
+            ->setBody(
+                $this->renderView(
+                    'email/projet_new',
                     array('name' => $this->getUser()->getUsername(),
                         'descprojet' =>$projet->getDescription(),
                         'nomprojet' =>$projet->getTitre(),
@@ -142,6 +167,20 @@ class projetController extends Controller
             );
         $this->get('mailer')->send($mail);
     }
+
+    public function sendEmailToUsersEdit(projet $projet){
+        foreach ($projet->getUtilisateurs() as $user) {
+            $this->sendEmailProjetEdit($projet,$user);
+        }
+    }
+
+    public function sendEmailToUsersNew(projet $projet){
+        foreach ($projet->getUtilisateurs() as $user) {
+            $this->sendEmailProjetNew($projet,$user);
+        }
+    }
+
+
 
     /**
      * Creates a form to delete a projet entity.

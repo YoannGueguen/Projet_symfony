@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Repository;
+use AppBundle\Entity\contrat;
 
 /**
  * chargeRepository
@@ -23,6 +24,20 @@ class chargeRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('date_now', $time)
             ->andWhere('a.statut = :stat')
             ->setParameter('stat', "A payer");
+        //on récup la requête
+        $query = $queryBuilder->getQuery();
+        $res = $query->getResult();
+        return $res;
+    }
+
+    public function findUsersByContrat(contrat $contrat){
+        $contrat->getId();
+        $queryBuilder = $this->createQueryBuilder('a');
+        $queryBuilder
+            ->where('a.contrat_id = :id_contrat')
+            ->setParameter('id_contrat', $contrat->getId())
+            ->addSelect()
+            ->distinct();
         //on récup la requête
         $query = $queryBuilder->getQuery();
         $res = $query->getResult();

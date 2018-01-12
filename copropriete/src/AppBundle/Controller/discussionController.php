@@ -113,13 +113,11 @@ class discussionController extends Controller
     {
         $form = $this->createDeleteForm($discussion);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($discussion);
             $em->flush();
         }
-
         return $this->redirectToRoute('discussion_index');
     }
 

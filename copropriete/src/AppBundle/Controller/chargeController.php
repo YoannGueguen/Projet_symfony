@@ -3,6 +3,9 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\charge;
+use AppBundle\Entity\user;
+use AppBundle\Entity\contrat;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -87,7 +90,10 @@ class chargeController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            if($editForm->getData()->getContratId()!=""){
+                $charge= $editForm->getData();
+                $this->sendEmailToUsersNew($charge,$charge->getContratId());
+            }
             return $this->redirectToRoute('charge_edit', array('id' => $charge->getId()));
         }
 
@@ -116,6 +122,31 @@ class chargeController extends Controller
         }
 
         return $this->redirectToRoute('charge_index');
+    }
+
+    public function sendEmailContratNew(contrat $contrat, user $user){
+        $destination = $user->getEmail();
+        $mail = (new \Swift_Message('Notification'))
+            ->setFrom('clorporate@gmail.com')
+            ->setTo($destination)
+            ->setBody(
+                $this->renderView(
+                    'email/contrat',
+                    array('name' => $this->getUser()->getUsername(),
+                        'nomcontrat' =>$contrat->getNom(),
+                        'datefin' =>$contrat->getDateFin()->format('d/m/y'),
+                        'datesignature'=>$contrat->getDateSignature()->format('d/m/y')
+                    )
+                ),
+                'text/html'
+            );
+        $this->get('mailer')->send($mail);
+    }
+
+    public function sendEmailToUsersNew(charge $charge,contrat $contrat){
+        foreach ($charge->getUtilisateurs() as $user) {
+            $this->sendEmailContratNew($contrat,$user);
+        }
     }
 
     /**
