@@ -95,16 +95,18 @@ class userController extends Controller
      * @Route("/{id}/edit", name="user_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, user $user)
+    public function editAction(Request $request, user $user, UserPasswordEncoderInterface $encoder)
     {
         $deleteForm = $this->createDeleteForm($user);
         $editForm = $this->createForm('AppBundle\Form\userType', $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $password = $editForm->getData()->getPassword();
+            $encoded = $encoder->encodePassword($user, $password);
+            $editForm->getData()->setPassword($encoded);
             $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('user_edit', array('id' => $user->getId()));
+            return $this->redirectToRoute('user_edit', array('id' => $user->getId(),'edited'=>true));
         }
 
         return $this->render('user/edit.html.twig', array(

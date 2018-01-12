@@ -49,6 +49,10 @@ class chargeController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($charge);
+            if($form->getData()->getContratId()!=""){
+                $charge= $form->getData();
+                $this->sendEmailToUsersNew($charge,$charge->getContratId());
+            }
             $em->flush();
 
             return $this->redirectToRoute('charge_show', array('id' => $charge->getId()));

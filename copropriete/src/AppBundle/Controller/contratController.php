@@ -3,8 +3,10 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\contrat;
+use AppBundle\Entity\charge;
 use AppBundle\Entity\user;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Repository\chargeRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
@@ -30,7 +32,12 @@ class contratController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($contrat);
-            $this->sendEmailToUsersNew($contrat);
+            /*
+            $repoCharge = $this->getDoctrine()->getManager()->getRepository('AppBundle:charge');
+            $contrat = $form->getData();
+            $charge = $repoCharge->findUsersByContrat($contrat);
+            //$charge = array_shift($charge);
+            $this->sendEmailToUsersNew($charge,$contrat);*/
             $em->flush();
 
             return $this->redirectToRoute('index');
@@ -101,6 +108,31 @@ class contratController extends Controller
         }
 
         return $this->redirectToRoute('contrat_index');
+    }
+
+    public function sendEmailContratNew(contrat $contrat, user $user){
+        $destination = $user->getEmail();
+        $mail = (new \Swift_Message('Notification'))
+            ->setFrom('clorporate@gmail.com')
+            ->setTo($destination)
+            ->setBody(
+                $this->renderView(
+                    'email/contrat',
+                    array('name' => $this->getUser()->getUsername(),
+                        'nomcontrat' =>$contrat->getNom(),
+                        'datefin' =>$contrat->getDateFin()->format('d/m/y'),
+                        'datesignature'=>$contrat->getDateSignature()->format('d/m/y')
+                    )
+                ),
+                'text/html'
+            );
+        $this->get('mailer')->send($mail);
+    }
+
+    public function sendEmailToUsersNew(charge $charge,contrat $contrat){
+        foreach ($charge->getUtilisateurs() as $user) {
+            $this->sendEmailContratNew($contrat,$user);
+        }
     }
 
     /**

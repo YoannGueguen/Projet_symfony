@@ -50,7 +50,7 @@ class projetController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($projet);
             $users = $projet->getUtilisateurs();
-            $this->sendEmailToUsersNew($users);
+            //$this->sendEmailToUsersNew($users);
             $em->flush();
 
             return $this->redirectToRoute('projet_show', array('id' => $projet->getId()));
