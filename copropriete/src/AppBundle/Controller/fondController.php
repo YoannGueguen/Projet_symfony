@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\fond;
+use AppBundle\Entity\user;
+use AppBundle\Entity\charge;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -46,6 +48,12 @@ class fondController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($fond);
+            $repoCharge = $this->getDoctrine()->getManager()->getRepository('AppBundle:charge');
+            $fond = $form->getData();
+            $charge = $fond->getChargeId();
+            if($fond!='') {
+                $this->sendEmailToUsersNew($charge,$fond);
+            }
             $em->flush();
 
             return $this->redirectToRoute('fond_show', array('id' => $fond->getId()));
@@ -55,6 +63,29 @@ class fondController extends Controller
             'fond' => $fond,
             'form' => $form->createView(),
         ));
+    }
+
+    public function sendEmailFondNew(fond $fond, user $user){
+        $destination = $user->getEmail();
+        $mail = (new \Swift_Message('Notification'))
+            ->setFrom('clorporate@gmail.com')
+            ->setTo($destination)
+            ->setBody(
+                $this->renderView(
+                    'email/fond',
+                    array('name' => $this->getUser()->getUsername(),
+                        'nomfond' =>$fond->getTitre(),
+                    )
+                ),
+                'text/html'
+            );
+        $this->get('mailer')->send($mail);
+    }
+
+    public function sendEmailToUsersNew(charge $charge,fond $fond){
+        foreach ($charge->getUtilisateurs() as $user) {
+            $this->sendEmailFondNew($fond,$user);
+        }
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * fond
@@ -27,8 +28,9 @@ class fond
     private $titre;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\OneToOne(targetEntity="charge", cascade={"remove"})
-     * @ORM\JoinColumn(name="charge_id", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\JoinColumn(name="charge_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
     private $charge_id;
 

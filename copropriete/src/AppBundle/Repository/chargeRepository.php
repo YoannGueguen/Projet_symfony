@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 use AppBundle\Entity\contrat;
+use AppBundle\Entity\fond;
+use AppBundle\Entity\charge;
 
 /**
  * chargeRepository
@@ -42,5 +44,22 @@ class chargeRepository extends \Doctrine\ORM\EntityRepository
         $query = $queryBuilder->getQuery();
         $res = $query->getResult();
         return $res;
+    }
+
+    public function findUsersByFond(fond $fond){
+        $fond->getId();
+        $queryBuilder = $this->createQueryBuilder('a');
+        $queryBuilder
+            ->where('a.fond_id = :id_fond')
+            ->setParameter('id_fond', $fond->getId())
+            ->addSelect();
+        //on récup la requête
+        $query = $queryBuilder->getQuery();
+        $res = $query->getResult();
+        return $res;
+    }
+
+    public function findChargesNotIn(){
+
     }
 }

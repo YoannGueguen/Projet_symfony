@@ -3,7 +3,5 @@
 <div>Bonjour {{ name }}!</div><br>
 <div>Un contrat vous concernant vient d'être ajouter dans votre application : {{ nomcontrat }}</div>
 <div>
-    <p>Vous devez signer ce contrat avant le {{ datesignature }} et il sera valable jusqu'au {{ datefin }}</p>
-
 </div>
 <div>Connectez-vous : <a href="#"></a></div>

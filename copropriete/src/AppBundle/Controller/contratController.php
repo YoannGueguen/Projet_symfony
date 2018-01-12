@@ -32,12 +32,11 @@ class contratController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($contrat);
-            /*
             $repoCharge = $this->getDoctrine()->getManager()->getRepository('AppBundle:charge');
             $contrat = $form->getData();
             $charge = $repoCharge->findUsersByContrat($contrat);
-            //$charge = array_shift($charge);
-            $this->sendEmailToUsersNew($charge,$contrat);*/
+            $charge = array_shift($charge);
+            $this->sendEmailToUsersNew($charge,$contrat);
             $em->flush();
 
             return $this->redirectToRoute('index');
