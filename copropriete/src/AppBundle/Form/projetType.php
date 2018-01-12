@@ -42,7 +42,7 @@ class projetType extends AbstractType
                 // add a class that can be selected in JavaScript
                 'attr' => ['class' => 'js-datepicker']))
             ->add('discu_id')
-            ->add('pj_id', FileType::class, array('required'=>false))
+            ->add('pj_id', FileType::class, array('required'=>false, 'Data'=> $options))
             ->add('utilisateurs')
             ->get('pj_id')
             ->addModelTransformer($this->transformer);

@@ -88,8 +88,8 @@ class projetController extends Controller
         $deleteForm = $this->createDeleteForm($projet);
         $editForm = $this->createForm('AppBundle\Form\projetType', $projet);
         $editForm->handleRequest($request);
-
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
             $this->getDoctrine()->getManager()->flush();
             $users = $editForm->getData();
             $this->sendEmailToUsersEdit($users);
