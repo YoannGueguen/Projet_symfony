@@ -3,18 +3,26 @@
 {% block body %}
 
     <h3>Date de création : {% if discussion.datedebut %}{{ discussion.datedebut|date('d/m/Y') }}{% endif %}</h3>
+    <p>Participants : &nbsp;
+        {% for user in discussion.utilisateurs %}
+            {{ user.username }},
+        {% endfor %}
+    </p>
     <br>
     <div style="height:300px;overflow-y: auto;">
     <table class="table">
         <tbody>
             <tr>
+                <th></th>
                 <th>Messages de {{ discussion.nom }}</th>
                 {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+
                 <th>Actions</th>
                 {% endif %}
             </tr>
             {% for message in messages %}
             <tr>
+                <td>{{ message.userid.username }} :</td>
                 <td>{{ message.contenu }}</td>
                 {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
                 <td><ul  style="list-style-type: none">
