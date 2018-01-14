@@ -2,12 +2,12 @@
 
 {% block body %}
     <h1>Liste discussions</h1>
-
+<div style="max-height:350px;overflow-y: auto;">
     <table class="table table_list">
         <thead>
             <tr>
                 <th>Nom</th>
-                <th>Date_debut</th>
+                <th>Date de début</th>
                 <th>Type</th>
                 <th>Utilisateurs</th>
                 <th>Archive</th>
@@ -48,6 +48,7 @@
         {% endfor %}
         </tbody>
     </table>
+</div>
     <ul style="list-style-type: none">
         <li>
             <a href="{{ path('discussion_new') }}">

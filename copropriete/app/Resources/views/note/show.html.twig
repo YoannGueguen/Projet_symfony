@@ -23,13 +23,13 @@
             </tr>
         </tbody>
     </table>
-
-    <ul>
+    <br>
+    <ul class="liste_custom_buttons">
         <li>
-            <a href="{{ path('note_index') }}">Back to the list</a>
+            <a href="{{ path('note_index') }}">Retour à la liste</a>
         </li>
         <li>
-            <a href="{{ path('note_edit', { 'id': note.id }) }}">Edit</a>
+            <a href="{{ path('note_edit', { 'id': note.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

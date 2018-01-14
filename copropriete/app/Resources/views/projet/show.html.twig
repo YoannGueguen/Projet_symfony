@@ -2,7 +2,7 @@
 
 {% block body %}
     <h1>Projet</h1>
-
+<div style="max-height: 400px;overflow-y:auto;">
     <table class="table">
         <tbody>
             <tr>
@@ -18,11 +18,11 @@
                 <td>{{ projet.statut }}</td>
             </tr>
             <tr>
-                <th>Date_debut</th>
+                <th>Date de debut</th>
                 <td>{% if projet.datedebut %}{{ projet.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Date_fin</th>
+                <th>Date de fin</th>
                 <td>{% if projet.datefin %}{{ projet.datefin|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
@@ -31,15 +31,10 @@
                     {{ user.username}},
                     {% endfor %}</td>
             </tr>
-            {% if projet.discuId != "" %}
-            <tr>
-                <th>Discussion liée</th>
-                <td><a href="{{ path('discussion_show',{'id': projet.discuid.id}) }}">{{ projet.discuid.nom }}</a></td>
-            </tr>
-            {% endif %}
-            {% if projet.discuId != "" %}
+            {% if false %}
                 <tr>
                     <th>Charge liée</th>
+
                     <td><a href="{{ path('charge_show',{'id': projet.chargeid.id}) }}">{{ projet.chargeid.nom }}</a></td>
                 </tr>
             {% endif %}
@@ -47,6 +42,16 @@
                 <th>Fichiers</th>
                 <td><a href="../../../web/file/{{ projet.pjid }}">{{ projet.pjid }}</a></td>
             </tr>
+        <tr>
+            <th>Discussion</th>
+            <td>
+                {% if projet.getDiscuId() != null %}
+                <a href="{{ path('discussion_show', { 'id': projet.getDiscuId().id }) }}">
+                    <button type="button" class="btn btn-default">Afficher la discussion</button>
+                </a>
+                {% endif %}
+            </td>
+        </tr>
         </tbody>
     </table>
     <div class="row" style="max-height: 500px;">
@@ -66,10 +71,11 @@
         {% else %}
             Il n'existe encore aucune note sur ce projet.
         {% endfor %}
-    </div>
-
-    <ul style="list-style-type: none">
         <a href="{{ path('note_new', { projetId: projet.id }) }}" class="btn btn-primary">Ajouter une note</a>
+    </div>
+</div>
+    <br>
+    <ul class="liste_custom_buttons">
         <li>
             <a href="{{ path('projet_edit', { 'id': projet.id }) }}">
                 <button type="button" class="btn btn-warning">Modifier le projet</button>
@@ -81,4 +87,5 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+
 {% endblock %}

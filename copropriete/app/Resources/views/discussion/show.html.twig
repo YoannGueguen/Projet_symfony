@@ -40,7 +40,8 @@
         </tbody>
     </table>
 </div>
-    <ul  style="list-style-type: none">
+    <br>
+    <ul  class="liste_custom_buttons">
         {% if discussion.archive == "0" %}
         <li>
             <a href="{{ path('message_new_discu', {'id': discussion.id}) }}"><button type="button" class="btn btn-primary">Créer un nouveau message</button></a>

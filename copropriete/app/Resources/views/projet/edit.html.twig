@@ -1,23 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Projet</h1>
 
+    <h1>Projet</h1>
+    <div style="max-height: 400px;overflow-y: auto;">
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
+    </div>
+    <br>
+    <ul class='liste_custom_buttons'>
         <input type="submit" value="Modifier le projet" class="btn btn-warning"/>
     {{ form_end(edit_form) }}
 
-    <ul style="list-style-type: none">
+
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer le projet" class="btn btn-danger">
+            {{ form_end(delete_form) }}
+        </li>
         <li>
             <a href="{{ path('projet_index') }}">
                 <button type="button" class="btn btn-primary">Retour aux projets</button>
             </a>
         </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer le projet" class="btn btn-delete">
-            {{ form_end(delete_form) }}
-        </li>
     </ul>
+
 {% endblock %}

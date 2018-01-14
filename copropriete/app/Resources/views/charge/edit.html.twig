@@ -1,22 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Charge edit</h1>
+    <h1>Modification charge</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
 
-
-    <ul style="list-style-type: none">
+    <br>
+    <ul class='liste_custom_buttons'>
         <input type="submit" value="Modifier charge" class="btn btn-warning" />
         {{ form_end(edit_form) }}
-        <li>
-            <a href="{{ path('charge_index') }}"><button type="button" class="btn btn-primary">Retour aux charges</button></a>
-        </li>
         <li>
             {{ form_start(delete_form) }}
                 <input type="submit" value="Supprimer charge" class="btn btn-danger">
             {{ form_end(delete_form) }}
+        </li>
+        <li>
+            <a href="{{ path('charge_index') }}"><button type="button" class="btn btn-primary">Retour aux charges</button></a>
         </li>
     </ul>
 {% endblock %}

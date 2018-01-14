@@ -9,7 +9,7 @@
                 <td>{{ charge.titre }}</td>
             </tr>
             <tr>
-                <th>Date_echeance</th>
+                <th>Date d'échéance</th>
                 <td>{% if charge.dateecheance %}{{ charge.dateecheance|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
@@ -17,8 +17,22 @@
                 <td>{{ charge.montant }}</td>
             </tr>
             <tr>
+                <th>Concernés</th>
+                <td>
+                    {% for user in charge.getUtilisateurs() %}
+                        {{ user.username }},
+                    {% endfor %}
+                </td>
+                </td>
+            </tr>
+            <tr>
                 <th>Statut</th>
                 <td>{{ charge.statut }}</td>
+            </tr>
+            <tr><th>Contrat</th>
+                <td>
+                    <a href="{{ path('contrat_show', { 'id': charge.getContratId().id }) }}">{{ charge.contratId.nom }}</a>
+                </td>
             </tr>
             <tr>
                 <th>Fichiers</th>
@@ -27,7 +41,8 @@
         </tbody>
     </table>
 
-    <ul style="list-style-type: none">
+    <br>
+    <ul  class="liste_custom_buttons">
         {% if is_granted('ROLE_MANAGER') %}
         <li>
             <a href="{{ path('charge_edit', { 'id': charge.id }) }}">

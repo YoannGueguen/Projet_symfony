@@ -89,7 +89,8 @@ class projetController extends Controller
         $editForm = $this->createForm('AppBundle\Form\projetType', $projet);
         $editForm->handleRequest($request);
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-
+            $projet =$editForm->getData();
+            $projet->getDiscuId()->setUtilisateurs($projet->getUtilisateurs());
             $this->getDoctrine()->getManager()->flush();
             $users = $editForm->getData();
             $this->sendEmailToUsersEdit($users);

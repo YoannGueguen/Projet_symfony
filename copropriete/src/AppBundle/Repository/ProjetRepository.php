@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Repository;
+use AppBundle\Entity\discussion;
 
 /**
  * ProjetRepository
@@ -10,4 +11,19 @@ namespace AppBundle\Repository;
  */
 class ProjetRepository extends \Doctrine\ORM\EntityRepository
 {
+    /*
+     * @return discussion
+     */
+    public function findByDiscussion(discussion $discu){
+        $queryBuilder = $this->createQueryBuilder('u');
+        $queryBuilder
+            ->where('u.discu_id != :id_discu')
+            ->setParameter('id_discu', $discu)
+            ->distinct();
+        $query = $queryBuilder->getQuery();
+        $res = $query->getResult();
+        return $res;
+    }
+
+
 }

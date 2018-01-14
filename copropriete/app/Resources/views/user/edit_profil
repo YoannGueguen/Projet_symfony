@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Mon profil</h1>
+
+    {{ form_start(edit_form) }}
+    {{ form_row(edit_form.username) }}
+    {{ form_row(edit_form.email) }}
+
+
+
+    <ul style="list-style-type: none">
+        <input style='' type="submit" value="Modifier" class="btn btn-warning"/>
+    </ul>
+{% endblock %}

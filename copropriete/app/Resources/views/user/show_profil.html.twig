@@ -1,24 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>User</h1>
+    <h1>Utilisateur</h1>
 
     <table class="table">
         <tbody>
         <tr>
             <th>Nom</th>
             <th>E-mail</th>
+            {% if user.lastLogin !=""%}
+            <th>Dernière connexion</th>
+            {% endif %}
         </tr>
         <tr>
             <td>{{ user.username }}</td>
             <td>{{ user.email }}</td>
+            {% if user.lastLogin !=""%}
+            <td>
+                {{ user.lastLogin|date('d/m/Y - H:m:s')}}
+            </td>
+            {% endif %}
         </tr>
         </tbody>
     </table>
 
-    <ul style="list-style-type: none">
-        <li>
-            <a href="{{ path('user_edit', { 'id': user.id }) }}">Modifier</a>
-        </li>
+    <br>
+    <ul class="liste_custom_buttons">
+        <a href="{{ path('user_edit_profil', { 'id': user.id }) }}">
+            <button type="button" class="btn btn-warning">Modifier</button>
+        </a>
     </ul>
 {% endblock %}

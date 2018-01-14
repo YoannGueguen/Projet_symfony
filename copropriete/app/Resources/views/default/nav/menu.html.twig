@@ -14,6 +14,7 @@
                 <ul class="nav nav-default navbar-nav navbar-default" style="text-align: center;">
                     <li class="active"><a href="{{ path('index') }}"><img style='height:40px;width:auto'src="{{ asset('contents/img/logo.png') }}"></a></li>
                     <li><a href="{{ path('user_index') }}">Gestion des utilisateurs</a></li>
+                    <li></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bienvenue {{ app.user.username }}<span class="caret"></span></a>
@@ -30,6 +31,9 @@
                 <ul class="nav nav-default navbar-nav navbar-default">
                     <li class="active"><a href="{{ path('index') }}"><img style='height:45px;width:auto'src="{{ asset('contents/img/logo.png') }}"></a></li>
                     <li><a href="{{ path('discussion_index') }}">Discussions</a></li>
+                    {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+                        <li><a href="{{ path('discussions_archives') }}">Discussions archivés</a></li>
+                    {% endif %}
                     <li><a href="{{ path('charge_index') }}">Charges</a></li>
                     <li><a href="{{ path('projet_index') }}">Projets</a></li>
                     {% if is_granted('ROLE_MANAGER') %}

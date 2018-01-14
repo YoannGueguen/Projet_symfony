@@ -3,7 +3,9 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\discussion;
+use AppBundle\Entity\projet;
 use AppBundle\Repository\messageRepository;
+use AppBundle\Repository\discussionRepository;
 use AppBundle\Entity\message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -32,6 +34,17 @@ class discussionController extends Controller
             'discussions' => $discussions,
         ));
     }
+    /**
+     * @Route("/archives", name="discussions_archives")
+     * @Method("GET")
+     */
+    public function indexArchivesAction(){
+        $em = $this->getDoctrine()->getManager();
+        $discussions = $em->getRepository('AppBundle:discussion')->findArchives();
+        return $this->render('discussion/index_archives', array(
+            'discussions' => $discussions,
+        ));
+    }
 
     /**
      * Creates a new discussion entity.
@@ -55,6 +68,38 @@ class discussionController extends Controller
 
         return $this->render('discussion/new.html.twig', array(
             'discussion' => $discussion,
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * Creates a new discussion entity.
+     *
+     * @Route("/{id}/new_discuProjet", name="discussion_new_in_projet")
+     * @Method({"GET", "POST"})
+     */
+    public function newInProjetAction(Request $request, projet $projet)
+    {
+        //$em=$this->getDoctrine()->getRepository('AppBundle:projet');
+        $discussion = new Discussion();
+        $form = $this->createForm('AppBundle\Form\discussionType', $discussion);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($discussion);
+            $discussion = $form->getData();
+            $discussion->setUtilisateurs($projet->getUtilisateurs());
+            $discussion->setType('public');
+            $projet->setDiscuId($discussion);
+            $em->flush();
+
+            return $this->redirectToRoute('discussion_show', array('id' => $discussion->getId()));
+        }
+
+        return $this->render('discussion/new_in_projet', array(
+            'discussion' => $discussion,
+            'projet'=> $projet,
             'form' => $form->createView(),
         ));
     }

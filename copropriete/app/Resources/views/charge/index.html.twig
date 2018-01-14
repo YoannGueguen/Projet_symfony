@@ -2,13 +2,14 @@
 
 {% block body %}
     <h1>Charges list</h1>
-
+    <div style="max-height:350px;overflow-y: auto;">
     <table class="table table_list">
         <thead>
             <tr>
                 <th>Titre</th>
-                <th>Date_echeance</th>
+                <th>Date d'échéance</th>
                 <th>Montant</th>
+                <th>Concernés</th>
                 <th>Statut</th>
                 <th>Contrat</th>
                 <th>Actions</th>
@@ -20,9 +21,14 @@
                 <td><a href="{{ path('charge_show', { 'id': charge.id }) }}">{{ charge.titre }}</a></td>
                 <td>{% if charge.dateecheance %}{{ charge.dateecheance|date('Y-m-d') }}{% endif %}</td>
                 <td>Montant à payer :{{ charge.montant }}</td>
+                <td>
+                    {% for user in charge.getUtilisateurs() %}
+                        {{ user.username }},
+                    {% endfor %}
+                </td>
                 <td>Statut :{{ charge.statut }}</td>
                 <td>{% if charge.contratId != "" %}
-                    {{ charge.contratId.nom }}
+                        <a href="{{ path('contrat_show', { 'id': charge.getContratId().id }) }}">{{ charge.contratId.nom }}</a>
                     {% endif %}
                 </td>
                 <td>
@@ -41,6 +47,7 @@
         {% endfor %}
         </tbody>
     </table>
+    </div>
 {% if is_granted('ROLE_MANAGER') %}
     <ul style="list-style-type: none">
         <li>

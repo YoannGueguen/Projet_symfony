@@ -13,6 +13,14 @@ body{
 
 }
 
+.liste_custom_buttons{
+    list-style-type: none; display: flex;flex-direction: row;
+}
+
+.liste_custom_buttons > *{
+    margin-left: 5%;
+}
+
 .bloc_charge, .bloc_projet, .bloc_discussion{
     overflow-y: auto;
     max-height: 320px;

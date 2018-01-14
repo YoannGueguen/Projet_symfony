@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Messages list</h1>
-
+    <h1>Liste tous messages confondus</h1>
+<div style="max-height:350px;overflow-y: auto;">
     <table class="table table_list">
         <thead>
             <tr>
@@ -33,7 +33,7 @@
         {% endfor %}
         </tbody>
     </table>
-
+</div>
     <ul>
         <li>
             <a href="{{ path('message_new') }}">

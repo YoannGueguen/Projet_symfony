@@ -9,9 +9,9 @@
     <br/>
     <br/>
     {% if is_granted('ROLE_ADMIN') %}
+        <h1 style="text-align: center;">Gestion des utilisateurs</h1>
         <div class="page-header">
-            <h1 style="text-align: center;">Accueil Admin</h1>
-            <h1 style="text-align: center;"><small>Veuillez ajouter des utilisateurs et leur attribuer un rôle</small></h1>
+            {{ render(controller('FOSUserBundle:user:indexHome')) }}
         </div>
     {% else %}
         {% if is_granted('ROLE_USER') %}
@@ -68,7 +68,24 @@
                             <div class="panel-body">
                                 <h5>Statut :</h5>{{ projet.statut }}<br>
                                 <h5>Détails :</h5>{{ projet.description }}<br>
-                                <h5>Personnes conernées :</h5>{% for user in projet.utilisateurs %}{{ user.username }},{% endfor %}<br>
+                                <h5>Personnes concernées :</h5>{% for user in projet.utilisateurs %}{{ user.username }},{% endfor %}<br>
+                                <h5>Discussion du projet :</h5>
+                                {% if(projet.getDiscuId()!="")%}
+                                    <a href="{{ path('discussion_show', { 'id': projet.getDiscuId().id }) }}">
+                                        <button class="btn btn-primary" type="button">
+                                            Afficher discussion
+                                        </button>
+                                    </a>
+                                    <br>
+                                    {% else %}
+                                        <a href="{{ path('discussion_new_in_projet', {'id': projet.getId()}) }}">
+                                            <button class="btn btn-success" type="button">
+                                                Nouvelle discussion
+                                            </button>
+                                        </a>
+                                    <br>
+                                {% endif %}
+                                <br>
                                 <a href="{{ path('projet_show',{'id': projet.id}) }}">
                                     <button class="btn btn-default" type="button">
                                         Plus de détails
@@ -132,5 +149,8 @@
         </div>
         </div>
         {% endif %}
+    {% endif %}
+    {% if not is_granted('IS_ATHENTICATED_FULLY') and not is_granted('ROLE_USER') and not is_granted('ROLE_MANAGER') and not is_granted('ROLE_ADMIN') and not is_granted('ROLE_PREVIOUS_ADMIN')%}
+        {{ render(controller('FOSUserBundle:Security:loginHome')) }}
     {% endif %}
 {% endblock %}

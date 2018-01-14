@@ -19,6 +19,13 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $discussions = $em->getRepository('AppBundle:discussion')->findAll();
+        /*
+        $independantDiscussions = array();
+        foreach ($discussions as $discussion){
+            if(count($em->getRepository('AppBundle:projet')->findByIfDiscussionInProjets($discussion))>0){
+                array_push($independantDiscussions, $em->getRepository('AppBundle:projet')->findByIfDiscussionInProjets($discussion));
+            }
+        }*/
         $em = $this->getDoctrine()->getManager();
 
         $projets = $em->getRepository('AppBundle:projet')->findAll();
@@ -30,6 +37,7 @@ class DefaultController extends Controller
             'discussions' => $discussions,
             'charges' => $charges,
             'user' => $this->getUser(),
+            //'independantDiscussions' =>$independantDiscussions,
 
         ]);
     }

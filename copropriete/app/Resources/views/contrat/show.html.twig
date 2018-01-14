@@ -10,11 +10,11 @@
                 <td>{{ contrat.nom }}</td>
             </tr>
             <tr>
-                <th>Date_signature</th>
+                <th>Date de signature</th>
                 <td>{% if contrat.datesignature %}{{ contrat.datesignature|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Date_fin</th>
+                <th>Date de fin</th>
                 <td>{% if contrat.datefin %}{{ contrat.datefin|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>

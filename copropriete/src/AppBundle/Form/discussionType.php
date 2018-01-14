@@ -24,24 +24,27 @@ class discussionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nom');
-        $builder->add('type', ChoiceType::class, array(
-            'choices'  => array(
-                'Public' => 'Public',
-                'Privé' => 'Privé',
-            )));
-        $builder->add('utilisateurs');
+        if($options['projet'] == null) {
+            $builder->add('type', ChoiceType::class, array(
+                'choices' => array(
+                    'Public' => 'Public',
+                    'Privé' => 'Privé',
+                )));
+            $builder->add('utilisateurs');
+        }
         if($this->secu->isGranted('ROLE_PREVIOUS_ADMIN')) {
             $builder->add('archive', CheckboxType::class, array( 'data' => false, 'required' => false));
         }
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\discussion'
+            'data_class' => 'AppBundle\Entity\discussion',
+            'projet' => 'Appbundle\Entity\projet',
         ));
     }
 

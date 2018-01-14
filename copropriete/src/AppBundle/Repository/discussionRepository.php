@@ -28,4 +28,15 @@ class discussionRepository extends \Doctrine\ORM\EntityRepository
         $res = $query->getResult();
         return $res;
     }
+
+    public function findArchives(){
+        $queryBuilder = $this->createQueryBuilder('a');
+        $queryBuilder
+            ->where('a.archive = :is_archived')
+            ->setParameter('is_archived', 1);
+        //on récup la requête
+        $query = $queryBuilder->getQuery();
+        $res = $query->getResult();
+        return $res;
+    }
 }

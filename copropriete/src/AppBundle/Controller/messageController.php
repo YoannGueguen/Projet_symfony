@@ -7,6 +7,7 @@ use AppBundle\Entity\message;
 use AppBundle\Entity\user;
 use AppBundle\Repository\discussionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\DBAL\Types\StringType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -76,7 +77,8 @@ class messageController extends Controller
     public function newAlterAction(Request $request)
     {
         $message = new Message();
-        $discuId = substr($request->getUri(), -1);
+        //$discuId = substr($request->getUri(), -1);
+        $discuId = $request->get('id', StringType::class);
         $form = $this->createForm('AppBundle\Form\messageType', $message);
         $form->handleRequest($request);
         $message = $form->getData();

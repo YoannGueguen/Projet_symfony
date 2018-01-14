@@ -33,6 +33,23 @@ class userController extends Controller
     }
 
     /**
+     * Lists all user entities.
+     *
+     * @Route("/", name="user_index")
+     * @Method("GET")
+     */
+    public function indexHomeAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $users = $em->getRepository('AppBundle:user')->findAll();
+
+        return $this->render('user/index_home', array(
+            'users' => $users,
+        ));
+    }
+
+    /**
      * Creates a new user entity.
      *
      * @Route("/new", name="user_new")
@@ -113,6 +130,32 @@ class userController extends Controller
             'user' => $user,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Displays a form to edit an existing user entity.
+     *
+     * @Route("/{id}/editProfil", name="user_edit_profil")
+     * @Method({"GET", "POST"})
+     */
+    public function editProfilAction(Request $request, user $user, UserPasswordEncoderInterface $encoder)
+    {
+        $deleteForm = $this->createDeleteForm($user);
+        $editForm = $this->createForm('AppBundle\Form\userType', $user);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $password = $editForm->getData()->getPassword();
+            $encoded = $encoder->encodePassword($user, $password);
+            $editForm->getData()->setPassword($encoded);
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('user_edit', array('id' => $user->getId(),'edited'=>true));
+        }
+
+        return $this->render('user/edit_profil', array(
+            'user' => $user,
+            'edit_form' => $editForm->createView()
         ));
     }
 

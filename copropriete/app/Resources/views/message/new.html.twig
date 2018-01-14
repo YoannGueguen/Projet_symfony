@@ -12,11 +12,13 @@
         <ul style="list-style-type: none">
             <input type="submit" value="Créer message" class="btn btn-success" />
             {{ form_end(form) }}
+            {% if message.getDiscussionId() != null %}
             <li>
-                <a href="{{ path('discussion_show',{'id':message.discussionid.id}) }}">
+                <a href="{{ path('discussion_show',{'id': message.getDiscussionId().id}) }}">
                     <button type="button" class="btn btn-primary">Retour a la discussion</button>
                 </a>
             </li>
+            {% endif %}
         </ul>
         </div>
     </div>

@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Projets list</h1>
-
+    <h1>Liste des projets</h1>
+<div style="max-height:350px;overflow-y: auto;">
     <table class="table table_list">
         <thead>
             <tr>
@@ -10,8 +10,9 @@
                 <th>Description</th>
                 <th>Statut</th>
                 <th>Concernés</th>
-                <th>Date debut</th>
-                <th>Date fin</th>
+                <th>Date de debut</th>
+                <th>Date de fin</th>
+
                 <th>Actions</th>
             </tr>
         </thead>
@@ -31,6 +32,9 @@
                 <td>
                     <ul style="list-style-type: none">
                         {% if is_granted('ROLE_MANAGER') %}
+                            <li>
+                                <a href="{{ path('projet_show', { 'id': projet.id }) }}">Détails</a>
+                            </li>
                         <li>
                             <a href="{{ path('projet_edit', { 'id': projet.id }) }}">Modifier le projet</a>
                         </li>
@@ -44,7 +48,7 @@
         {% endfor %}
         </tbody>
     </table>
-
+</div>
     <a href="{{ path('projet_new') }}">
         <button class="btn btn-primary" type="button">
             Nouveau projet
